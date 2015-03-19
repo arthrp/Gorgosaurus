@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="package.json" />
     <None Include="packages.config" />
     <None Include="Views\index.sshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -87,6 +88,7 @@
     <Content Include="Content\nancy-logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="gulpfile.js" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Gorgosaurus.BO\Gorgosaurus.BO.csproj">
