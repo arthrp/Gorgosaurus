@@ -1,22 +1,19 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app>
 <head>
     <meta charset="utf-8" />
     <title>Gorgosaurus</title>
 
-	<script type='text/javascript' src='/Content/Bower/angular/angular.js'></script>
+	<link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css' />
+	
 
-	<style type="text/css">
-
-		body {
-			text-align: center;
-		}
-
-	</style>
 
 </head>
 <body>
 	<img src="@Path['~/Content/nancy-logo.png']" alt="Nancy logo" /><br />
 	This view was rendered using the SuperSimpleViewEngine
+
+
+	<script type='text/javascript' src='/Content/Bower/angular/angular.js'></script>
 </body>
 </html>
