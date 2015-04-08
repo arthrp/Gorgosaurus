@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gorgosaurus.BO.Entities
+namespace Gorgosaurus.DA
 {
-    public class BaseEntity
+    interface IDbConnector
     {
-        public long Id { get; set; }
     }
 }

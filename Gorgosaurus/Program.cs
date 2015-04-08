@@ -2,6 +2,7 @@
 {
     using System;
     using Nancy.Hosting.Self;
+    using Gorgosaurus.DA;
 
     class Program
     {
@@ -18,6 +19,8 @@
             using (var host = new NancyHost(uri, new Bootstrapper(), hostConfigs))
             {
                 host.Start();
+
+                DbConnector.Init();
 
                 Console.WriteLine("Your application is running on " + uri);
                 Console.WriteLine("Press any [Enter] to close the host.");

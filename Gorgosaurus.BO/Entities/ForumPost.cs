@@ -8,6 +8,6 @@ namespace Gorgosaurus.BO.Entities
 {
     public class ForumPost : BaseEntity
     {
-        public string Text { get; set; }
+        public string PostText { get; set; }
     }
 }

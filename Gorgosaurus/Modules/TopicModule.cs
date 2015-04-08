@@ -13,7 +13,7 @@ namespace Gorgosaurus
         {
             Get["/topic/{id:int}"] = parameters => 
             {
-                var resPost = new ForumPost() { Text = "Hello,"+parameters.id };
+                var resPost = new ForumPost() { PostText = "Hello,"+parameters.id };
                 return Response.AsJson<ForumPost>(resPost);
             };
         }
