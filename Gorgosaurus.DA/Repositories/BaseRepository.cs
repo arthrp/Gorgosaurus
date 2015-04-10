@@ -51,7 +51,6 @@ namespace Gorgosaurus.DA.Repositories
                 sqlFirstPart.Append(")");
                 sqlSecondPart.Append(")");
 
-                //var cmd = new SQLiteCommand(sqlFirstPart.ToString()+sqlSecondPart.ToString(), conn);
                 int affected = conn.Execute(sqlFirstPart.ToString()+sqlSecondPart.ToString());
 
                 Debug.WriteLine(affected);

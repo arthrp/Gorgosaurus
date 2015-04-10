@@ -22,10 +22,10 @@
             {
                 host.Start();
 
-                //DbConnector.Init();
+                DbConnector.Init();
 
-                ForumPostRepository.Instance.Insert(new ForumPost() { Id = 11, PostText = "crap" });
-                var ent = ForumPostRepository.Instance.Get(3);
+                ForumPostRepository.Instance.Insert(new ForumPost() { Id = 5, PostText = "crap" });
+                //var ent = ForumPostRepository.Instance.Get(100);
 
                 Console.WriteLine("Your application is running on " + uri);
                 Console.WriteLine("Press any [Enter] to close the host.");

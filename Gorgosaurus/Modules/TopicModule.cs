@@ -1,4 +1,5 @@
 ﻿using Gorgosaurus.BO.Entities;
+using Gorgosaurus.DA.Repositories;
 using Nancy;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,8 @@ namespace Gorgosaurus
         {
             Get["/topic/{id:int}"] = parameters => 
             {
-                var resPost = new ForumPost() { PostText = "Hello,"+parameters.id };
+                int id = parameters.id;
+                var resPost = ForumPostRepository.Instance.Get(id);
                 return Response.AsJson<ForumPost>(resPost);
             };
         }

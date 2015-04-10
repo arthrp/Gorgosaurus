@@ -41,9 +41,8 @@ namespace Gorgosaurus.DA
             if (!File.Exists(DbFile))
             {
                 SQLiteConnection.CreateFile(DbFile);
-            }
-
-            DbCreator.Create();
+                DbCreator.Create();
+            } 
         }
     }
 }
