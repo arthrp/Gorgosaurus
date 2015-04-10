@@ -1,4 +1,5 @@
 ﻿create table ForumPost(
-	Id integer,
-	PostText text
+	Id INTEGER PRIMARY KEY,
+	PostText TEXT
 )
+

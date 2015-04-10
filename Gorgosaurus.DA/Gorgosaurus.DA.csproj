@@ -37,7 +37,11 @@
       <HintPath>..\packages\Dapper.1.40\lib\net45\Dapper.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Data.SQLite">
       <HintPath>..\packages\System.Data.SQLite.Core.1.0.96.0\lib\net45\System.Data.SQLite.dll</HintPath>
     </Reference>
@@ -50,13 +54,18 @@
   <ItemGroup>
     <Compile Include="DbConnector.cs" />
     <Compile Include="DbCreator.cs" />
+    <Compile Include="Extensions\PropertyInfoExtensions.cs" />
     <Compile Include="IDbConnector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
+    <Compile Include="Repositories\ForumPostRepository.cs" />
     <Compile Include="Repositories\IBaseRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="app.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Gorgosaurus.BO\Gorgosaurus.BO.csproj">
