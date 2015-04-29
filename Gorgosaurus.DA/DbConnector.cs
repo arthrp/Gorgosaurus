@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Data.SQLite;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -9,6 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Dapper;
 using System.Data;
+#if __MonoCS__
+using Mono.Data.Sqlite;
+#else
+using System.Data.SQLite;
+#endif
 
 namespace Gorgosaurus.DA
 {
@@ -25,24 +29,31 @@ namespace Gorgosaurus.DA
             }
         }
 
+        #if __MonoCS__
+        public static SqliteConnection GetRawConnection()
+        #else
         public static SQLiteConnection GetRawConnection()
+        #endif
         {
-            return new SQLiteConnection("Data Source=" + DbFile);
+            return new SqlLiteConnectionWrapper("Data Source=" + DbFile).GetInner();
         }
 
         public static IDbConnection GetOpenConnection()
         {
-            var conn = new SQLiteConnection("Data Source=" + DbFile);
-            return conn.OpenAndReturn();
+            var conn = new SqlLiteConnectionWrapper("Data Source=" + DbFile).GetInner();
+            conn.Open();
+
+            return conn;
         }
 
         public static void Init()
         {
             if (!File.Exists(DbFile))
             {
-                SQLiteConnection.CreateFile(DbFile);
-                DbCreator.Create();
-            } 
+                SqlLiteConnectionWrapper.CreateFile(DbFile);
+            }
+
+            DbCreator.Create();
         }
     }
 }
