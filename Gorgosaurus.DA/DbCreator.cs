@@ -22,8 +22,10 @@ namespace Gorgosaurus.DA
                 string outputDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
                 string sql = File.ReadAllText(outputDir + "//Create.sql");
 
-                SQLiteCommand cmd = new SQLiteCommand(sql, conn);
-                cmd.ExecuteNonQuery();
+
+
+                SqliteCommandWrapper cmd = new SqliteCommandWrapper(sql, conn);
+                cmd.GetInner().ExecuteNonQuery();
 
                 conn.Close();
             }
