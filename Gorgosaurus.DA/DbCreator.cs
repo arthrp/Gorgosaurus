@@ -23,8 +23,7 @@ namespace Gorgosaurus.DA
                 string sql = File.ReadAllText(outputDir + "//Create.sql");
 
 
-
-                SqliteCommandWrapper cmd = new SqliteCommandWrapper(sql, conn);
+                var cmd = new SqliteCommandWrapper(sql, conn);
                 cmd.GetInner().ExecuteNonQuery();
 
                 conn.Close();
