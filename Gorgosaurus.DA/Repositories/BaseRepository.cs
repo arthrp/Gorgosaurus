@@ -35,7 +35,7 @@ namespace Gorgosaurus.DA.Repositories
 
                 PropertyInfo[] properties = obj.GetType().GetProperties();
                 string propValue = "";
-                foreach (var property in properties)
+                foreach (PropertyInfo property in properties)
                 {
                     if (!property.CanWrite)
                         continue;
@@ -54,10 +54,42 @@ namespace Gorgosaurus.DA.Repositories
                 sqlFirstPart.Append(")");
                 sqlSecondPart.Append(")");
 
-                int affected = conn.Execute(sqlFirstPart.ToString()+sqlSecondPart.ToString());
+                int affected = conn.Execute(sqlFirstPart.ToString() + sqlSecondPart.ToString());
 
-                Debug.WriteLine(affected);
+                Debug.WriteLine("inserting " + affected + " row(s)");
             }
         }
+
+        public void Update(T obj)
+        {
+            using (var conn = DbConnector.GetOpenConnection())
+            {
+                var sqlFirstPart = new StringBuilder("update " + _entityName);
+                var sqlSecondPart = new StringBuilder(" set ");
+                string sqlThirdPart = " where Id=" + obj.Id;
+
+                PropertyInfo[] properties = obj.GetType().GetProperties();
+                string propValue = "";
+                foreach (PropertyInfo property in properties)
+                {
+                    if (!property.CanWrite)
+                        continue;
+
+                    propValue = (property.IsNumeric()) ?
+                        property.GetValue(obj).ToString() : "'" + property.GetValue(obj) + "'";
+
+                    sqlSecondPart.Append(property.Name.ToLower() + "=" + propValue + ",");
+
+                }
+
+                sqlSecondPart.Length -= 1;
+
+                int affected = conn.Execute(sqlFirstPart.ToString() + sqlSecondPart.ToString() + sqlThirdPart.ToString());
+
+                Debug.WriteLine("updating " + affected + " row(s)");
+            }
+        }
+
+
     }
 }

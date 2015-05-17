@@ -5,6 +5,7 @@
     using Gorgosaurus.DA;
     using Gorgosaurus.DA.Repositories;
     using Gorgosaurus.BO.Entities;
+    using System.Diagnostics;
 
     class Program
     {
@@ -30,6 +31,13 @@
 
                 Console.WriteLine("Your application is running on " + uri);
                 Console.WriteLine("Press any [Enter] to close the host.");
+                Debug.WriteLine("Before:" + ent.PostText);
+
+                ent.PostText = "Really nice post";
+                ForumPostRepository.Instance.Update(ent);
+
+                var entNew = ForumPostRepository.Instance.Get(1);
+
                 Console.ReadLine();
             }
         }
