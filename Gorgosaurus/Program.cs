@@ -24,8 +24,9 @@
 
                 DbConnector.Init();
 
-                ForumPostRepository.Instance.Insert(new ForumPost() { Id = 12, PostText = "crap" });
-                var ent = ForumPostRepository.Instance.Get(12);
+                DiscussionRepository.Instance.Insert(new Discussion() { Id = 1, Title = "Hello!" });
+                ForumPostRepository.Instance.Insert(new ForumPost() { Id = 1, PostText = "crap", DiscussionId = 1 });
+                var ent = ForumPostRepository.Instance.Get(1);
 
                 Console.WriteLine("Your application is running on " + uri);
                 Console.WriteLine("Press any [Enter] to close the host.");

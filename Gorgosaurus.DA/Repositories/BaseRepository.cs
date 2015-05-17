@@ -37,6 +37,9 @@ namespace Gorgosaurus.DA.Repositories
                 string propValue = "";
                 foreach (var property in properties)
                 {
+                    if (!property.CanWrite)
+                        continue;
+
                     propValue = (property.IsNumeric()) ?
                         property.GetValue(obj).ToString() : "'" + property.GetValue(obj) + "'";
 

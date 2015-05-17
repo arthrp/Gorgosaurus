@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace Gorgosaurus.BO.Entities
 {
-    public class ForumPost : BaseEntity
+    public class Discussion : BaseEntity
     {
-        public string PostText { get; set; }
-
-        public long DiscussionId { get; set; }
+        public string Title { get; set; }
     }
 }
