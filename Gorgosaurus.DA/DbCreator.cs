@@ -13,7 +13,7 @@ namespace Gorgosaurus.DA
 {
     public class DbCreator
     {
-        public static void Create()
+        public static void CreateDbStructure()
         {
             using (var conn = DbConnector.GetRawConnection())
             {

@@ -53,7 +53,7 @@ namespace Gorgosaurus.DA
                 SqlLiteConnectionWrapper.CreateFile(DbFile);
             }
 
-            DbCreator.Create();
+            DbCreator.CreateDbStructure();
         }
     }
 }
