@@ -90,6 +90,16 @@ namespace Gorgosaurus.DA.Repositories
             }
         }
 
+        public void Delete(long id)
+        {
+            using (var conn = DbConnector.GetOpenConnection())
+            {
+                string sql = String.Format("delete from {0} where id={1}", _entityName, id);
 
+                int affected = conn.Execute(sql);
+
+                Debug.WriteLine("deleted " + affected + " row(s)");
+            }
+        }
     }
 }
