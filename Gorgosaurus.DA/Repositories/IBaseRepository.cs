@@ -11,5 +11,7 @@ namespace Gorgosaurus.DA.Repositories
     {
         T Get(long id);
         void Insert(T obj);
+        void Update(T obj);
+        void Delete(long id);
     }
 }
