@@ -18,14 +18,16 @@ namespace Gorgosaurus.DA
 {
     public class DbConnector
     {
-        public const string DB_NAME = "MainDb";
+        public const string DEFAULT_DB_NAME = "MainDb";
+
+        private static string _dbName = DEFAULT_DB_NAME;
 
         public static string DbFile
         {
             get 
             {
                 Debug.WriteLine(Environment.CurrentDirectory);
-                return Environment.CurrentDirectory + "\\" + DB_NAME + ".sqlite";
+                return Environment.CurrentDirectory + "\\" + _dbName + ".sqlite";
             }
         }
 
@@ -46,14 +48,27 @@ namespace Gorgosaurus.DA
             return conn;
         }
 
-        public static void Init()
+        public static void Init(string dbNameOverride = null)
         {
+            if (!String.IsNullOrEmpty(dbNameOverride))
+            {
+                _dbName = dbNameOverride;
+            }
+
             if (!File.Exists(DbFile))
             {
                 SqlLiteConnectionWrapper.CreateFile(DbFile);
             }
 
             DbCreator.CreateDbStructure();
+        }
+
+        public static void Delete()
+        {
+            if (File.Exists(DbFile))
+            {
+                File.Delete(DbFile);
+            }
         }
     }
 }

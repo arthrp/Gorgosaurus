@@ -23,6 +23,8 @@
             {
                 host.Start();
 
+                DbConnector.Delete();
+
                 DbConnector.Init();
 
                 DiscussionRepository.Instance.Insert(new Discussion() { Id = 1, Title = "Hello!" });
