@@ -12,11 +12,11 @@ namespace Gorgosaurus
     {
         public TopicModule()
         {
-            Get["/topic/{id:int}"] = parameters => 
+            Get["/discussion/{id:int}"] = parameters => 
             {
                 int id = parameters.id;
-                var resPost = ForumPostRepository.Instance.Get(id);
-                return Response.AsJson<ForumPost>(resPost);
+                var discussion = DiscussionRepository.Instance.Get(id);
+                return Response.AsJson<Discussion>(discussion);
             };
         }
     }
