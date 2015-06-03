@@ -14,7 +14,7 @@
 
 	<div ng-controller="forumController as forumCtrl">
 		<ul>
-			<li ng-repeat="post in posts">{{ post.postText }}</li>
+			<li ng-repeat="post in forumCtrl.posts">{{ post.postText }}</li>
 		</ul>
 	</div>
 
