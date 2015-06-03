@@ -211,6 +211,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Angular\app.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Angular\forum.controller.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Bower\angular\angular-csp.css" />
     <EmbeddedResource Include="Content\Bower\angular\angular.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -364,9 +370,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Content\Angular\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
