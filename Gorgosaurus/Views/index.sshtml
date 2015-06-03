@@ -7,18 +7,15 @@
 	<link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css' />
 	
 
-
 </head>
 <body ng-app="forumApp">
 	<img src="@Path['~/Content/nancy-logo.png']" alt="Nancy logo" /><br />
 	This view was rendered using the SuperSimpleViewEngine
 
 	<div ng-controller="forumController as forumCtrl">
-
-	<ul>
-		<li ng-repeat="post in posts">{{ post.postText }}</li>
-	</ul>
-
+		<ul>
+			<li ng-repeat="post in posts">{{ post.postText }}</li>
+		</ul>
 	</div>
 
 	<script type='text/javascript' src='/Content/Bower/angular/angular.js'></script>
