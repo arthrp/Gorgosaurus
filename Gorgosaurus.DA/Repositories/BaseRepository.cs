@@ -26,7 +26,7 @@ namespace Gorgosaurus.DA.Repositories
             }
         }
 
-        public virtual void Insert(T obj)
+        public virtual void Insert(T obj, bool skipId = false)
         {
             using (var conn = DbConnector.GetOpenConnection())
             {
@@ -37,7 +37,9 @@ namespace Gorgosaurus.DA.Repositories
                 string propValue = "";
                 foreach (PropertyInfo property in properties)
                 {
-                    if (!property.CanWrite || property.IsEnumerable())
+                    if (!property.CanWrite ||
+                        property.IsEnumerable() ||
+                        (property.IsCurrentEntityId() && skipId))
                         continue;
 
                     propValue = (property.IsNumeric()) ?

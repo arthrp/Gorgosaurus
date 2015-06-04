@@ -15,5 +15,10 @@ namespace Gorgosaurus.DA
             var typeName = prop.PropertyType.Name;
             return typeName.Contains("IEnumerable");
         }
+
+        public static bool IsCurrentEntityId(this PropertyInfo prop)
+        {
+            return prop.Name == "Id";
+        }
     }
 }

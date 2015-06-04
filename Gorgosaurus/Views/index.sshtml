@@ -16,7 +16,12 @@
 		<ul>
 			<li ng-repeat="post in forumCtrl.posts">{{ post.postText }}</li>
 		</ul>
+
+		<button class="btn btn-success" ng-click="forumCtrl.addPost()">Add</button>
+
+		<button ng-click="forumCtrl.getDiscussionPosts(1)" class="btn btn-default">Refresh</button>
 	</div>
+
 
 	<script type='text/javascript' src='/Content/Bower/angular/angular.js'></script>
 	<script type='text/javascript' src='/Content/Angular/app.js'></script>
