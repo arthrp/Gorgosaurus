@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gorgosaurus.DA
+namespace Gorgosaurus.DA.Extensions
 {
     public static class ReflectionHelper
     {
