@@ -1,7 +1,9 @@
 ﻿create table Discussion (
     Id INTEGER PRIMARY KEY,
     Title TEXT,
-    CreatedOnUnix INTEGER
+	SubforumId INTEGER,
+    CreatedOnUnix INTEGER,
+	FOREIGN KEY(SubforumId) REFERENCES Subforum(Id)
 );
 
 create table ForumPost(
@@ -10,6 +12,13 @@ create table ForumPost(
 	DiscussionId INTEGER,
     CreatedOnUnix INTEGER,
 	FOREIGN KEY(DiscussionId) REFERENCES Discussion(Id)
+);
+
+create table Subforum(
+	Id INTEGER PRIMARY KEY,
+	Title TEXT,
+	Description TEXT,
+	CreatedOnUnix INTEGER
 );
 
 create table ForumUser(

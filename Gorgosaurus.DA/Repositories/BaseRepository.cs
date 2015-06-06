@@ -58,7 +58,7 @@ namespace Gorgosaurus.DA.Repositories
 
                 int affected = conn.Execute(sqlFirstPart.ToString() + sqlSecondPart.ToString());
 
-                Debug.WriteLine("inserting " + affected + " row(s)");
+                //Debug.WriteLine("inserting " + affected + " row(s)");
             }
         }
 

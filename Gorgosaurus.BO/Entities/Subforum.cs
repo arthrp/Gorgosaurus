@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Gorgosaurus.BO.Entities
 {
-    public class Discussion : BaseEntity
+    public class Subforum : BaseEntity
     {
         public string Title { get; set; }
 
-        public long SubforumId { get; set; }
+        public string Description { get; set; }
 
-        public IEnumerable<ForumPost> Posts { get; set; }
+        public IEnumerable<Discussion> Discussions { get; set; }
     }
 }
