@@ -6,6 +6,7 @@
     using Gorgosaurus.DA.Repositories;
     using Gorgosaurus.BO.Entities;
     using System.Diagnostics;
+    using Gorgosaurus.BO.Extensions;
 
     class Program
     {
@@ -33,7 +34,8 @@
                     Title = "Main forum",
                     Description = "talking about important stuff"
                 });
-                DiscussionRepository.Instance.Insert(new Discussion() { Id = 1, Title = "Hello!", SubforumId = 1 });
+                DiscussionRepository.Instance.Insert(new Discussion() { 
+                    Id = 1, Title = "Hello!", SubforumId = 1, CreatedOnUnix = DateTime.UtcNow.ToUnixTimestamp() });
                 ForumPostRepository.Instance.Insert(new ForumPost() { Id = 1, PostText = "crap", DiscussionId = 1 });
                 var ent = ForumPostRepository.Instance.Get(1);
 
