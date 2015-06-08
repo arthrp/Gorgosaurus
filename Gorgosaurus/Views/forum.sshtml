@@ -1,0 +1,15 @@
+﻿<div ng-repeat="post in forumCtrl.posts" class="post">
+  <div class="user-info pull-left">
+    info
+  </div>
+  <div class="post-content">
+    <div class="post-header">
+      {{ post.createdOn }}
+    </div>
+
+    <div class="post-body">
+      {{ post.postText }}
+    </div>
+  </div>
+  <div style="clear:both"></div>
+</div>

@@ -1,25 +1,30 @@
 ﻿<!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <title>Gorgosaurus</title>
 
 	<link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css' />
-	
+	<link rel='stylesheet' href='/Content/Style/main.css' />
 
 </head>
 <body ng-app="forumApp">
 	<img src="@Path['~/Content/nancy-logo.png']" alt="Nancy logo" /><br />
 	This view was rendered using the SuperSimpleViewEngine
 
+	<div id="forum-container">
+
 	<div ng-controller="forumController as forumCtrl">
-		<ul>
-			<li ng-repeat="post in forumCtrl.posts">{{ post.postText }}</li>
-		</ul>
+		
+		@Partial['forum.sshtml']
+
+
 
 		<button class="btn btn-success" ng-click="forumCtrl.addPost()">Add</button>
 
 		<button ng-click="forumCtrl.getDiscussionPosts(1)" class="btn btn-default">Refresh</button>
+
+		</div>
 	</div>
 
 
