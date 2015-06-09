@@ -29,6 +29,7 @@
 
 
 	<script type='text/javascript' src='/Content/Bower/angular/angular.js'></script>
+	<script type='text/javascript' src='/Content/Bower/moment/moment.js'></script>
 	<script type='text/javascript' src='/Content/Angular/app.js'></script>
 	<script type='text/javascript' src='/Content/Angular/forum.controller.js'></script>
 </body>
