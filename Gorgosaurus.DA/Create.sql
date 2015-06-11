@@ -28,7 +28,7 @@ create table ForumUser(
 	Id INTEGER PRIMARY KEY,
 	Username TEXT,
 	Password TEXT,
-	IsAdmin INTEGER,
+	IsAdmin INTEGER DEFAULT 0 CHECK(IsAdmin in (0,1)),
 	ModifiedOnUnix INTEGER,
 	CreatedOnUnix INTEGER
 );

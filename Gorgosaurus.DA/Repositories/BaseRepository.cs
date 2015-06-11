@@ -39,8 +39,11 @@ namespace Gorgosaurus.DA.Repositories
                 {
                     if (!property.CanWrite ||
                         property.IsEnumerable() ||
-                        (property.IsCurrentEntityId() && skipId))
+                        (property.IsCurrentEntityId() && skipId) ||
+                        property.CustomAttributes.Any(a => a.AttributeType.Name == "NotColumn"))
                         continue;
+
+                    var attrs = property.CustomAttributes;
 
                     propValue = (property.IsNumeric()) ?
                         property.GetValue(obj).ToString() : "'" + property.GetValue(obj) + "'";

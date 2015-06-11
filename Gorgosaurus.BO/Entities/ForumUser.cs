@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gorgosaurus.BO.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,13 @@ namespace Gorgosaurus.BO.Entities
 
         public string Password { get; set; }
 
-        public bool IsAdmin { get; set; }
+        [NotColumn]
+        public bool IsUserAdmin
+        {
+            get { return IsAdmin == 1; }
+            set { IsAdmin = (value) ? 1 : 0; }
+        }
+
+        public int IsAdmin { get; private set; }
     }
 }
