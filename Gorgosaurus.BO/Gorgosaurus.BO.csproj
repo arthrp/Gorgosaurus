@@ -42,6 +42,7 @@
     <Compile Include="Entities\BaseEntity.cs" />
     <Compile Include="Entities\ForumPost.cs" />
     <Compile Include="Entities\Discussion.cs" />
+    <Compile Include="Entities\ForumUser.cs" />
     <Compile Include="Entities\Subforum.cs" />
     <Compile Include="Extensions\UnixTimeHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
