@@ -69,6 +69,7 @@
     <Compile Include="Repositories\DiscussionRepository.cs" />
     <Compile Include="Repositories\IBaseRepository.cs" />
     <Compile Include="Repositories\SubforumRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="SqlLiteConnectionWrapper.cs" />
     <Compile Include="SqliteCommandWrapper.cs" />
   </ItemGroup>
