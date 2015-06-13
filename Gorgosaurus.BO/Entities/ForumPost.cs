@@ -11,5 +11,7 @@ namespace Gorgosaurus.BO.Entities
         public string PostText { get; set; }
 
         public long DiscussionId { get; set; }
+
+        public long Submitter_ForumUserId { get; set; }
     }
 }

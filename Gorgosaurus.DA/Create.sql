@@ -11,9 +11,11 @@ create table ForumPost(
     Id INTEGER PRIMARY KEY,
     PostText TEXT,
 	DiscussionId INTEGER,
+	Submitter_ForumUserId INTEGER,
 	ModifiedOnUnix INTEGER,
     CreatedOnUnix INTEGER,
-	FOREIGN KEY(DiscussionId) REFERENCES Discussion(Id)
+	FOREIGN KEY(DiscussionId) REFERENCES Discussion(Id),
+	FOREIGN KEY(Submitter_ForumUserId) REFERENCES ForumUser(Id)
 );
 
 create table Subforum(
