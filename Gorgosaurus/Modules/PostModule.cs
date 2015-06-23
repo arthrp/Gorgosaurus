@@ -22,6 +22,22 @@ namespace Gorgosaurus.Modules
 
                 return true;
             };
+
+            Put["/post/update"] = paramters =>
+            {
+                var updatedPost = this.Bind<ForumPost>();
+
+                ForumPostRepository.Instance.Update(updatedPost);
+
+                return true;
+            };
+
+            Delete["/post/remove/{id:int}"] = parameters =>
+            {
+                ForumPostRepository.Instance.Delete(parameters.id);
+
+                return true;
+            };
         }
 
     }
