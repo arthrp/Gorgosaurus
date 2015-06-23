@@ -6,10 +6,7 @@
     function forumController($scope, $http) {
         var self = this;
 
-        self.posts = [
-            { id: 1, postText: "Haha" },
-            { id: 5, postText: "Test" }
-        ];
+        self.posts = [];
 
         self.getDiscussionPosts = function (discussionId) {
             $http.get('/discussion/' + discussionId)
@@ -26,7 +23,16 @@
             $http.post('/post/add', data)
                 .success(function (respData) {
                     console.log(respData);
+                    self.getDiscussionPosts(1);
                 });
+        };
+
+        self.removePost = function (postId) {
+            $http.delete('/post/remove/' + postId)
+                .success(function (data) {
+                    console.log('deleted');
+                    self.getDiscussionPosts(1);
+                });            
         };
 
         self.getDiscussionPosts(1);
