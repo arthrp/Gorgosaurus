@@ -9,16 +9,14 @@
 
 </head>
 <body ng-app="forumApp">
-	<img src="@Path['~/Content/nancy-logo.png']" alt="Nancy logo" /><br />
-	This view was rendered using the SuperSimpleViewEngine
 
 	<div id="forum-container">
+
+        @Partial['header.sshtml']
 
 	<div ng-controller="forumController as forumCtrl">
 		
 		@Partial['forum.sshtml']
-
-
 
 		<button class="btn btn-success" ng-click="forumCtrl.addPost()">Add</button>
 
