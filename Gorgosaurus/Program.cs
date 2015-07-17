@@ -54,7 +54,7 @@
                     Description = "talking about important stuff"
                 });
 
-                var allDiscussions = SubforumRepository.Instance.GetAll();
+                
 
                 UserRepository.Instance.Insert(new ForumUser()
                 {
