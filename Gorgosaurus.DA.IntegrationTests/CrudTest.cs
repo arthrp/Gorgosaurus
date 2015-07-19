@@ -21,6 +21,7 @@ namespace Gorgosaurus.DA.IntegrationTests
         }
 
         [Test]
+        [Ignore]
         public void CanAddAndRetrieveEntity()
         {
             DiscussionRepository.Instance.Insert(new Discussion() { Id = 1, Title = "Test discussion" });
