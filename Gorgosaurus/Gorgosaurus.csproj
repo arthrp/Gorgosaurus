@@ -199,6 +199,51 @@
     <None Include="Content\Bower\bootstrap\LICENSE" />
     <None Include="Content\Bower\bootstrap\package.json" />
     <None Include="Content\Bower\bootstrap\README.md" />
+    <None Include="Content\Bower\fontawesome\.bower.json" />
+    <None Include="Content\Bower\fontawesome\.npmignore" />
+    <None Include="Content\Bower\fontawesome\bower.json" />
+    <None Include="Content\Bower\fontawesome\css\font-awesome.css.map" />
+    <None Include="Content\Bower\fontawesome\fonts\fontawesome-webfont.eot">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Bower\fontawesome\fonts\fontawesome-webfont.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Bower\fontawesome\fonts\fontawesome-webfont.woff">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Bower\fontawesome\fonts\fontawesome-webfont.woff2">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Bower\fontawesome\fonts\FontAwesome.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Bower\fontawesome\less\animated.less" />
+    <None Include="Content\Bower\fontawesome\less\bordered-pulled.less" />
+    <None Include="Content\Bower\fontawesome\less\core.less" />
+    <None Include="Content\Bower\fontawesome\less\fixed-width.less" />
+    <None Include="Content\Bower\fontawesome\less\font-awesome.less" />
+    <None Include="Content\Bower\fontawesome\less\icons.less" />
+    <None Include="Content\Bower\fontawesome\less\larger.less" />
+    <None Include="Content\Bower\fontawesome\less\list.less" />
+    <None Include="Content\Bower\fontawesome\less\mixins.less" />
+    <None Include="Content\Bower\fontawesome\less\path.less" />
+    <None Include="Content\Bower\fontawesome\less\rotated-flipped.less" />
+    <None Include="Content\Bower\fontawesome\less\stacked.less" />
+    <None Include="Content\Bower\fontawesome\less\variables.less" />
+    <None Include="Content\Bower\fontawesome\scss\font-awesome.scss" />
+    <None Include="Content\Bower\fontawesome\scss\_animated.scss" />
+    <None Include="Content\Bower\fontawesome\scss\_bordered-pulled.scss" />
+    <None Include="Content\Bower\fontawesome\scss\_core.scss" />
+    <None Include="Content\Bower\fontawesome\scss\_fixed-width.scss" />
+    <None Include="Content\Bower\fontawesome\scss\_icons.scss" />
+    <None Include="Content\Bower\fontawesome\scss\_larger.scss" />
+    <None Include="Content\Bower\fontawesome\scss\_list.scss" />
+    <None Include="Content\Bower\fontawesome\scss\_mixins.scss" />
+    <None Include="Content\Bower\fontawesome\scss\_path.scss" />
+    <None Include="Content\Bower\fontawesome\scss\_rotated-flipped.scss" />
+    <None Include="Content\Bower\fontawesome\scss\_stacked.scss" />
+    <None Include="Content\Bower\fontawesome\scss\_variables.scss" />
     <None Include="Content\Bower\jquery\.bower.json" />
     <None Include="Content\Bower\jquery\bower.json" />
     <None Include="Content\Bower\jquery\dist\jquery.min.map" />
@@ -264,6 +309,14 @@
     <Content Include="Content\Bower\bootstrap\js\tooltip.js" />
     <Content Include="Content\Bower\bootstrap\js\transition.js" />
     <Content Include="Content\Bower\bootstrap\package.js" />
+    <Content Include="Content\Bower\fontawesome\.gitignore" />
+    <Content Include="Content\Bower\fontawesome\css\font-awesome.css" />
+    <Content Include="Content\Bower\fontawesome\css\font-awesome.min.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Bower\fontawesome\fonts\fontawesome-webfont.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Bower\jquery\dist\jquery.js" />
     <Content Include="Content\Bower\jquery\dist\jquery.min.js" />
     <Content Include="Content\Bower\jquery\MIT-LICENSE.txt" />

@@ -12,7 +12,9 @@
       {{ post.postText }}
       </span>
 
-      <button class="btn btn-danger" ng-click="forumCtrl.removePost(post.id)">Delete</button>
+      <button class="btn btn-danger" ng-click="forumCtrl.removePost(post.id)">
+          <i class="fa fa-trash-o"></i>
+      </button>
     </div>
   </div>
   <div style="clear:both"></div>
