@@ -10,20 +10,22 @@
 </head>
 <body ng-app="forumApp">
 
-	<div id="forum-container">
+	
 
         @Partial['header.sshtml']
 
-	<div ng-controller="forumController as forumCtrl">
-		
-		@Partial['forum.sshtml']
+    <div id="forum-container">
 
-		<button class="btn btn-success" ng-click="forumCtrl.addPost()">Add</button>
+        <div ng-controller="forumController as forumCtrl">
 
-		<button ng-click="forumCtrl.getDiscussionPosts(1)" class="btn btn-default">Refresh</button>
+            @Partial['forum.sshtml']
 
-		</div>
-	</div>
+            <button class="btn btn-success" ng-click="forumCtrl.addPost()">Add</button>
+
+            <button ng-click="forumCtrl.getDiscussionPosts(1)" class="btn btn-default">Refresh</button>
+
+        </div>
+    </div>
 
 
 	<script type='text/javascript' src='/Content/Bower/angular/angular.js'></script>
