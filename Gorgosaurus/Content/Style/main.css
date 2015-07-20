@@ -20,3 +20,7 @@
 #forum-navbar{
     margin:3px 15px;
 }
+
+#forum-navbar-wrapper{
+    min-height:50px;
+}

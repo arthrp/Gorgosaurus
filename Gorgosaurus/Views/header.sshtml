@@ -1,9 +1,11 @@
-﻿<nav id="forum-navbar" class="navbar navbar-right">
-    <div class="fluid-container">
+﻿<div id="forum-navbar-wrapper">
+    <nav id="forum-navbar" class="navbar navbar-right">
+        <div class="fluid-container">
 
-        <ul class="nav navbar-nav">
-            <li><a href="#">Log in</a></li>
-            <li><a href="#">Sign up</a></li>
-         </ul>
+            <ul class="nav navbar-nav">
+                <li><a href="#">Log in</a></li>
+                <li><a href="#">Sign up</a></li>
+            </ul>
+        </div>
+    </nav>
 </div>
-</nav>
