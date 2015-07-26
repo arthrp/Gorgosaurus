@@ -7,6 +7,7 @@
         var self = this;
 
         self.posts = [];
+        self.newPostText = "";
 
         self.getDiscussionPosts = function (discussionId) {
             $http.get('/discussion/' + discussionId)
@@ -18,7 +19,7 @@
         self.addPost = function () {
             console.log('posting');
 
-            var data = { "postText": "Crap post "+Math.random(), "discussionId": 1 };
+            var data = { "postText": self.newPostText, "discussionId": 1 };
 
             $http.post('/post/add', data)
                 .success(function (respData) {

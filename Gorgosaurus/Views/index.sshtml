@@ -19,9 +19,11 @@
 
             @Partial['forum.sshtml']
 
-            <button class="btn btn-success" ng-click="forumCtrl.addPost()">Add</button>
+            <div id="post-input-wrapper">
+                <textarea class="form-control" ng-model="forumCtrl.newPostText"></textarea><br>
+            </div>
 
-            <button ng-click="forumCtrl.getDiscussionPosts(1)" class="btn btn-default">Refresh</button>
+            <button class="btn btn-success" ng-click="forumCtrl.addPost()">Add</button>
 
         </div>
     </div>
