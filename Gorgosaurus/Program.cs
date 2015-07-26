@@ -34,6 +34,15 @@
                     Title = "Main forum",
                     Description = "talking about important stuff"
                 });
+
+                UserRepository.Instance.Insert(new ForumUser()
+                {
+                    Id = 1,
+                    Username = "lala",
+                    Password = "haha",
+                    IsUserAdmin = true
+                });
+
                 DiscussionRepository.Instance.Insert(new Discussion() { 
                     Id = 1, Title = "Hello!", SubforumId = 1, CreatedOnUnix = DateTime.UtcNow.ToUnixTimestamp() });
                 var post = new ForumPost() { Id = 1, PostText = "crap", DiscussionId = 1 };
@@ -44,6 +53,7 @@
                 Console.WriteLine("Press any [Enter] to close the host.");
 
                 ent.PostText = "Really nice post";
+                ent.Submitter_ForumUserId = 1;
                 ForumPostRepository.Instance.Update(ent);
 
                 var entNew = ForumPostRepository.Instance.Get(1);
@@ -53,16 +63,7 @@
                     Title = null,
                     Description = "talking about important stuff"
                 });
-
-                
-
-                UserRepository.Instance.Insert(new ForumUser()
-                {
-                    Id = 1,
-                    Username = "lala",
-                    Password = "haha",
-                    IsUserAdmin = true
-                });
+               
 
                 var user = UserRepository.Instance.Get(1);
 
