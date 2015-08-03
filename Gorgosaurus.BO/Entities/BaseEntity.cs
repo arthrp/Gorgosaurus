@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Gorgosaurus.BO.Extensions;
 
 namespace Gorgosaurus.BO.Entities
 {
@@ -15,9 +16,18 @@ namespace Gorgosaurus.BO.Entities
         public DateTime CreatedOn 
         { 
             get 
-            { 
-                var epoch = new DateTime(1970,1,1,0,0,0,0, DateTimeKind.Utc);
-                return epoch.AddSeconds(CreatedOnUnix).ToLocalTime();
+            {
+                return CreatedOnUnix.GetDateTimeFromUnixTimestamp();
+            }
+        }
+
+        public long ModifiedOnUnix { get; set; }
+
+        public DateTime ModifiedOn
+        {
+            get
+            {
+                return ModifiedOnUnix.GetDateTimeFromUnixTimestamp();
             }
         }
     }

@@ -95,6 +95,7 @@
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Modules\IndexModule.cs" />
+    <Compile Include="Modules\PostModule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Modules\TopicModule.cs" />
@@ -198,13 +199,66 @@
     <None Include="Content\Bower\bootstrap\LICENSE" />
     <None Include="Content\Bower\bootstrap\package.json" />
     <None Include="Content\Bower\bootstrap\README.md" />
+    <None Include="Content\Bower\fontawesome\.bower.json" />
+    <None Include="Content\Bower\fontawesome\.npmignore" />
+    <None Include="Content\Bower\fontawesome\bower.json" />
+    <None Include="Content\Bower\fontawesome\css\font-awesome.css.map" />
+    <None Include="Content\Bower\fontawesome\fonts\fontawesome-webfont.eot">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Bower\fontawesome\fonts\fontawesome-webfont.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Bower\fontawesome\fonts\fontawesome-webfont.woff">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Bower\fontawesome\fonts\fontawesome-webfont.woff2">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Bower\fontawesome\fonts\FontAwesome.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Bower\fontawesome\less\animated.less" />
+    <None Include="Content\Bower\fontawesome\less\bordered-pulled.less" />
+    <None Include="Content\Bower\fontawesome\less\core.less" />
+    <None Include="Content\Bower\fontawesome\less\fixed-width.less" />
+    <None Include="Content\Bower\fontawesome\less\font-awesome.less" />
+    <None Include="Content\Bower\fontawesome\less\icons.less" />
+    <None Include="Content\Bower\fontawesome\less\larger.less" />
+    <None Include="Content\Bower\fontawesome\less\list.less" />
+    <None Include="Content\Bower\fontawesome\less\mixins.less" />
+    <None Include="Content\Bower\fontawesome\less\path.less" />
+    <None Include="Content\Bower\fontawesome\less\rotated-flipped.less" />
+    <None Include="Content\Bower\fontawesome\less\stacked.less" />
+    <None Include="Content\Bower\fontawesome\less\variables.less" />
+    <None Include="Content\Bower\fontawesome\scss\font-awesome.scss" />
+    <None Include="Content\Bower\fontawesome\scss\_animated.scss" />
+    <None Include="Content\Bower\fontawesome\scss\_bordered-pulled.scss" />
+    <None Include="Content\Bower\fontawesome\scss\_core.scss" />
+    <None Include="Content\Bower\fontawesome\scss\_fixed-width.scss" />
+    <None Include="Content\Bower\fontawesome\scss\_icons.scss" />
+    <None Include="Content\Bower\fontawesome\scss\_larger.scss" />
+    <None Include="Content\Bower\fontawesome\scss\_list.scss" />
+    <None Include="Content\Bower\fontawesome\scss\_mixins.scss" />
+    <None Include="Content\Bower\fontawesome\scss\_path.scss" />
+    <None Include="Content\Bower\fontawesome\scss\_rotated-flipped.scss" />
+    <None Include="Content\Bower\fontawesome\scss\_stacked.scss" />
+    <None Include="Content\Bower\fontawesome\scss\_variables.scss" />
     <None Include="Content\Bower\jquery\.bower.json" />
     <None Include="Content\Bower\jquery\bower.json" />
     <None Include="Content\Bower\jquery\dist\jquery.min.map" />
     <None Include="Content\Bower\jquery\src\sizzle\dist\sizzle.min.map" />
+    <None Include="Content\Bower\moment\.bower.json" />
+    <None Include="Content\Bower\moment\bower.json" />
+    <None Include="Content\Bower\moment\CHANGELOG.md" />
+    <None Include="Content\Bower\moment\LICENSE" />
+    <None Include="Content\Bower\moment\README.md" />
     <None Include="package.json" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Views\forum.sshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Views\index.sshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -218,6 +272,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Bower\angular\angular-csp.css" />
+    <None Include="Views\header.sshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <EmbeddedResource Include="Content\Bower\angular\angular.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -252,6 +309,14 @@
     <Content Include="Content\Bower\bootstrap\js\tooltip.js" />
     <Content Include="Content\Bower\bootstrap\js\transition.js" />
     <Content Include="Content\Bower\bootstrap\package.js" />
+    <Content Include="Content\Bower\fontawesome\.gitignore" />
+    <Content Include="Content\Bower\fontawesome\css\font-awesome.css" />
+    <Content Include="Content\Bower\fontawesome\css\font-awesome.min.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Bower\fontawesome\fonts\fontawesome-webfont.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Bower\jquery\dist\jquery.js" />
     <Content Include="Content\Bower\jquery\dist\jquery.min.js" />
     <Content Include="Content\Bower\jquery\MIT-LICENSE.txt" />
@@ -338,7 +403,277 @@
     <Content Include="Content\Bower\jquery\src\var\support.js" />
     <Content Include="Content\Bower\jquery\src\var\toString.js" />
     <Content Include="Content\Bower\jquery\src\wrap.js" />
+    <Content Include="Content\Bower\moment\locale\af.js" />
+    <Content Include="Content\Bower\moment\locale\ar-ma.js" />
+    <Content Include="Content\Bower\moment\locale\ar-sa.js" />
+    <Content Include="Content\Bower\moment\locale\ar-tn.js" />
+    <Content Include="Content\Bower\moment\locale\ar.js" />
+    <Content Include="Content\Bower\moment\locale\az.js" />
+    <Content Include="Content\Bower\moment\locale\be.js" />
+    <Content Include="Content\Bower\moment\locale\bg.js" />
+    <Content Include="Content\Bower\moment\locale\bn.js" />
+    <Content Include="Content\Bower\moment\locale\bo.js" />
+    <Content Include="Content\Bower\moment\locale\br.js" />
+    <Content Include="Content\Bower\moment\locale\bs.js" />
+    <Content Include="Content\Bower\moment\locale\ca.js" />
+    <Content Include="Content\Bower\moment\locale\cs.js" />
+    <Content Include="Content\Bower\moment\locale\cv.js" />
+    <Content Include="Content\Bower\moment\locale\cy.js" />
+    <Content Include="Content\Bower\moment\locale\da.js" />
+    <Content Include="Content\Bower\moment\locale\de-at.js" />
+    <Content Include="Content\Bower\moment\locale\de.js" />
+    <Content Include="Content\Bower\moment\locale\el.js" />
+    <Content Include="Content\Bower\moment\locale\en-au.js" />
+    <Content Include="Content\Bower\moment\locale\en-ca.js" />
+    <Content Include="Content\Bower\moment\locale\en-gb.js" />
+    <Content Include="Content\Bower\moment\locale\eo.js" />
+    <Content Include="Content\Bower\moment\locale\es.js" />
+    <Content Include="Content\Bower\moment\locale\et.js" />
+    <Content Include="Content\Bower\moment\locale\eu.js" />
+    <Content Include="Content\Bower\moment\locale\fa.js" />
+    <Content Include="Content\Bower\moment\locale\fi.js" />
+    <Content Include="Content\Bower\moment\locale\fo.js" />
+    <Content Include="Content\Bower\moment\locale\fr-ca.js" />
+    <Content Include="Content\Bower\moment\locale\fr.js" />
+    <Content Include="Content\Bower\moment\locale\fy.js" />
+    <Content Include="Content\Bower\moment\locale\gl.js" />
+    <Content Include="Content\Bower\moment\locale\he.js" />
+    <Content Include="Content\Bower\moment\locale\hi.js" />
+    <Content Include="Content\Bower\moment\locale\hr.js" />
+    <Content Include="Content\Bower\moment\locale\hu.js" />
+    <Content Include="Content\Bower\moment\locale\hy-am.js" />
+    <Content Include="Content\Bower\moment\locale\id.js" />
+    <Content Include="Content\Bower\moment\locale\is.js" />
+    <Content Include="Content\Bower\moment\locale\it.js" />
+    <Content Include="Content\Bower\moment\locale\ja.js" />
+    <Content Include="Content\Bower\moment\locale\jv.js" />
+    <Content Include="Content\Bower\moment\locale\ka.js" />
+    <Content Include="Content\Bower\moment\locale\km.js" />
+    <Content Include="Content\Bower\moment\locale\ko.js" />
+    <Content Include="Content\Bower\moment\locale\lb.js" />
+    <Content Include="Content\Bower\moment\locale\lt.js" />
+    <Content Include="Content\Bower\moment\locale\lv.js" />
+    <Content Include="Content\Bower\moment\locale\me.js" />
+    <Content Include="Content\Bower\moment\locale\mk.js" />
+    <Content Include="Content\Bower\moment\locale\ml.js" />
+    <Content Include="Content\Bower\moment\locale\mr.js" />
+    <Content Include="Content\Bower\moment\locale\ms-my.js" />
+    <Content Include="Content\Bower\moment\locale\my.js" />
+    <Content Include="Content\Bower\moment\locale\nb.js" />
+    <Content Include="Content\Bower\moment\locale\ne.js" />
+    <Content Include="Content\Bower\moment\locale\nl.js" />
+    <Content Include="Content\Bower\moment\locale\nn.js" />
+    <Content Include="Content\Bower\moment\locale\pl.js" />
+    <Content Include="Content\Bower\moment\locale\pt-br.js" />
+    <Content Include="Content\Bower\moment\locale\pt.js" />
+    <Content Include="Content\Bower\moment\locale\ro.js" />
+    <Content Include="Content\Bower\moment\locale\ru.js" />
+    <Content Include="Content\Bower\moment\locale\si.js" />
+    <Content Include="Content\Bower\moment\locale\sk.js" />
+    <Content Include="Content\Bower\moment\locale\sl.js" />
+    <Content Include="Content\Bower\moment\locale\sq.js" />
+    <Content Include="Content\Bower\moment\locale\sr-cyrl.js" />
+    <Content Include="Content\Bower\moment\locale\sr.js" />
+    <Content Include="Content\Bower\moment\locale\sv.js" />
+    <Content Include="Content\Bower\moment\locale\ta.js" />
+    <Content Include="Content\Bower\moment\locale\th.js" />
+    <Content Include="Content\Bower\moment\locale\tl-ph.js" />
+    <Content Include="Content\Bower\moment\locale\tr.js" />
+    <Content Include="Content\Bower\moment\locale\tzm-latn.js" />
+    <Content Include="Content\Bower\moment\locale\tzm.js" />
+    <Content Include="Content\Bower\moment\locale\uk.js" />
+    <Content Include="Content\Bower\moment\locale\uz.js" />
+    <Content Include="Content\Bower\moment\locale\vi.js" />
+    <Content Include="Content\Bower\moment\locale\zh-cn.js" />
+    <Content Include="Content\Bower\moment\locale\zh-tw.js" />
+    <Content Include="Content\Bower\moment\min\locales.js" />
+    <Content Include="Content\Bower\moment\min\locales.min.js" />
+    <Content Include="Content\Bower\moment\min\moment-with-locales.js" />
+    <Content Include="Content\Bower\moment\min\moment-with-locales.min.js" />
+    <Content Include="Content\Bower\moment\min\moment.min.js" />
+    <Content Include="Content\Bower\moment\min\tests.js" />
+    <Content Include="Content\Bower\moment\moment.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Bower\moment\src\lib\create\check-overflow.js" />
+    <Content Include="Content\Bower\moment\src\lib\create\date-from-array.js" />
+    <Content Include="Content\Bower\moment\src\lib\create\from-anything.js" />
+    <Content Include="Content\Bower\moment\src\lib\create\from-array.js" />
+    <Content Include="Content\Bower\moment\src\lib\create\from-object.js" />
+    <Content Include="Content\Bower\moment\src\lib\create\from-string-and-array.js" />
+    <Content Include="Content\Bower\moment\src\lib\create\from-string-and-format.js" />
+    <Content Include="Content\Bower\moment\src\lib\create\from-string.js" />
+    <Content Include="Content\Bower\moment\src\lib\create\local.js" />
+    <Content Include="Content\Bower\moment\src\lib\create\parsing-flags.js" />
+    <Content Include="Content\Bower\moment\src\lib\create\utc.js" />
+    <Content Include="Content\Bower\moment\src\lib\create\valid.js" />
+    <Content Include="Content\Bower\moment\src\lib\duration\abs.js" />
+    <Content Include="Content\Bower\moment\src\lib\duration\add-subtract.js" />
+    <Content Include="Content\Bower\moment\src\lib\duration\as.js" />
+    <Content Include="Content\Bower\moment\src\lib\duration\bubble.js" />
+    <Content Include="Content\Bower\moment\src\lib\duration\constructor.js" />
+    <Content Include="Content\Bower\moment\src\lib\duration\create.js" />
+    <Content Include="Content\Bower\moment\src\lib\duration\duration.js" />
+    <Content Include="Content\Bower\moment\src\lib\duration\get.js" />
+    <Content Include="Content\Bower\moment\src\lib\duration\humanize.js" />
+    <Content Include="Content\Bower\moment\src\lib\duration\iso-string.js" />
+    <Content Include="Content\Bower\moment\src\lib\duration\prototype.js" />
+    <Content Include="Content\Bower\moment\src\lib\format\format.js" />
+    <Content Include="Content\Bower\moment\src\lib\locale\calendar.js" />
+    <Content Include="Content\Bower\moment\src\lib\locale\constructor.js" />
+    <Content Include="Content\Bower\moment\src\lib\locale\en.js" />
+    <Content Include="Content\Bower\moment\src\lib\locale\formats.js" />
+    <Content Include="Content\Bower\moment\src\lib\locale\invalid.js" />
+    <Content Include="Content\Bower\moment\src\lib\locale\lists.js" />
+    <Content Include="Content\Bower\moment\src\lib\locale\locale.js" />
+    <Content Include="Content\Bower\moment\src\lib\locale\locales.js" />
+    <Content Include="Content\Bower\moment\src\lib\locale\ordinal.js" />
+    <Content Include="Content\Bower\moment\src\lib\locale\pre-post-format.js" />
+    <Content Include="Content\Bower\moment\src\lib\locale\prototype.js" />
+    <Content Include="Content\Bower\moment\src\lib\locale\relative.js" />
+    <Content Include="Content\Bower\moment\src\lib\locale\set.js" />
+    <Content Include="Content\Bower\moment\src\lib\moment\add-subtract.js" />
+    <Content Include="Content\Bower\moment\src\lib\moment\calendar.js" />
+    <Content Include="Content\Bower\moment\src\lib\moment\clone.js" />
+    <Content Include="Content\Bower\moment\src\lib\moment\compare.js" />
+    <Content Include="Content\Bower\moment\src\lib\moment\constructor.js" />
+    <Content Include="Content\Bower\moment\src\lib\moment\diff.js" />
+    <Content Include="Content\Bower\moment\src\lib\moment\format.js" />
+    <Content Include="Content\Bower\moment\src\lib\moment\from.js" />
+    <Content Include="Content\Bower\moment\src\lib\moment\get-set.js" />
+    <Content Include="Content\Bower\moment\src\lib\moment\locale.js" />
+    <Content Include="Content\Bower\moment\src\lib\moment\min-max.js" />
+    <Content Include="Content\Bower\moment\src\lib\moment\moment.js" />
+    <Content Include="Content\Bower\moment\src\lib\moment\prototype.js" />
+    <Content Include="Content\Bower\moment\src\lib\moment\start-end-of.js" />
+    <Content Include="Content\Bower\moment\src\lib\moment\to-type.js" />
+    <Content Include="Content\Bower\moment\src\lib\moment\to.js" />
+    <Content Include="Content\Bower\moment\src\lib\moment\valid.js" />
+    <Content Include="Content\Bower\moment\src\lib\parse\regex.js" />
+    <Content Include="Content\Bower\moment\src\lib\parse\token.js" />
+    <Content Include="Content\Bower\moment\src\lib\units\aliases.js" />
+    <Content Include="Content\Bower\moment\src\lib\units\constants.js" />
+    <Content Include="Content\Bower\moment\src\lib\units\day-of-month.js" />
+    <Content Include="Content\Bower\moment\src\lib\units\day-of-week.js" />
+    <Content Include="Content\Bower\moment\src\lib\units\day-of-year.js" />
+    <Content Include="Content\Bower\moment\src\lib\units\hour.js" />
+    <Content Include="Content\Bower\moment\src\lib\units\millisecond.js" />
+    <Content Include="Content\Bower\moment\src\lib\units\minute.js" />
+    <Content Include="Content\Bower\moment\src\lib\units\month.js" />
+    <Content Include="Content\Bower\moment\src\lib\units\offset.js" />
+    <Content Include="Content\Bower\moment\src\lib\units\quarter.js" />
+    <Content Include="Content\Bower\moment\src\lib\units\second.js" />
+    <Content Include="Content\Bower\moment\src\lib\units\timestamp.js" />
+    <Content Include="Content\Bower\moment\src\lib\units\timezone.js" />
+    <Content Include="Content\Bower\moment\src\lib\units\units.js" />
+    <Content Include="Content\Bower\moment\src\lib\units\week-year.js" />
+    <Content Include="Content\Bower\moment\src\lib\units\week.js" />
+    <Content Include="Content\Bower\moment\src\lib\units\year.js" />
+    <Content Include="Content\Bower\moment\src\lib\utils\abs-floor.js" />
+    <Content Include="Content\Bower\moment\src\lib\utils\compare-arrays.js" />
+    <Content Include="Content\Bower\moment\src\lib\utils\defaults.js" />
+    <Content Include="Content\Bower\moment\src\lib\utils\deprecate.js" />
+    <Content Include="Content\Bower\moment\src\lib\utils\extend.js" />
+    <Content Include="Content\Bower\moment\src\lib\utils\has-own-prop.js" />
+    <Content Include="Content\Bower\moment\src\lib\utils\hooks.js" />
+    <Content Include="Content\Bower\moment\src\lib\utils\is-array.js" />
+    <Content Include="Content\Bower\moment\src\lib\utils\is-date.js" />
+    <Content Include="Content\Bower\moment\src\lib\utils\map.js" />
+    <Content Include="Content\Bower\moment\src\lib\utils\to-int.js" />
+    <Content Include="Content\Bower\moment\src\lib\utils\zero-fill.js" />
+    <Content Include="Content\Bower\moment\src\locale\af.js" />
+    <Content Include="Content\Bower\moment\src\locale\ar-ma.js" />
+    <Content Include="Content\Bower\moment\src\locale\ar-sa.js" />
+    <Content Include="Content\Bower\moment\src\locale\ar-tn.js" />
+    <Content Include="Content\Bower\moment\src\locale\ar.js" />
+    <Content Include="Content\Bower\moment\src\locale\az.js" />
+    <Content Include="Content\Bower\moment\src\locale\be.js" />
+    <Content Include="Content\Bower\moment\src\locale\bg.js" />
+    <Content Include="Content\Bower\moment\src\locale\bn.js" />
+    <Content Include="Content\Bower\moment\src\locale\bo.js" />
+    <Content Include="Content\Bower\moment\src\locale\br.js" />
+    <Content Include="Content\Bower\moment\src\locale\bs.js" />
+    <Content Include="Content\Bower\moment\src\locale\ca.js" />
+    <Content Include="Content\Bower\moment\src\locale\cs.js" />
+    <Content Include="Content\Bower\moment\src\locale\cv.js" />
+    <Content Include="Content\Bower\moment\src\locale\cy.js" />
+    <Content Include="Content\Bower\moment\src\locale\da.js" />
+    <Content Include="Content\Bower\moment\src\locale\de-at.js" />
+    <Content Include="Content\Bower\moment\src\locale\de.js" />
+    <Content Include="Content\Bower\moment\src\locale\el.js" />
+    <Content Include="Content\Bower\moment\src\locale\en-au.js" />
+    <Content Include="Content\Bower\moment\src\locale\en-ca.js" />
+    <Content Include="Content\Bower\moment\src\locale\en-gb.js" />
+    <Content Include="Content\Bower\moment\src\locale\eo.js" />
+    <Content Include="Content\Bower\moment\src\locale\es.js" />
+    <Content Include="Content\Bower\moment\src\locale\et.js" />
+    <Content Include="Content\Bower\moment\src\locale\eu.js" />
+    <Content Include="Content\Bower\moment\src\locale\fa.js" />
+    <Content Include="Content\Bower\moment\src\locale\fi.js" />
+    <Content Include="Content\Bower\moment\src\locale\fo.js" />
+    <Content Include="Content\Bower\moment\src\locale\fr-ca.js" />
+    <Content Include="Content\Bower\moment\src\locale\fr.js" />
+    <Content Include="Content\Bower\moment\src\locale\fy.js" />
+    <Content Include="Content\Bower\moment\src\locale\gl.js" />
+    <Content Include="Content\Bower\moment\src\locale\he.js" />
+    <Content Include="Content\Bower\moment\src\locale\hi.js" />
+    <Content Include="Content\Bower\moment\src\locale\hr.js" />
+    <Content Include="Content\Bower\moment\src\locale\hu.js" />
+    <Content Include="Content\Bower\moment\src\locale\hy-am.js" />
+    <Content Include="Content\Bower\moment\src\locale\id.js" />
+    <Content Include="Content\Bower\moment\src\locale\is.js" />
+    <Content Include="Content\Bower\moment\src\locale\it.js" />
+    <Content Include="Content\Bower\moment\src\locale\ja.js" />
+    <Content Include="Content\Bower\moment\src\locale\jv.js" />
+    <Content Include="Content\Bower\moment\src\locale\ka.js" />
+    <Content Include="Content\Bower\moment\src\locale\km.js" />
+    <Content Include="Content\Bower\moment\src\locale\ko.js" />
+    <Content Include="Content\Bower\moment\src\locale\lb.js" />
+    <Content Include="Content\Bower\moment\src\locale\lt.js" />
+    <Content Include="Content\Bower\moment\src\locale\lv.js" />
+    <Content Include="Content\Bower\moment\src\locale\me.js" />
+    <Content Include="Content\Bower\moment\src\locale\mk.js" />
+    <Content Include="Content\Bower\moment\src\locale\ml.js" />
+    <Content Include="Content\Bower\moment\src\locale\mr.js" />
+    <Content Include="Content\Bower\moment\src\locale\ms-my.js" />
+    <Content Include="Content\Bower\moment\src\locale\my.js" />
+    <Content Include="Content\Bower\moment\src\locale\nb.js" />
+    <Content Include="Content\Bower\moment\src\locale\ne.js" />
+    <Content Include="Content\Bower\moment\src\locale\nl.js" />
+    <Content Include="Content\Bower\moment\src\locale\nn.js" />
+    <Content Include="Content\Bower\moment\src\locale\pl.js" />
+    <Content Include="Content\Bower\moment\src\locale\pt-br.js" />
+    <Content Include="Content\Bower\moment\src\locale\pt.js" />
+    <Content Include="Content\Bower\moment\src\locale\ro.js" />
+    <Content Include="Content\Bower\moment\src\locale\ru.js" />
+    <Content Include="Content\Bower\moment\src\locale\si.js" />
+    <Content Include="Content\Bower\moment\src\locale\sk.js" />
+    <Content Include="Content\Bower\moment\src\locale\sl.js" />
+    <Content Include="Content\Bower\moment\src\locale\sq.js" />
+    <Content Include="Content\Bower\moment\src\locale\sr-cyrl.js" />
+    <Content Include="Content\Bower\moment\src\locale\sr.js" />
+    <Content Include="Content\Bower\moment\src\locale\sv.js" />
+    <Content Include="Content\Bower\moment\src\locale\ta.js" />
+    <Content Include="Content\Bower\moment\src\locale\th.js" />
+    <Content Include="Content\Bower\moment\src\locale\tl-ph.js" />
+    <Content Include="Content\Bower\moment\src\locale\tr.js" />
+    <Content Include="Content\Bower\moment\src\locale\tzm-latn.js" />
+    <Content Include="Content\Bower\moment\src\locale\tzm.js" />
+    <Content Include="Content\Bower\moment\src\locale\uk.js" />
+    <Content Include="Content\Bower\moment\src\locale\uz.js" />
+    <Content Include="Content\Bower\moment\src\locale\vi.js" />
+    <Content Include="Content\Bower\moment\src\locale\zh-cn.js" />
+    <Content Include="Content\Bower\moment\src\locale\zh-tw.js" />
+    <Content Include="Content\Bower\moment\src\moment.js" />
+    <Content Include="Content\Bower\moment\templates\amd-named.js" />
+    <Content Include="Content\Bower\moment\templates\amd.js" />
+    <Content Include="Content\Bower\moment\templates\globals.js" />
+    <Content Include="Content\Bower\moment\templates\locale-header.js" />
+    <Content Include="Content\Bower\moment\templates\test-header.js" />
     <Content Include="Content\nancy-logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Style\main.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="gulpfile.js" />

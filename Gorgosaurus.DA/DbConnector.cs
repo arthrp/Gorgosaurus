@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Dapper;
 using System.Data;
+using System.Configuration;
 #if __MonoCS__
 using Mono.Data.Sqlite;
 #else
@@ -16,17 +17,16 @@ using System.Data.SQLite;
 
 namespace Gorgosaurus.DA
 {
-    public class DbConnector
+    public static class DbConnector
     {
-        public const string DEFAULT_DB_NAME = "MainDb";
-
-        private static string _dbName = DEFAULT_DB_NAME;
+        private static readonly string _dbName = ConfigurationManager.AppSettings["DbName"].ToString();
 
         public static string DbFile
         {
             get 
             {
-                Debug.WriteLine(Environment.CurrentDirectory);
+                //Debug.WriteLine(Environment.CurrentDirectory);
+
                 return Environment.CurrentDirectory + "\\" + _dbName + ".sqlite";
             }
         }
@@ -48,13 +48,8 @@ namespace Gorgosaurus.DA
             return conn;
         }
 
-        public static void Init(string dbNameOverride = null)
+        public static void Init()
         {
-            if (!String.IsNullOrEmpty(dbNameOverride))
-            {
-                _dbName = dbNameOverride;
-            }
-
             if (!File.Exists(DbFile))
             {
                 SqlLiteConnectionWrapper.CreateFile(DbFile);

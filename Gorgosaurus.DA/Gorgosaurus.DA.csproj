@@ -39,6 +39,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Condition="'$(OS)' != 'Unix'" Include="System.Data.Entity" />
     <Reference Include="System.Data.Entity.Design" />
@@ -62,10 +63,13 @@
     <Compile Include="Extensions\PropertyInfoExtensions.cs" />
     <Compile Include="IDbConnector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Extensions\ReflectionHelper.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\ForumPostRepository.cs" />
     <Compile Include="Repositories\DiscussionRepository.cs" />
     <Compile Include="Repositories\IBaseRepository.cs" />
+    <Compile Include="Repositories\SubforumRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="SqlLiteConnectionWrapper.cs" />
     <Compile Include="SqliteCommandWrapper.cs" />
   </ItemGroup>

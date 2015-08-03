@@ -9,5 +9,9 @@ namespace Gorgosaurus.BO.Entities
     public class Discussion : BaseEntity
     {
         public string Title { get; set; }
+
+        public long SubforumId { get; set; }
+
+        public IEnumerable<ForumPost> Posts { get; set; }
     }
 }

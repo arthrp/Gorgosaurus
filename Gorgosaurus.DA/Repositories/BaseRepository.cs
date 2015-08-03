@@ -12,11 +12,11 @@ using System.Diagnostics;
 
 namespace Gorgosaurus.DA.Repositories
 {
-    public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
+    public abstract class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
     {
         protected readonly string _entityName = typeof(T).Name;
 
-        public T Get(long id)
+        public virtual T Get(long id)
         {
             using (var conn = DbConnector.GetOpenConnection())
             {
@@ -26,7 +26,7 @@ namespace Gorgosaurus.DA.Repositories
             }
         }
 
-        public void Insert(T obj)
+        public virtual void Insert(T obj, bool skipId = false)
         {
             using (var conn = DbConnector.GetOpenConnection())
             {
@@ -37,8 +37,13 @@ namespace Gorgosaurus.DA.Repositories
                 string propValue = "";
                 foreach (PropertyInfo property in properties)
                 {
-                    if (!property.CanWrite)
+                    if (!property.CanWrite ||
+                        property.IsEnumerable() ||
+                        (property.IsCurrentEntityId() && skipId) ||
+                        property.CustomAttributes.Any(a => a.AttributeType.Name == "NotColumn"))
                         continue;
+
+                    var attrs = property.CustomAttributes;
 
                     propValue = (property.IsNumeric()) ?
                         property.GetValue(obj).ToString() : "'" + property.GetValue(obj) + "'";
@@ -56,11 +61,11 @@ namespace Gorgosaurus.DA.Repositories
 
                 int affected = conn.Execute(sqlFirstPart.ToString() + sqlSecondPart.ToString());
 
-                Debug.WriteLine("inserting " + affected + " row(s)");
+                //Debug.WriteLine("inserting " + affected + " row(s)");
             }
         }
 
-        public void Update(T obj)
+        public virtual void Update(T obj)
         {
             using (var conn = DbConnector.GetOpenConnection())
             {
@@ -90,7 +95,7 @@ namespace Gorgosaurus.DA.Repositories
             }
         }
 
-        public void Delete(long id)
+        public virtual void Delete(long id)
         {
             using (var conn = DbConnector.GetOpenConnection())
             {

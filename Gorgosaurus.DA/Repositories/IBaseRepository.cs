@@ -10,7 +10,7 @@ namespace Gorgosaurus.DA.Repositories
     interface IBaseRepository<T> where T : BaseEntity
     {
         T Get(long id);
-        void Insert(T obj);
+        void Insert(T obj, bool skipId = false);
         void Update(T obj);
         void Delete(long id);
     }

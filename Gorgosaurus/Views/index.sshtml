@@ -1,24 +1,36 @@
 ﻿<!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <title>Gorgosaurus</title>
 
-	<link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css' />
-	
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/Content/Bower/fontawesome/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="/Content/Style/main.css" />
 
 </head>
-<body ng-app="forumApp">
-	<img src="@Path['~/Content/nancy-logo.png']" alt="Nancy logo" /><br />
-	This view was rendered using the SuperSimpleViewEngine
+<body ng-app="forumApp">	
 
-	<div ng-controller="forumController as forumCtrl">
-		<ul>
-			<li ng-repeat="post in posts">{{ post.postText }}</li>
-		</ul>
-	</div>
+        @Partial['header.sshtml']
+
+    <div id="forum-container">
+
+        <div ng-controller="forumController as forumCtrl">
+
+            @Partial['forum.sshtml']
+
+            <div id="post-input-wrapper">
+                <textarea class="form-control" ng-model="forumCtrl.newPostText"></textarea><br>
+            </div>
+
+            <button class="btn btn-success" ng-click="forumCtrl.addPost()">Add</button>
+
+        </div>
+    </div>
+
 
 	<script type='text/javascript' src='/Content/Bower/angular/angular.js'></script>
+	<script type='text/javascript' src='/Content/Bower/moment/moment.js'></script>
 	<script type='text/javascript' src='/Content/Angular/app.js'></script>
 	<script type='text/javascript' src='/Content/Angular/forum.controller.js'></script>
 </body>

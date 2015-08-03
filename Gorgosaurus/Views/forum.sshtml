@@ -1,0 +1,21 @@
+﻿<div ng-repeat="post in forumCtrl.posts" class="post">
+  <div class="user-info pull-left">
+    info
+  </div>
+  <div class="post-content">
+    <div class="post-header">
+      {{ post.createdOn }}
+    </div>
+
+    <div class="post-body">
+      <span class="post-text">
+      {{ post.postText }}
+      </span>
+
+      <button class="btn btn-danger" ng-click="forumCtrl.removePost(post.id)">
+          <i class="fa fa-trash-o"></i>
+      </button>
+    </div>
+  </div>
+  <div style="clear:both"></div>
+</div>
