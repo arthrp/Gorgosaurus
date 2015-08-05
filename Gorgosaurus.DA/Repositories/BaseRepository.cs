@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Gorgosaurus.DA.Extensions;
 using Dapper;
 using System.Diagnostics;
+using Gorgosaurus.BO.Extensions;
 
 namespace Gorgosaurus.DA.Repositories
 {
@@ -28,6 +29,8 @@ namespace Gorgosaurus.DA.Repositories
 
         public virtual void Insert(T obj, bool skipId = false)
         {
+            obj.CreatedOnUnix = DateTime.UtcNow.ToUnixTimestamp();
+
             using (var conn = DbConnector.GetOpenConnection())
             {
                 var sqlFirstPart = new StringBuilder("insert into " + _entityName + "(");
