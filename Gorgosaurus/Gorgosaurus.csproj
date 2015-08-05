@@ -102,6 +102,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Content\Bower\angular-moment\angular-moment.min.js.map" />
+    <None Include="Content\Bower\angular-moment\bower.json" />
+    <None Include="Content\Bower\angular-moment\package.json" />
     <None Include="Content\Bower\angular\.bower.json" />
     <None Include="Content\Bower\angular\angular.min.js.gzip" />
     <None Include="Content\Bower\angular\angular.min.js.map" />
@@ -270,6 +273,12 @@
     </Content>
     <Content Include="Content\Angular\forum.controller.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Bower\angular-moment\angular-moment.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Bower\angular-moment\angular-moment.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Bower\angular\angular-csp.css" />
     <None Include="Views\header.sshtml">

@@ -1,3 +1,3 @@
 ﻿(function () {
-    angular.module('forumApp', []);
+    angular.module('forumApp', ['angularMoment']);
 })();

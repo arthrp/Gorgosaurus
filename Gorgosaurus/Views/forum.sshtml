@@ -4,7 +4,7 @@
   </div>
   <div class="post-content">
     <div class="post-header">
-      {{ post.createdOn }}
+      {{ post.createdOn | amDateFormat: "DD.MM.YYYY HH:mm:ss" }}
     </div>
 
     <div class="post-body">
