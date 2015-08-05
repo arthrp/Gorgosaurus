@@ -1,6 +1,6 @@
 ﻿<div ng-repeat="post in forumCtrl.posts" class="post">
   <div class="user-info pull-left">
-    info
+    <img src="/Content/anon_av1.png" height="64" width="64" />
   </div>
   <div class="post-content">
     <div class="post-header">

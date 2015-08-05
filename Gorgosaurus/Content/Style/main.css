@@ -3,16 +3,23 @@
 }
 
 .post{
-    margin:0 10px;
+    margin:5px 10px;
     min-width:400px;
+    background-color:#efefef;
 }
 
 .user-info{
     margin:3px 5px;
 }
 
+.post-header{
+    color:#bbb;
+    padding-left:10px;
+    font-style:italic;
+}
+
 .post-content{
-    margin:1px 3px;
+    margin:5px 3px;
     padding:1px 5px;
     text-align:left;
 }
