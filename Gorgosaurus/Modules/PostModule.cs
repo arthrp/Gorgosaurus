@@ -20,7 +20,7 @@ namespace Gorgosaurus.Modules
 
                 ForumPostRepository.Instance.Insert(newForumPost, true);
 
-                return true;
+                return HttpStatusCode.OK;
             };
 
             Put["/post/update"] = paramters =>
@@ -29,14 +29,14 @@ namespace Gorgosaurus.Modules
 
                 ForumPostRepository.Instance.Update(updatedPost);
 
-                return true;
+                return HttpStatusCode.OK;
             };
 
             Delete["/post/remove/{id:int}"] = parameters =>
             {
                 ForumPostRepository.Instance.Delete(parameters.id);
 
-                return true;
+                return HttpStatusCode.OK;
             };
         }
 
