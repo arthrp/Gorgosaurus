@@ -26,6 +26,8 @@
                     console.log(respData);
                     self.getDiscussionPosts(1);
                 });
+
+            self.newPostText = "";
         };
 
         self.removePost = function (postId) {
