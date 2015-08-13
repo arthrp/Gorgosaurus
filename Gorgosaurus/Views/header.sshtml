@@ -1,8 +1,9 @@
-﻿<div id="forum-navbar-wrapper">
+﻿<div id="forum-navbar-wrapper" ng-controller="accountController as accountCtrl">
     <nav id="forum-navbar" class="navbar navbar-right">
         <div class="fluid-container">
 
             <ul class="nav navbar-nav">
+                <li><span>{{ accountCtrl.greetingText }}</span></li>
                 <li><a href="#">Log in</a></li>
                 <li><a href="#">Sign up</a></li>
             </ul>

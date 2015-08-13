@@ -94,6 +94,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Modules\AccountModule.cs" />
     <Compile Include="Modules\IndexModule.cs" />
     <Compile Include="Modules\PostModule.cs" />
     <Compile Include="Program.cs" />
@@ -268,6 +270,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Angular\account.controller.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Angular\app.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
