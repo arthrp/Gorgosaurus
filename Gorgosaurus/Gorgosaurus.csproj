@@ -268,6 +268,9 @@
     <None Include="Views\index.sshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Views\scripts.sshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Angular\account.controller.js">
@@ -302,7 +305,9 @@
     <Content Include="Content\Bower\bootstrap\dist\css\bootstrap-theme.css" />
     <Content Include="Content\Bower\bootstrap\dist\css\bootstrap-theme.min.css" />
     <Content Include="Content\Bower\bootstrap\dist\css\bootstrap.css" />
-    <Content Include="Content\Bower\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="Content\Bower\bootstrap\dist\css\bootstrap.min.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Bower\bootstrap\dist\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\Bower\bootstrap\dist\js\bootstrap.js" />
     <Content Include="Content\Bower\bootstrap\dist\js\bootstrap.min.js" />

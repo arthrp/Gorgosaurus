@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <title>Gorgosaurus</title>
 
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/Content/Bower/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/Content/Bower/fontawesome/css/font-awesome.min.css" />
 	<link rel="stylesheet" href="/Content/Style/main.css" />
 
@@ -28,12 +28,7 @@
         </div>
     </div>
 
+    @Partial['scripts.sshtml']
 
-	<script type='text/javascript' src='/Content/Bower/angular/angular.js'></script>
-    <script type='text/javascript' src='/Content/Bower/moment/moment.js'></script>
-	<script type='text/javascript' src='/Content/Bower/angular-moment/angular-moment.js'></script>   
-	<script type='text/javascript' src='/Content/Angular/app.js'></script>
-    <script type='text/javascript' src='/Content/Angular/forum.controller.js'></script>
-	<script type='text/javascript' src='/Content/Angular/account.controller.js'></script>
 </body>
 </html>
