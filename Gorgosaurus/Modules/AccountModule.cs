@@ -36,7 +36,8 @@ namespace Gorgosaurus.Modules
                 if (String.IsNullOrEmpty(userName))
                     return HttpStatusCode.OK;
 
-                response.Cookies.Add(GenerateCookie(userName, DateTime.Now.AddYears(-1)));
+                var cookieToAdd = GenerateCookie(userName, DateTime.Now.AddYears(-1));
+                response.Cookies.Add(cookieToAdd);
 
                 return response;
             };
@@ -53,7 +54,7 @@ namespace Gorgosaurus.Modules
 
         private NancyCookie GenerateCookie(string userName, DateTime expiresAt)
         {
-            return new NancyCookie(name: AUTH_COOKIE_NAME, value: userName, httpOnly: true) { Path = "/" };
+            return new NancyCookie(name: AUTH_COOKIE_NAME, value: userName, httpOnly: true) { Path = "/", Expires = expiresAt };
         }
     }
 }
