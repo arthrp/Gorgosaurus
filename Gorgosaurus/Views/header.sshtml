@@ -3,10 +3,18 @@
         <div class="fluid-container">
 
             <ul class="nav navbar-nav">
-                <li><span>{{ accountCtrl.greetingText }}</span></li>
-                <li><a href="#">Log in</a></li>
+                <li>{{ accountCtrl.greetingText }}</li>
+                <li><a id="loginPrompt" href="#">Log in</a></li>
                 <li><a href="#">Sign up</a></li>
             </ul>
         </div>
     </nav>
+
+    <div id="popoverLogin" style="display:none">
+        <label for="forumLogin">Login</label>
+        <input ng-value="accountCtrl.username" type="text" /><br />
+
+        <label for="forumPass">Password:</label>
+        <input name="forumPass" ng-value="accountCtrl.password" type="password" />
+    </div>
 </div>
