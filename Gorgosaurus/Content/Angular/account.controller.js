@@ -6,35 +6,66 @@
     function accountController($scope, $http) {
         var self = this;
 
-        self.username = "Tester";
+        self.loginInfo = { username: "Tester", password: "" };
+        self.loggedInUsername = "";
         self.greetingText = "";
 
+        self.isLoggedIn = false;
+
         $scope.loginPopover = {
-            content: '',
             templateUrl: 'myPopoverTemplate.html',
             title: 'Log in'
         };
 
-        //var myPopover = $popover(document.getElementById('loginPrompt'),
-        //    { html: true,  title: 'My Title', content: 'My Content' });
+        self.init = function(){
+            self.getCurrentUser();
+        };
 
         self.getCurrentUser = function () {
             $http.get("/account/current").success(function (resp) {
                 if (!resp) {
-                    self.greetingText = "Hello, guest";
+                    self.loggedInUsername = "";
+                    self.isLoggedIn = false;
                 }
                 else {
-                    self.greetingText = "Hello, " + resp;
+                    self.loggedInUsername = resp;
+                    self.isLoggedIn = true;                  
                 }
-
-                console.log(self.greetingText);
+                
+                self.updateGreetingText();
+                //console.log(self.greetingText);
             });
-        }
-
-        self.login = function () {
-            console.log('here');
         };
 
-        self.getCurrentUser();
+        self.updateGreetingText = function () {
+            if(self.isLoggedIn){
+                self.greetingText = "Hello, "+self.loggedInUsername;
+            }
+            else{
+                 self.greetingText = "Hello, guest";
+            }
+        };
+
+        self.login = function () {
+            var loginData = { username: self.loginInfo.username, password: self.loginInfo.password };
+
+            $http.post("/account/login", loginData)
+                .success(function (res) {
+                    console.log(res);
+                    
+                    self.getCurrentUser();
+                });            
+        };
+
+        self.logout = function () {
+            $http.post("/account/logout")
+                .success(function (res) {
+                    console.log(res);
+
+                    self.getCurrentUser();
+                });              
+        };
+
+        self.init();
     }
 })();

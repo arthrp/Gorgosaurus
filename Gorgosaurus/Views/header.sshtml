@@ -4,9 +4,10 @@
 
             <ul class="nav navbar-nav">
                 <li>{{ accountCtrl.greetingText }}</li>
-                <li><a popover-template="loginPopover.templateUrl" 
-                       popover-title="{{loginPopover.title}}" popover-placement="bottom" 
+                <li ng-hide="accountCtrl.isLoggedIn"><a popover-template="loginPopover.templateUrl" 
+                       popover-title="{{ loginPopover.title }}" popover-placement="bottom" 
                        id="loginPrompt" href="#">Log in</a></li>
+                <li ng-show="accountCtrl.isLoggedIn"><a href="#" ng-click="accountCtrl.logout()">Log out</a></li>
                 <li><a href="#">Sign up</a></li>
             </ul>
         </div>
@@ -15,11 +16,11 @@
   <script type="text/ng-template" id="myPopoverTemplate.html">
     <div id="popoverLogin">
       <label for="forumLogin">Login</label>
-      <input ng-value="accountCtrl.username" type="text" />
+      <input ng-model="accountCtrl.loginInfo.username" type="text" />
       <br />
 
       <label for="forumPass">Password:</label>
-      <input name="forumPass" ng-value="accountCtrl.password" type="password" />
+      <input name="forumPass" ng-model="accountCtrl.loginInfo.password" type="password" />
 
       <button ng-click="accountCtrl.login()">Login</button>
     </div>
