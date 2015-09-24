@@ -1,9 +1,12 @@
 ﻿<script type="text/javascript" src="/Content/Bower/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="/Content/Bower/bootstrap/dist/js/bootstrap.min.js"></script>
 <script type='text/javascript' src='/Content/Bower/angular/angular.js'></script>
+<script type='text/javascript' src='/Content/Bower/angular-bootstrap/ui-bootstrap-tpls.js'></script>
+<!--<script type='text/javascript' src='/Content/Bower/angular-bootstrap/ui-bootstrap.js'></script>-->
+<script type='text/javascript' src='/Content/Bower/angular-strap/dist/modules/popover.js'></script>
 <script type='text/javascript' src='/Content/Bower/moment/moment.js'></script>
 <script type='text/javascript' src='/Content/Bower/angular-moment/angular-moment.js'></script>
 <script type='text/javascript' src='/Content/Angular/app.js'></script>
 <script type='text/javascript' src='/Content/Angular/forum.controller.js'></script>
 <script type='text/javascript' src='/Content/Angular/account.controller.js'></script>
-<script type='text/javascript' src='/Content/popovers.js'></script>
+<!--<script type='text/javascript' src='/Content/popovers.js'></script>-->

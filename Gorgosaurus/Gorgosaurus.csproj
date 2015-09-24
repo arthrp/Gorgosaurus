@@ -104,6 +104,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Content\Bower\angular-animate\.bower.json" />
+    <None Include="Content\Bower\angular-animate\angular-animate.min.js.map" />
+    <None Include="Content\Bower\angular-animate\bower.json" />
+    <None Include="Content\Bower\angular-animate\package.json" />
+    <None Include="Content\Bower\angular-animate\README.md" />
+    <None Include="Content\Bower\angular-bootstrap\.bower.json" />
+    <None Include="Content\Bower\angular-bootstrap\.npmignore" />
+    <None Include="Content\Bower\angular-bootstrap\bower.json" />
+    <None Include="Content\Bower\angular-bootstrap\package.json" />
+    <None Include="Content\Bower\angular-bootstrap\README.md" />
     <None Include="Content\Bower\angular-moment\angular-moment.min.js.map" />
     <None Include="Content\Bower\angular-moment\bower.json" />
     <None Include="Content\Bower\angular-moment\package.json" />
@@ -150,9 +160,12 @@
     <None Include="Content\Bower\angular-strap\README.md" />
     <None Include="Content\Bower\angular\.bower.json" />
     <None Include="Content\Bower\angular\angular.min.js.gzip" />
-    <None Include="Content\Bower\angular\angular.min.js.map" />
+    <None Include="Content\Bower\angular\angular.min.js.map">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Content\Bower\angular\bower.json" />
     <None Include="Content\Bower\angular\package.json" />
+    <None Include="Content\Bower\angular\README.md" />
     <None Include="Content\Bower\bootstrap\.bower.json" />
     <None Include="Content\Bower\bootstrap\bower.json" />
     <None Include="Content\Bower\bootstrap\dist\css\bootstrap-theme.css.map" />
@@ -305,12 +318,14 @@
     </None>
     <None Include="Views\forum.sshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="Views\index.sshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Views\scripts.sshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -326,6 +341,22 @@
     <Content Include="Content\anon_av1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Bower\angular-animate\angular-animate.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Bower\angular-animate\angular-animate.min.js" />
+    <Content Include="Content\Bower\angular-animate\index.js" />
+    <Content Include="Content\Bower\angular-bootstrap\.gitignore" />
+    <Content Include="Content\Bower\angular-bootstrap\index.js" />
+    <Content Include="Content\Bower\angular-bootstrap\ui-bootstrap-csp.css" />
+    <Content Include="Content\Bower\angular-bootstrap\ui-bootstrap-tpls.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Bower\angular-bootstrap\ui-bootstrap-tpls.min.js" />
+    <Content Include="Content\Bower\angular-bootstrap\ui-bootstrap.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Bower\angular-bootstrap\ui-bootstrap.min.js" />
     <Content Include="Content\Bower\angular-moment\angular-moment.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -383,7 +414,7 @@
     <Content Include="Content\Bower\angular-strap\dist\modules\parse-options.js" />
     <Content Include="Content\Bower\angular-strap\dist\modules\parse-options.min.js" />
     <Content Include="Content\Bower\angular-strap\dist\modules\popover.js">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Bower\angular-strap\dist\modules\popover.min.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -450,16 +481,17 @@
     <Content Include="Content\Bower\angular-strap\src\tooltip\tooltip.tpl.html" />
     <Content Include="Content\Bower\angular-strap\src\typeahead\typeahead.js" />
     <Content Include="Content\Bower\angular-strap\src\typeahead\typeahead.tpl.html" />
-    <Content Include="Content\Bower\angular\angular-csp.css" />
     <None Include="Views\header.sshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
-    <EmbeddedResource Include="Content\Bower\angular\angular.js">
+    <Content Include="Content\Bower\angular\angular-csp.css" />
+    <Content Include="Content\Bower\angular\angular.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Content\Bower\angular\angular.min.js">
+    </Content>
+    <Content Include="Content\Bower\angular\angular.min.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
+    </Content>
     <Content Include="Content\Bower\angular\index.js" />
     <Content Include="Content\Bower\bootstrap\dist\css\bootstrap-theme.css" />
     <Content Include="Content\Bower\bootstrap\dist\css\bootstrap-theme.min.css" />

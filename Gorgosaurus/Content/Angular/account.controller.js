@@ -6,7 +6,17 @@
     function accountController($scope, $http) {
         var self = this;
 
+        self.username = "Tester";
         self.greetingText = "";
+
+        $scope.dynamicPopover = {
+            content: 'Hello, World!',
+            templateUrl: 'myPopoverTemplate.html',
+            title: 'Title'
+        };
+
+        //var myPopover = $popover(document.getElementById('loginPrompt'),
+        //    { html: true,  title: 'My Title', content: 'My Content' });
 
         self.getCurrentUser = function () {
             $http.get("/account/current").success(function (resp) {
@@ -20,6 +30,10 @@
                 console.log(self.greetingText);
             });
         }
+
+        self.login = function () {
+            console.log('here');
+        };
 
         self.getCurrentUser();
     }
