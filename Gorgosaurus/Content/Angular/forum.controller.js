@@ -9,12 +9,6 @@
         self.posts = [];
         self.newPostText = "";
 
-        self.dynamicPopover = {
-            content: 'Hello, World!',
-            templateUrl: 'myPopoverTemplate.html',
-            title: 'Title'
-        };
-
         self.getDiscussionPosts = function (discussionId) {
             $http.get('/discussion/' + discussionId)
                 .success(function (respData) {

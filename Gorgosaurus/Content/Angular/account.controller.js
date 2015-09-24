@@ -9,10 +9,10 @@
         self.username = "Tester";
         self.greetingText = "";
 
-        $scope.dynamicPopover = {
-            content: 'Hello, World!',
+        $scope.loginPopover = {
+            content: '',
             templateUrl: 'myPopoverTemplate.html',
-            title: 'Title'
+            title: 'Log in'
         };
 
         //var myPopover = $popover(document.getElementById('loginPrompt'),
