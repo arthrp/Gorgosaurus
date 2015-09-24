@@ -20,6 +20,9 @@ namespace Gorgosaurus.Modules
             {
                 var loginModel = this.Bind<LoginModel>();
 
+                if (String.IsNullOrEmpty(loginModel.Username) || String.IsNullOrEmpty(loginModel.Password))
+                    return new Response() { StatusCode = HttpStatusCode.BadRequest };
+
                 var response = new Response() { StatusCode = HttpStatusCode.OK };
                 response.Cookies.Add(GenerateCookie(loginModel.Username, DateTime.Now.AddMonths(3)));
 
