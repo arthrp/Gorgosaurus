@@ -22,7 +22,7 @@
       <label for="forumPass">Password:</label>
       <input name="forumPass" ng-model="accountCtrl.loginInfo.password" type="password" />
 
-      <button ng-click="accountCtrl.login()">Login</button>
+      <button class="btn btn-success" id="btn-login" ng-click="accountCtrl.login()">Login</button>
     </div>
   </script>
 </div>
