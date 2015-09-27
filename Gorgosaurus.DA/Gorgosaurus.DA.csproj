@@ -58,6 +58,7 @@
     <Reference Condition="'$(OS)' == 'Unix'" Include="Mono.Data.Sqlite" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountChecker.cs" />
     <Compile Include="DbConnector.cs" />
     <Compile Include="DbCreator.cs" />
     <Compile Include="Extensions\PropertyInfoExtensions.cs" />
@@ -84,6 +85,10 @@
     <ProjectReference Include="..\Gorgosaurus.BO\Gorgosaurus.BO.csproj">
       <Project>{AB06F2ED-6A0C-4A3F-A1CA-0698583BEB48}</Project>
       <Name>Gorgosaurus.BO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gorgosaurus.Common\Gorgosaurus.Common.csproj">
+      <Project>{c689ef06-ebb0-4e97-9166-3990611692d6}</Project>
+      <Name>Gorgosaurus.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

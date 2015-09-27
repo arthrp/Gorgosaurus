@@ -7,6 +7,8 @@
     using Gorgosaurus.BO.Entities;
     using System.Diagnostics;
     using Gorgosaurus.BO.Extensions;
+    using Common;
+    using System.IO;
 
     class Program
     {
@@ -28,6 +30,13 @@
 
                 DbConnector.Init();
 
+                string adminSalt = "xyz00";
+                string adminPass = "haha";
+
+                string hash = CryptoHelper.GenerateHash(adminPass, adminSalt);
+                Console.WriteLine(hash);
+                File.WriteAllText(@"F:\Temp\pass.txt", hash);
+
                 SubforumRepository.Instance.Insert(new Subforum()
                 {
                     Id = 1,
@@ -38,8 +47,9 @@
                 UserRepository.Instance.Insert(new ForumUser()
                 {
                     Id = 1,
-                    Username = "lala",
-                    Password = "haha",
+                    Username = "admin",
+                    Password = adminSalt +
+                        @"Quc4nirwMQgcDz+iSvKg6RPqPjbVJf6hiocz1V0WYqSRWDdXpLamVOQT0Bx1Rzk7sGOSY0ar6bKNH1xLkwP7ulDgSw34LOtIkNOuyDljJ3wgJtPh7Zov8v0oQnDAofs5IKbfw2AH8KiFYeysgYj1BO5gzdoLk568wJwtRs6vefUUDF+9qH9lv86mZnMFVwxzGZ8o/0HamZM126wxALc35UbhyQbZmgRLg6Np7WlbniB4dbAPgJq8tgvQeYyWolu83VUYI8yupxLeNuwNj5qxUXHhzG8bYZNnb4pBSbbwwuPFHeG6PfAf2jiFJUv/ePo3OFqGrsgGlPtqR2DvyaRs6A==",
                     IsUserAdmin = true
                 });
 

@@ -1,4 +1,5 @@
-﻿using Gorgosaurus.Models;
+﻿using Gorgosaurus.DA;
+using Gorgosaurus.Models;
 using Nancy;
 using Nancy.Cookies;
 using Nancy.ModelBinding;
@@ -22,6 +23,11 @@ namespace Gorgosaurus.Modules
 
                 if (String.IsNullOrEmpty(loginModel.Username) || String.IsNullOrEmpty(loginModel.Password))
                     return new Response() { StatusCode = HttpStatusCode.BadRequest };
+
+                bool isValid = AccountChecker.Instance.AreCredentialsValid(loginModel.Username, loginModel.Password);
+
+                if (!isValid)
+                    return new Response() { StatusCode = HttpStatusCode.Unauthorized };
 
                 var response = new Response() { StatusCode = HttpStatusCode.OK };
                 response.Cookies.Add(GenerateCookie(loginModel.Username, DateTime.Now.AddMonths(3)));

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -75,6 +75,10 @@
   </PropertyGroup>
   <PropertyGroup />
   <ItemGroup>
+    <Reference Include="CryptSharp, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CryptSharpOfficial.2.1.0.0\lib\CryptSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Nancy, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Nancy.1.1\lib\net40\Nancy.dll</HintPath>
@@ -733,6 +737,10 @@
     <ProjectReference Include="..\Gorgosaurus.BO\Gorgosaurus.BO.csproj">
       <Project>{ab06f2ed-6a0c-4a3f-a1ca-0698583beb48}</Project>
       <Name>Gorgosaurus.BO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gorgosaurus.Common\Gorgosaurus.Common.csproj">
+      <Project>{c689ef06-ebb0-4e97-9166-3990611692d6}</Project>
+      <Name>Gorgosaurus.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Gorgosaurus.DA\Gorgosaurus.DA.csproj">
       <Project>{f27d6415-9780-4c5d-809d-7d2dffb17472}</Project>
