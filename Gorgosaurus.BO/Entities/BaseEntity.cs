@@ -30,5 +30,7 @@ namespace Gorgosaurus.BO.Entities
                 return ModifiedOnUnix.GetDateTimeFromUnixTimestamp();
             }
         }
+
+        public long? CreatedByUserId { get; set; }
     }
 }

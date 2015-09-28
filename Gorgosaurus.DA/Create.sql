@@ -4,18 +4,20 @@
 	SubforumId INTEGER NOT NULL CHECK(SubforumId > 0),
 	ModifiedOnUnix INTEGER,
     CreatedOnUnix INTEGER,
-	FOREIGN KEY(SubforumId) REFERENCES Subforum(Id)
+	CreatedByUserId INTEGER,
+	FOREIGN KEY(SubforumId) REFERENCES Subforum(Id),
+	FOREIGN KEY(CreatedByUserId) REFERENCES ForumUser(Id)
 );
 
 create table ForumPost(
     Id INTEGER PRIMARY KEY,
     PostText TEXT,
 	DiscussionId INTEGER NOT NULL CHECK(DiscussionId > 0),
-	Submitter_ForumUserId INTEGER NOT NULL CHECK(Submitter_ForumUserId > 0),
 	ModifiedOnUnix INTEGER,
     CreatedOnUnix INTEGER,
+	CreatedByUserId INTEGER NOT NULL CHECK(CreatedByUserId > 0),
 	FOREIGN KEY(DiscussionId) REFERENCES Discussion(Id),
-	FOREIGN KEY(Submitter_ForumUserId) REFERENCES ForumUser(Id)
+	FOREIGN KEY(CreatedByUserId) REFERENCES ForumUser(Id)
 );
 
 create table Subforum(
@@ -23,7 +25,8 @@ create table Subforum(
 	Title TEXT,
 	Description TEXT,
 	ModifiedOnUnix INTEGER,
-	CreatedOnUnix INTEGER
+	CreatedOnUnix INTEGER,
+	CreatedByUserId INTEGER
 );
 
 create table ForumUser(
@@ -32,7 +35,8 @@ create table ForumUser(
 	Password TEXT,
 	IsAdmin INTEGER DEFAULT 0 CHECK(IsAdmin in (0,1)),
 	ModifiedOnUnix INTEGER,
-	CreatedOnUnix INTEGER
+	CreatedOnUnix INTEGER,
+	CreatedByUserId INTEGER
 );
 
 

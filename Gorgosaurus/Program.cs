@@ -54,8 +54,8 @@
                 });
 
                 DiscussionRepository.Instance.Insert(new Discussion() { 
-                    Id = 1, Title = "Hello!", SubforumId = 1, CreatedOnUnix = DateTime.UtcNow.ToUnixTimestamp() });
-                var post = new ForumPost() { Id = 1, PostText = "crap", DiscussionId = 1 };
+                    Id = 1, Title = "Hello!", SubforumId = 1, CreatedOnUnix = DateTime.UtcNow.ToUnixTimestamp(), CreatedByUserId = 1 });
+                var post = new ForumPost() { Id = 1, PostText = "crap", DiscussionId = 1, CreatedByUserId = 1 };
                 ForumPostRepository.Instance.Insert(post);
                 var ent = ForumPostRepository.Instance.Get(1);
 
@@ -63,7 +63,6 @@
                 Console.WriteLine("Press any [Enter] to close the host.");
 
                 ent.PostText = "Really nice post";
-                ent.Submitter_ForumUserId = 1;
                 ForumPostRepository.Instance.Update(ent);
 
                 var entNew = ForumPostRepository.Instance.Get(1);
