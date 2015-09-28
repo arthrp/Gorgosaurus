@@ -80,7 +80,10 @@ namespace Gorgosaurus.DA.Repositories
                 string propValue = "";
                 foreach (PropertyInfo property in properties)
                 {
-                    if (!property.CanWrite)
+                    if (!property.CanWrite ||
+                        property.IsEnumerable() ||
+
+                        property.CustomAttributes.Any(a => a.AttributeType.Name == "NotColumn"))
                         continue;
 
                     propValue = (property.IsNumeric()) ?

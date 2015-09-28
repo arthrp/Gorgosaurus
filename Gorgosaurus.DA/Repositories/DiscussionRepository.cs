@@ -16,11 +16,15 @@ namespace Gorgosaurus.DA.Repositories
         {
             var discussion =  base.Get(id);
 
-            string sql = String.Format("select * from {0} where DiscussionId={1}", typeof(ForumPost).Name, id);
+            var props = new ForumPost().GetPropertiesAsCsv();
+
+            string sql = String.Format(
+                @"select {0},fu.Username as CreatedByUsername from {1} inner join {2} as fu on {1}.CreatedByUserId = fu.Id where DiscussionId = :discussionId", props, 
+                    typeof(ForumPost).Name, typeof(ForumUser).Name);
 
             using (var conn = DbConnector.GetOpenConnection())
             {
-                var posts = conn.Query<ForumPost>(sql);
+                var posts = conn.Query<ForumPost>(sql, new { discussionId = id });
 
                 discussion.Posts = posts;
             }

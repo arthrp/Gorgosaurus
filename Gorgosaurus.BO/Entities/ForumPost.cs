@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gorgosaurus.BO.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,5 +12,8 @@ namespace Gorgosaurus.BO.Entities
         public string PostText { get; set; }
 
         public long? DiscussionId { get; set; }
+
+        [NotColumn]
+        public string CreatedByUsername { get; set; }
     }
 }
