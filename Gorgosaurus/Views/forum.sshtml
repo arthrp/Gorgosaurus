@@ -1,10 +1,11 @@
 ﻿<div ng-repeat="post in forumCtrl.posts" class="post">
   <div class="user-info pull-left">
+    
     <img src="/Content/anon_av1.png" height="64" width="64" />
   </div>
   <div class="post-content">
     <div class="post-header">
-      {{ post.createdOn | amDateFormat: "DD.MM.YYYY HH:mm:ss" }}
+      <span class="username">{{ post.createdByUsername }}</span> on {{ post.createdOn | amDateFormat: "DD.MM.YYYY HH:mm:ss" }}
     </div>
 
     <div class="post-body">
