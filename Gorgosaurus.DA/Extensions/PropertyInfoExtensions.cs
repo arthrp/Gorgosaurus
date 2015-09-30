@@ -30,5 +30,16 @@ namespace Gorgosaurus.DA.Extensions
                     return false;
             }
         }
+
+        public static string GetStringValue(this PropertyInfo propInfo, object obj)
+        {
+            var res = propInfo.GetValue(obj);
+
+            if (res == null)
+                return "null";
+
+            return (propInfo.IsNumeric()) ?
+                        propInfo.GetValue(obj).ToString() : "'" + propInfo.GetValue(obj) + "'";
+        }
     }
 }

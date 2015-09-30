@@ -29,5 +29,18 @@ namespace Gorgosaurus.DA
                 conn.Close();
             }
         }
+
+        public static void EnableForeignKeys()
+        {
+            using (var conn = DbConnector.GetRawConnection())
+            {
+                conn.Open();
+
+                var cmd = new SqliteCommandWrapper("PRAGMA foreign_keys = ON", conn);
+
+                cmd.GetInner().ExecuteNonQuery();
+                conn.Close();
+            }
+        }
     }
 }

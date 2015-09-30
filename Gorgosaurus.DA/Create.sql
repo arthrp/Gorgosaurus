@@ -15,7 +15,7 @@ create table ForumPost(
 	DiscussionId INTEGER NOT NULL CHECK(DiscussionId > 0),
 	ModifiedOnUnix INTEGER,
     CreatedOnUnix INTEGER,
-	CreatedByUserId INTEGER NOT NULL CHECK(CreatedByUserId > 0),
+	CreatedByUserId INTEGER,
 	FOREIGN KEY(DiscussionId) REFERENCES Discussion(Id),
 	FOREIGN KEY(CreatedByUserId) REFERENCES ForumUser(Id)
 );

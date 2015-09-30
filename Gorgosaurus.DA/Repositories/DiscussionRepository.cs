@@ -19,7 +19,7 @@ namespace Gorgosaurus.DA.Repositories
             var props = new ForumPost().GetPropertiesAsCsv();
 
             string sql = String.Format(
-                @"select {0},fu.Username as CreatedByUsername from {1} inner join {2} as fu on {1}.CreatedByUserId = fu.Id where DiscussionId = :discussionId", props, 
+                @"select {0},fu.Username as CreatedByUsername from {1} left outer join {2} as fu on {1}.CreatedByUserId = fu.Id where DiscussionId = :discussionId", props, 
                     typeof(ForumPost).Name, typeof(ForumUser).Name);
 
             using (var conn = DbConnector.GetOpenConnection())

@@ -48,8 +48,7 @@ namespace Gorgosaurus.DA.Repositories
 
                     var attrs = property.CustomAttributes;
 
-                    propValue = (property.IsNumeric()) ?
-                        property.GetValue(obj).ToString() : "'" + property.GetValue(obj) + "'";
+                    propValue = property.GetStringValue(obj);
 
                     sqlFirstPart.Append(property.Name.ToLower() + ",");
                     sqlSecondPart.Append(propValue + ",");
@@ -86,8 +85,7 @@ namespace Gorgosaurus.DA.Repositories
                         property.CustomAttributes.Any(a => a.AttributeType.Name == "NotColumn"))
                         continue;
 
-                    propValue = (property.IsNumeric()) ?
-                        property.GetValue(obj).ToString() : "'" + property.GetValue(obj) + "'";
+                    propValue = property.GetStringValue(obj);
 
                     sqlSecondPart.Append(property.Name.ToLower() + "=" + propValue + ",");
 

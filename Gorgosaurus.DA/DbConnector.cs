@@ -56,6 +56,7 @@ namespace Gorgosaurus.DA
             }
 
             DbCreator.CreateDbStructure();
+            DbCreator.EnableForeignKeys();
         }
 
         public static void Delete()

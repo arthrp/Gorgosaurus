@@ -22,6 +22,17 @@
     color:#111;
 }
 
+.post-header > .username > a{
+    color: #1F3D99;
+    border-bottom:1px dotted #111;
+}
+
+.post-header > .username > a:hover {
+    color: #0F1F4C;
+    border-bottom:1px dotted #0F1F4C;
+    text-decoration:none;
+}
+
 .post-content{
     margin:5px 3px;
     padding:1px 5px;
