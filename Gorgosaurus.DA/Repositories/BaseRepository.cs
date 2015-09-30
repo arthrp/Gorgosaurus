@@ -73,7 +73,6 @@ namespace Gorgosaurus.DA.Repositories
             {
                 var sqlFirstPart = new StringBuilder("update " + _entityName);
                 var sqlSecondPart = new StringBuilder(" set ");
-                string sqlThirdPart = " where Id=" + obj.Id;
 
                 PropertyInfo[] properties = obj.GetType().GetProperties();
                 string propValue = "";
@@ -93,7 +92,7 @@ namespace Gorgosaurus.DA.Repositories
 
                 sqlSecondPart.Length -= 1;
 
-                int affected = conn.Execute(sqlFirstPart.ToString() + sqlSecondPart.ToString() + sqlThirdPart.ToString());
+                int affected = conn.Execute(sqlFirstPart.ToString() + sqlSecondPart.ToString() + " where Id = :id", new { id = obj.Id });
 
                 Debug.WriteLine("updating " + affected + " row(s)");
             }
