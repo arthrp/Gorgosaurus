@@ -34,7 +34,6 @@
                 string adminPass = "haha";
 
                 string hash = CryptoHelper.GenerateHash(adminPass, adminSalt);
-                Console.WriteLine(hash);
                 File.WriteAllText(@"F:\Temp\pass.txt", hash);
 
                 SubforumRepository.Instance.Insert(new Subforum()

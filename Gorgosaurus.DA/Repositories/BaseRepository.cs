@@ -103,9 +103,9 @@ namespace Gorgosaurus.DA.Repositories
         {
             using (var conn = DbConnector.GetOpenConnection())
             {
-                string sql = String.Format("delete from {0} where id={1}", _entityName, id);
+                string sql = String.Format("delete from {0} where id = :id", _entityName);
 
-                int affected = conn.Execute(sql);
+                int affected = conn.Execute(sql, new { id });
 
                 Debug.WriteLine("deleted " + affected + " row(s)");
             }
