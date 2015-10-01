@@ -1,4 +1,5 @@
-﻿<div ng-repeat="post in forumCtrl.posts" class="post">
+﻿<h2>{{ forumCtrl.currentDiscussion.title }}</h2>
+<div ng-repeat="post in forumCtrl.currentDiscussion.posts" class="post">
   <div class="user-info pull-left">
     
     <img src="/Content/anon_av1.png" height="64" width="64" />

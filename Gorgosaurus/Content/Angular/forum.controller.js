@@ -7,12 +7,13 @@
         var self = this;
 
         self.posts = [];
+        self.currentDiscussion = null;
         self.newPostText = "";
 
         self.getDiscussionPosts = function (discussionId) {
             $http.get('/discussion/' + discussionId)
                 .success(function (respData) {
-                    self.posts = respData.posts;
+                    self.currentDiscussion = respData;
                 });
         };
 
