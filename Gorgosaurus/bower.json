@@ -6,6 +6,7 @@
     "angular": "~1.4",
     "angular-moment": "~0.10.2",
 	"angular-bootstrap": "~0.13",
+	"angular-ui-router": "~0.2.15",
     "bootstrap": "~3.3.1",
     "fontawesome": "~4.3.0",
     "moment": "~2.10.3"
