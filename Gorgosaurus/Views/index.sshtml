@@ -13,10 +13,8 @@
 
         @Partial['header.sshtml']
 
-    <div id="forum-container">
-
-            @Partial['forum.sshtml']
-
+    <div id="forum-container">			
+			<div ui-view=""></div>
     </div>
 
     @Partial['scripts.sshtml']
