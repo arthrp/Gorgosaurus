@@ -16,13 +16,35 @@ namespace Gorgosaurus.DA.Repositories
         {
             var res = base.Get(id);
 
-            string sql = String.Format("select * from {0} where SubforumId={1}", typeof(Discussion).Name, id);
+            string sql = String.Format("select * from {0} where SubforumId = :id", typeof(Discussion).Name);
 
             using (var conn = DbConnector.GetOpenConnection())
             {
-                var discussions = conn.Query<Discussion>(sql);
+                var discussions = conn.Query<Discussion>(sql, new { id });
 
                 res.Discussions = discussions;
+            }
+
+            return res;
+        }
+
+        public Subforum Get(string title)
+        {
+            string sql = String.Format(@"select * from {0} where Title = :title", typeof(Subforum).Name);
+            string discussionsSql = String.Format("select * from {0} where SubforumId = :id", typeof(Discussion).Name);
+
+            Subforum res = null;
+
+            using (var conn = DbConnector.GetOpenConnection())
+            {
+                res = conn.Query<Subforum>(sql, new { title }).FirstOrDefault();
+
+                if(res != null)
+                {
+                    var discussions = conn.Query<Discussion>(discussionsSql, new { id = res.Id });
+
+                    res.Discussions = discussions;
+                }
             }
 
             return res;
