@@ -322,7 +322,7 @@
     <Content Include="Content\Bower\angular-moment\angular-moment.min.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Templates\test.htm">
+    <Content Include="Content\Templates\forum.htm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Views\header.sshtml">

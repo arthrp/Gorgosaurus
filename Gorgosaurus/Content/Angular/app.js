@@ -3,12 +3,13 @@
 
     app.config(function ($stateProvider, $urlRouterProvider) {
 
-        $urlRouterProvider.otherwise('/test');
+        $urlRouterProvider.otherwise('/discussion/1');
 
         $stateProvider
-            .state('test', {
-                url: '/test',
-                templateUrl: 'Content/Templates/test.htm'
+            .state('discussion', {
+                url: '/discussion/{id:int}',
+                templateUrl: 'Content/Templates/forum.htm',
+                controller: 'forumController as forumCtrl'
             });
 
     });

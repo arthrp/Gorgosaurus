@@ -15,17 +15,8 @@
 
     <div id="forum-container">
 
-        <div ng-controller="forumController as forumCtrl">
-
             @Partial['forum.sshtml']
 
-            <div id="post-input-wrapper">
-                <textarea class="form-control" ng-model="forumCtrl.newPostText"></textarea><br>
-            </div>
-
-            <button class="btn btn-success" ng-click="forumCtrl.addPost()">Add</button>
-
-        </div>
     </div>
 
     @Partial['scripts.sshtml']

@@ -1,0 +1,32 @@
+﻿<h2>{{ forumCtrl.currentDiscussion.title }}</h2>
+
+<div ng-repeat="post in forumCtrl.currentDiscussion.posts" class="post">
+    <div class="user-info pull-left">
+
+        <img src="/Content/anon_av1.png" height="64" width="64" />
+    </div>
+    <div class="post-content">
+        <div class="post-header">
+            <span ng-show="post.createdByUsername" class="username"><a href="#">{{ post.createdByUsername }}</a></span>
+            <span ng-hide="post.createdByUsername" class="username">Anonymous</span>
+            on {{ post.createdOn | amDateFormat: "DD.MM.YYYY HH:mm:ss" }}
+        </div>
+
+        <div class="post-body">
+            <span class="post-text">
+                {{ post.postText }}
+            </span>
+
+            <button class="btn btn-danger" ng-click="forumCtrl.removePost(post.id)">
+                <i class="fa fa-trash-o"></i>
+            </button>
+        </div>
+    </div>
+    <div style="clear:both"></div>
+</div>
+
+<div id="post-input-wrapper">
+    <textarea class="form-control" ng-model="forumCtrl.newPostText"></textarea><br>
+</div>
+
+<button class="btn btn-success" ng-click="forumCtrl.addPost()">Add</button>

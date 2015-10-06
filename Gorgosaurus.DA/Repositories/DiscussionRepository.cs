@@ -16,6 +16,9 @@ namespace Gorgosaurus.DA.Repositories
         {
             var discussion =  base.Get(id);
 
+            if (discussion == null)
+                return null;
+
             var props = new ForumPost().GetPropertiesAsCsv();
 
             string sql = String.Format(

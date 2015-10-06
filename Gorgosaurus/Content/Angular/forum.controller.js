@@ -1,10 +1,12 @@
 ﻿(function () {
     angular.module('forumApp').controller('forumController', forumController);
 
-    forumController.$inject = ['$scope', '$http'];
+    forumController.$inject = ['$stateParams', '$scope', '$http'];
 
-    function forumController($scope, $http) {
+    function forumController($stateParams, $scope, $http) {
         var self = this;
+
+        console.log($stateParams);
 
         self.posts = [];
         self.currentDiscussion = null;
@@ -18,8 +20,6 @@
         };
 
         self.addPost = function () {
-            console.log('posting');
-
             var data = { "postText": self.newPostText, "discussionId": 1 };
 
             $http.post('/post/add', data)
@@ -39,7 +39,7 @@
                 });            
         };
 
-        self.getDiscussionPosts(1);
+        self.getDiscussionPosts($stateParams['id']);
     }
 
 })();
