@@ -22,7 +22,7 @@ create table ForumPost(
 
 create table Subforum(
 	Id INTEGER PRIMARY KEY,
-	Title TEXT,
+	Title TEXT UNIQUE,
 	Description TEXT,
 	ModifiedOnUnix INTEGER,
 	CreatedOnUnix INTEGER,
