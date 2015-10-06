@@ -1,0 +1,4 @@
+language: csharp
+solution:  Gorgosaurus.sln
+before_install:
+  - sudo apt-get install nunit-console
