@@ -1,3 +1,4 @@
+sudo: false
 language: csharp
 solution:  Gorgosaurus.sln
 before_install:
