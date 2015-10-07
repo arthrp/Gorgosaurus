@@ -1,9 +1,9 @@
 ﻿(function () {
-    angular.module('forumApp').controller('forumController', forumController);
+    angular.module('forumApp').controller('discussionController', discussionController);
 
-    forumController.$inject = ['$stateParams', '$scope', '$http'];
+    discussionController.$inject = ['$stateParams', '$scope', '$http'];
 
-    function forumController($stateParams, $scope, $http) {
+    function discussionController($stateParams, $scope, $http) {
         var self = this;
 
         console.log($stateParams);
@@ -25,7 +25,7 @@
             $http.post('/post/add', data)
                 .success(function (respData) {
                     console.log(respData);
-                    self.getDiscussionPosts(1);
+                    self.getDiscussionPosts($stateParams['id']);
                 });
 
             self.newPostText = "";
@@ -35,7 +35,7 @@
             $http.delete('/post/remove/' + postId)
                 .success(function (data) {
                     console.log('deleted');
-                    self.getDiscussionPosts(1);
+                    self.getDiscussionPosts($stateParams['id']);
                 });            
         };
 

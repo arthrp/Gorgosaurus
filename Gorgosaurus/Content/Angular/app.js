@@ -8,8 +8,8 @@
         $stateProvider
             .state('discussion', {
                 url: '/discussion/{id:int}',
-                templateUrl: 'Content/Templates/forum.htm',
-                controller: 'forumController as forumCtrl'
+                templateUrl: 'Content/Templates/discussion.htm',
+                controller: 'discussionController as forumCtrl'
             });
 
     });

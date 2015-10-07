@@ -6,5 +6,5 @@
 <script type='text/javascript' src='/Content/Bower/angular-moment/angular-moment.js'></script>
 <script type='text/javascript' src='/Content/Bower/angular-ui-router/release/angular-ui-router.min.js'></script>
 <script type='text/javascript' src='/Content/Angular/app.js'></script>
-<script type='text/javascript' src='/Content/Angular/forum.controller.js'></script>
+<script type='text/javascript' src='/Content/Angular/discussion.controller.js'></script>
 <script type='text/javascript' src='/Content/Angular/account.controller.js'></script>
