@@ -4,5 +4,4 @@ solution:  Gorgosaurus.sln
 addons:
   apt:
     packages:
-    - cmake
     - nunit-console
