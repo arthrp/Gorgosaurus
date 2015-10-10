@@ -8,15 +8,20 @@
 
         self.current = null;
 
-        function getSubforumDiscussions() {
+        function getSubforum() {
             var titleToSearchFor = $stateParams['title'];
 
             $http.get('/subforum/' + titleToSearchFor)
                 .success(function (res) {
+                    console.log(res);
                     self.current = res;
+                })
+                .error(function (res) {
+                    console.log(res);
+                    self.current = null;
                 });
         }
 
-        getSubforumDiscussions();
+        getSubforum();
     }
 })();

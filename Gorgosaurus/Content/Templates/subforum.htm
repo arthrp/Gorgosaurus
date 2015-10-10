@@ -1,1 +1,20 @@
-﻿<h2>{{ subforumCtrl.current.title }}</h2>
+﻿<div ng-hide="subforumCtrl.current">
+    <h2>Not found</h2>
+</div>
+
+<div ng-show="subforumCtrl.current">
+    <h2>{{ subforumCtrl.current.title }}</h2>
+
+    <table class="table">
+        <thead><tr>
+                <th>Title</th>
+            </tr>
+        </thead>
+
+        <tbody ng-repeat="discussion in subforumCtrl.current.discussions">
+            <tr>
+                <td>{{ discussion.title }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
