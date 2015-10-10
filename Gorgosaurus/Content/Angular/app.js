@@ -10,6 +10,11 @@
                 url: '/discussion/{id:int}',
                 templateUrl: 'Content/Templates/discussion.htm',
                 controller: 'discussionController as forumCtrl'
+            })
+            .state('subforum', {
+                url: '/subforum/{title}',
+                templateUrl: 'Content/Templates/subforum.htm',
+                controller: 'subforumController as subforumCtrl'
             });
 
     });
