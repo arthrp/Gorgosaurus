@@ -13,7 +13,7 @@
 
         <tbody ng-repeat="discussion in subforumCtrl.current.discussions">
             <tr>
-                <td>{{ discussion.title }}</td>
+                <td><a ng-href="/#/discussion/{{ discussion.id }}">{{ discussion.title }}</a></td>
             </tr>
         </tbody>
     </table>
