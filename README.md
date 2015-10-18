@@ -1,6 +1,6 @@
 # Gorgosaurus
 
-![Build-status](https://ci.appveyor.com/api/projects/status/vg7w2tj5enb23slo?svg=true)
+Appveyor: ![Build-status](https://ci.appveyor.com/api/projects/status/vg7w2tj5enb23slo?svg=true)
 
 Gorgosaurus is Nancy-based forum engine. 
 
