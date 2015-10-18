@@ -33,35 +33,9 @@ namespace Gorgosaurus.DA.Repositories
 
             using (var conn = DbConnector.GetOpenConnection())
             {
-                var sqlFirstPart = new StringBuilder("insert into " + _entityName + "(");
-                var sqlSecondPart = new StringBuilder(" values(");
+                var sql = GetInsertSql(obj, skipId);
 
-                PropertyInfo[] properties = obj.GetType().GetProperties();
-                string propValue = "";
-                foreach (PropertyInfo property in properties)
-                {
-                    if (!property.CanWrite ||
-                        property.IsEnumerable() ||
-                        (property.IsCurrentEntityId() && skipId) ||
-                        property.CustomAttributes.Any(a => a.AttributeType.Name == "NotColumn"))
-                        continue;
-
-                    var attrs = property.CustomAttributes;
-
-                    propValue = property.GetStringValue(obj);
-
-                    sqlFirstPart.Append(property.Name.ToLower() + ",");
-                    sqlSecondPart.Append(propValue + ",");
-                }
-
-                //deleting last commas
-                sqlFirstPart.Length -= 1;
-                sqlSecondPart.Length -= 1;
-
-                sqlFirstPart.Append(")");
-                sqlSecondPart.Append(")");
-
-                int affected = conn.Execute(sqlFirstPart.ToString() + sqlSecondPart.ToString());
+                int affected = conn.Execute(sql);
 
                 //Debug.WriteLine("inserting " + affected + " row(s)");
             }
@@ -108,6 +82,44 @@ namespace Gorgosaurus.DA.Repositories
 
                 Debug.WriteLine("deleted " + affected + " row(s)");
             }
+        }
+
+        protected string GetInsertSql(T obj, bool skipId, bool onlyCurrentTypeProperties = false, Type typeOverride = null)
+        {
+            var sqlFirstPart = (typeOverride != null) ?
+                new StringBuilder("insert into " + typeOverride.Name + "(") :
+                new StringBuilder("insert into " + _entityName + "(");
+            var sqlSecondPart = new StringBuilder(" values(");
+
+            PropertyInfo[] properties = obj.GetType().GetProperties();
+            string propValue = "";
+            foreach (PropertyInfo property in properties)
+            {
+                if (onlyCurrentTypeProperties && !property.DeclaringType.Name.Equals(obj.GetType().Name))
+                    continue;
+
+                if (!property.CanWrite ||
+                    property.IsEnumerable() ||
+                    (property.IsCurrentEntityId() && skipId) ||
+                    property.CustomAttributes.Any(a => a.AttributeType.Name == "NotColumn"))
+                    continue;
+
+                var attrs = property.CustomAttributes;
+
+                propValue = property.GetStringValue(obj);
+
+                sqlFirstPart.Append(property.Name.ToLower() + ",");
+                sqlSecondPart.Append(propValue + ",");
+            }
+
+            //deleting last commas
+            sqlFirstPart.Length -= 1;
+            sqlSecondPart.Length -= 1;
+
+            sqlFirstPart.Append(")");
+            sqlSecondPart.Append(")");
+
+            return sqlFirstPart.ToString() + sqlSecondPart.ToString();
         }
     }
 }

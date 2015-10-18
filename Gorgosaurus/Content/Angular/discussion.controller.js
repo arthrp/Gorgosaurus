@@ -20,7 +20,7 @@
         };
 
         self.addPost = function () {
-            var data = { "postText": self.newPostText, "discussionId": 1 };
+            var data = { "postText": self.newPostText, "discussionId": $stateParams['id'] };
 
             $http.post('/post/add', data)
                 .success(function (respData) {

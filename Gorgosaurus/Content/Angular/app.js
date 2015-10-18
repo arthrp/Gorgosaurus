@@ -3,7 +3,7 @@
 
     app.config(function ($stateProvider, $urlRouterProvider) {
 
-        $urlRouterProvider.otherwise('/discussion/1');
+        $urlRouterProvider.otherwise('/subforum/Main forum');
 
         $stateProvider
             .state('discussion', {

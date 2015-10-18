@@ -13,6 +13,10 @@ namespace Gorgosaurus.BO.Entities
 
         public string Password { get; set; }
 
+        public string Name { get; set; }
+
+        public string Surname { get; set; }
+
         [NotColumn]
         public bool IsUserAdmin
         {

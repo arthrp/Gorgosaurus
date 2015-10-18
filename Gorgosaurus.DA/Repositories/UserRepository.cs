@@ -1,4 +1,6 @@
-﻿using Gorgosaurus.BO.Entities;
+﻿using AutoMapper;
+using Dapper;
+using Gorgosaurus.BO.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

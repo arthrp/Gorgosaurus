@@ -33,10 +33,18 @@ create table ForumUser(
 	Id INTEGER PRIMARY KEY,
 	Username TEXT,
 	Password TEXT,
+	Name TEXT,
+	Surname TEXT,
 	IsAdmin INTEGER DEFAULT 0 CHECK(IsAdmin in (0,1)),
 	ModifiedOnUnix INTEGER,
 	CreatedOnUnix INTEGER,
 	CreatedByUserId INTEGER
 );
 
-
+create table ForumUserAdditionalInfo(
+	Id INTEGER PRIMARY KEY,
+	Name TEXT,
+	Surname TEXT,
+	ForumUserId INTEGER,
+	FOREIGN KEY(ForumUserId) REFERENCES ForumUser(Id) ON DELETE CASCADE
+);

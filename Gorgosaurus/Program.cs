@@ -47,11 +47,25 @@
                     Id = 1,
                     Username = "admin",
                     Password = adminSalt + hash,
-                    IsUserAdmin = true
+                    IsUserAdmin = true,
+                    Name = "Vladimir",
+                    Surname = "Johnson"
                 });
 
-                DiscussionRepository.Instance.Insert(new Discussion() { 
-                    Id = 1, Title = "Hello!", SubforumId = 1, CreatedOnUnix = DateTime.UtcNow.ToUnixTimestamp(), CreatedByUserId = 1 });
+                DiscussionRepository.Instance.Insert(new Discussion() {
+                    Id = 1,
+                    Title = "Hello!",
+                    SubforumId = 1,
+                    CreatedOnUnix = DateTime.UtcNow.ToUnixTimestamp(),
+                    CreatedByUserId = 1 });
+                DiscussionRepository.Instance.Insert(new Discussion()
+                {
+                    Id = 2,
+                    Title = "Fuck",
+                    SubforumId = 1,
+                    CreatedOnUnix = DateTime.UtcNow.ToUnixTimestamp(),
+                    CreatedByUserId = 1
+                });
                 var post = new ForumPost() { Id = 1, PostText = "crap", DiscussionId = 1, CreatedByUserId = 1 };
                 ForumPostRepository.Instance.Insert(post);
                 var ent = ForumPostRepository.Instance.Get(1);
@@ -66,10 +80,10 @@
 
                 SubforumRepository.Instance.Insert(new Subforum()
                 {
-                    Title = null,
+                    Title = "New",
                     Description = "talking about important stuff"
                 });
-               
+
 
                 var user = UserRepository.Instance.Get(1);
 

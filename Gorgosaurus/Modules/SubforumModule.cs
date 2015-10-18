@@ -1,6 +1,7 @@
 ﻿using Gorgosaurus.BO.Entities;
 using Gorgosaurus.DA.Repositories;
 using Nancy;
+using Nancy.Helpers;
 using Nancy.ModelBinding;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,8 @@ namespace Gorgosaurus.Modules
         {
             Get["/subforum/{title}"] = parameters =>
             {
-                string subforumTitle = parameters.title;
+                
+                string subforumTitle = HttpUtility.UrlDecode(parameters.title);
 
                 if (String.IsNullOrEmpty(subforumTitle))
                     return HttpStatusCode.BadRequest;

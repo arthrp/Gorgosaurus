@@ -34,7 +34,7 @@ namespace Gorgosaurus.BO.Entities
 
         public long? CreatedByUserId { get; set; }
 
-        public virtual string GetPropertiesAsCsv()
+        public virtual string GetPropertiesAsCsv(bool onlyCurrentTypeProperties = false)
         {
             var res = new StringBuilder();
             PropertyInfo[] properties = this.GetType().GetProperties();
@@ -42,6 +42,9 @@ namespace Gorgosaurus.BO.Entities
             string typeName = this.GetType().Name;
             foreach (PropertyInfo property in properties)
             {
+                if (onlyCurrentTypeProperties && !property.DeclaringType.Name.Equals(typeName))
+                    continue;
+
                 if (!property.CanWrite ||
                     property.IsEnumerable() ||
                     property.CustomAttributes.Any(a => a.AttributeType.Name == "NotColumn"))
