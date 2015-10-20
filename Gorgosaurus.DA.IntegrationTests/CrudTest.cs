@@ -21,19 +21,25 @@ namespace Gorgosaurus.DA.IntegrationTests
         }
 
         [Test]
-        [Ignore]
-        public void CanAddAndRetrieveEntity()
+        public void CanAddAndReceiveSubforum()
         {
-            DiscussionRepository.Instance.Insert(new Discussion() { Id = 1, Title = "Test discussion" });
+            const string title = "Title";
 
-            var discussion = DiscussionRepository.Instance.Get(1);
-            Assert.True(discussion.Title.Equals("Test discussion"));
+            SubforumRepository.Instance.Insert(new Subforum()
+            {
+                Id = 1,
+                Title = title,
+                Description = "desc 1"
+            });
+            var subforum = SubforumRepository.Instance.Get(1);
+            Assert.True(subforum.Title.Equals(title));
         }
 
 
         [TearDown]
         public void TearDown()
         {
+            DbConnector.Delete();
         }
     }
 }
