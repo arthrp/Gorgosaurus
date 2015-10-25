@@ -17,13 +17,6 @@ namespace Gorgosaurus.BO.Entities
 
         public string Surname { get; set; }
 
-        [NotColumn]
-        public bool IsUserAdmin
-        {
-            get { return IsAdmin == 1; }
-            set { IsAdmin = (value) ? 1 : 0; }
-        }
-
-        public int IsAdmin { get; private set; }
+        public bool IsAdmin { get; set; }
     }
 }

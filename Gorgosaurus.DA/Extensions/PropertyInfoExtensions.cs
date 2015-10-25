@@ -38,6 +38,12 @@ namespace Gorgosaurus.DA.Extensions
             if (res == null)
                 return "null";
 
+            if(propInfo.PropertyType == typeof(bool))
+            {
+                bool val = (bool)propInfo.GetValue(obj);
+                return val ? "1" : "0";
+            }
+
             return (propInfo.IsNumeric()) ?
                         propInfo.GetValue(obj).ToString() : "'" + propInfo.GetValue(obj) + "'";
         }

@@ -47,7 +47,7 @@
                     Id = 1,
                     Username = "admin",
                     Password = adminSalt + hash,
-                    IsUserAdmin = true,
+                    IsAdmin = true,
                     Name = "Vladimir",
                     Surname = "Johnson"
                 });
