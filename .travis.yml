@@ -9,5 +9,5 @@ install:
     - nuget restore Gorgosaurus.sln
     - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
 script:
-  - xbuild /p:Configuration=Release solution-name.sln
+  - xbuild /p:Configuration=Release Gorgosaurus.sln
   - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./Gorgosaurus.DA.IntegrationTests/bin/Release/Gorgosaurus.DA.IntegrationTests.dll
