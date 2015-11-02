@@ -1,4 +1,6 @@
-﻿using Gorgosaurus.DA;
+﻿using Gorgosaurus.BO.Entities;
+using Gorgosaurus.DA;
+using Gorgosaurus.DA.Repositories;
 using Gorgosaurus.Models;
 using Nancy;
 using Nancy.Cookies;
@@ -24,7 +26,7 @@ namespace Gorgosaurus.Modules
                 if (String.IsNullOrEmpty(loginModel.Username) || String.IsNullOrEmpty(loginModel.Password))
                     return new Response() { StatusCode = HttpStatusCode.BadRequest };
 
-                bool isValid = AccountChecker.Instance.AreCredentialsValid(loginModel.Username, loginModel.Password);
+                bool isValid = AccountManager.Instance.AreCredentialsValid(loginModel.Username, loginModel.Password);
 
                 if (!isValid)
                     return new Response() { StatusCode = HttpStatusCode.Unauthorized };
@@ -49,6 +51,18 @@ namespace Gorgosaurus.Modules
                 response.Cookies.Add(cookieToAdd);
 
                 return response;
+            };
+
+            Post["account/create"] = parameters =>
+            {
+                //TODO: Auth!
+
+                var newUser = this.Bind<ForumUser>();
+                newUser.IsAdmin = false;
+
+                AccountManager.Instance.CreateUser(newUser);
+
+                return HttpStatusCode.OK;
             };
 
             Get["account/current"] = parameters =>

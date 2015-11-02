@@ -62,7 +62,7 @@
     <Reference Condition="'$(OS)' == 'Unix'" Include="Mono.Data.Sqlite" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountChecker.cs" />
+    <Compile Include="AccountManager.cs" />
     <Compile Include="DbConnector.cs" />
     <Compile Include="DbCreator.cs" />
     <Compile Include="Extensions\PropertyInfoExtensions.cs" />
