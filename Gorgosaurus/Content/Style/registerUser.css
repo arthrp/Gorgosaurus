@@ -1,0 +1,14 @@
+﻿#new-user-holder{
+    display: flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:space-around;
+}
+
+#new-user-holder > div{
+    margin: 8px 0;
+}
+
+#new-user-holder h2{
+    margin:1px 0 5px 0;
+}

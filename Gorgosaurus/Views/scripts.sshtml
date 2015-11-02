@@ -9,3 +9,4 @@
 <script type='text/javascript' src='/Content/Angular/subforum.controller.js'></script>
 <script type='text/javascript' src='/Content/Angular/discussion.controller.js'></script>
 <script type='text/javascript' src='/Content/Angular/account.controller.js'></script>
+<script type='text/javascript' src='/Content/Angular/userRegister.controller.js'></script>

@@ -15,6 +15,11 @@
                 url: '/subforum/{title}',
                 templateUrl: 'Content/Templates/subforum.htm',
                 controller: 'subforumController as subforumCtrl'
+            })
+            .state('userRegister', {
+                url: '/register',
+                templateUrl: 'Content/Templates/userRegistration.htm',
+                controller: 'userRegisterController as userRegCtrl'
             });
 
     });

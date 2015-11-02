@@ -1,0 +1,25 @@
+﻿<div id="new-user-holder">
+    <h2>Register new user</h2>
+
+    <div>
+        <label for="username" class="label label-default">Username</label>
+        <input type="text" name="username" class="form-control" ng-model="userRegCtrl.newUserInfo.username" />
+    </div>
+
+    <div>
+        <label for="userpass" class="label label-default">Password</label>
+        <input type="password" name="userpass" class="form-control" ng-model="userRegCtrl.newUserInfo.password" />
+    </div>
+
+    <div>
+        <label for="name" class="label label-default">Real name</label>
+        <input type="text" name="name" class="form-control" ng-model="userRegCtrl.newUserInfo.name" />
+    </div>
+
+    <div>
+        <label for="surname" class="label label-default">Surname</label>
+        <input type="text" name="surname" class="form-control" ng-model="userRegCtrl.newUserInfo.surname" />
+    </div>
+
+    <button class="btn btn-primary" ng-click="userRegCtrl.registerUser()">Register</button>
+</div>
