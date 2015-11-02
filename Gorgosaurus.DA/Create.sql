@@ -31,7 +31,7 @@ create table Subforum(
 
 create table ForumUser(
 	Id INTEGER PRIMARY KEY,
-	Username TEXT,
+	Username TEXT UNIQUE,
 	Password TEXT,
 	Name TEXT,
 	Surname TEXT,

@@ -62,6 +62,8 @@ namespace Gorgosaurus.Modules
 
                 AccountManager.Instance.CreateUser(newUser);
 
+                //var users = AccountManager.Instance.GetAllUsers();
+
                 return HttpStatusCode.OK;
             };
 

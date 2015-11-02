@@ -20,6 +20,7 @@ namespace Gorgosaurus.DA
                 conn.Open();
 
                 string outputDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+
                 string sql = File.ReadAllText(outputDir + "//Create.sql");
 
 

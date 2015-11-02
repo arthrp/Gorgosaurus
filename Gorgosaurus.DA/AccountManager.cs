@@ -44,7 +44,20 @@ namespace Gorgosaurus.DA
 
             user.Password = salt + hash;
 
-            UserRepository.Instance.Insert(user);
+            UserRepository.Instance.Insert(user, skipId: true);
+        }
+
+
+        public IEnumerable<ForumUser> GetAllUsers()
+        {
+            using (var conn = DbConnector.GetOpenConnection())
+            {
+                var res = conn.Query<ForumUser>(
+                    @"select * from ForumUser"
+                );
+
+                return res;
+            }
         }
     }
 }
