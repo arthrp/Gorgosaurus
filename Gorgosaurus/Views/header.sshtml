@@ -8,7 +8,7 @@
                        popover-title="{{ loginPopover.title }}" popover-placement="bottom" 
                        id="loginPrompt" href="#">Log in</a></li>
                 <li ng-show="accountCtrl.isLoggedIn"><a href="#" ng-click="accountCtrl.logout()">Log out</a></li>
-                <li><a href="/#/register">Sign up</a></li>
+                <li ng-hide="accountCtrl.isLoggedIn"><a href="/#/register">Sign up</a></li>
             </ul>
         </div>
     </nav>
