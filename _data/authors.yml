@@ -1,14 +1,11 @@
 # Authors
 
-billy_rick:
-  name: Billy Rick
-  web: http://thewhip.com
+arthur_peka:
+  name: Arthur
+  web: https://arthur-peka.github.io
   email: billy@rick.com
-  bio: "What do you want, jewels? I am a very extravagant man."
+  bio: "Software developer"
   avatar: bio-photo-2.jpg
-  twitter: extravagantman
-  google:
-    plus: BillyRick
 
 cornelius_fiddlebone:
   name: Cornelius Fiddlebone
