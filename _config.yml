@@ -2,8 +2,7 @@
 
 title:            Gorgosaurus blog
 locale:           en_US
-url:
-baseurl:          /Gorgosaurus
+url:              /Gorgosaurus        
 
 
 # Jekyll configuration
