@@ -1,10 +1,10 @@
 # Site navigation links
 
 - title: About
-  url: Gorgosaurus/about/
+  url: about/
 
 - title: Sample Posts
-  url: Gorgosaurus/posts/
+  url: posts/
 
 - title: FAQ
-  url: Gorgosaurus/theme-setup/
+  url: theme-setup/
