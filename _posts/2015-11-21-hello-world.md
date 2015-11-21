@@ -1,7 +1,7 @@
 ---
 layout: post
-title: First post
-excerpt: "The very first post in this blog"
+title: What this blog is about
+excerpt: "Describing what this blog is about"
 modified: 2015-11-21
 tags: [intro, first, non-technical]
 comments: true
