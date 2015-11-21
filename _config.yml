@@ -1,6 +1,6 @@
 # Site wide configuration
 
-title:            Site Title
+title:            Gorgosaurus blog
 locale:           en_US
 url:
 
@@ -26,9 +26,9 @@ kramdown:
 
 # Site owner
 owner:
-  name: Your Name
+  name: Arthur Peka
   avatar: bio-photo.jpg
-  bio: "Describe your self."
+  bio: "Software engineer"
   email:
   disqus-shortname:
   twitter: #username
@@ -40,7 +40,7 @@ owner:
     ad-client:
     ad-slot:
   bing-verify:
-  github: #username
+  github: arthur-peka
   stackoverflow: #123456/username   from a "http://stackoverflow.com/users/123456/username" link
   linkedin: #username
   xing: #username
