@@ -1,6 +1,7 @@
 ﻿using Gorgosaurus.BO.Entities;
 using Gorgosaurus.DA;
 using Gorgosaurus.DA.Repositories;
+using Gorgosaurus.Helpers;
 using Gorgosaurus.Models;
 using Nancy;
 using Nancy.Cookies;
@@ -15,7 +16,7 @@ namespace Gorgosaurus.Modules
 {
     public class AccountModule : NancyModule
     {
-        private const string AUTH_COOKIE_NAME = "Grg_user";
+        public const string AUTH_COOKIE_NAME = "Grg_user";
 
         public AccountModule()
         {
@@ -31,8 +32,14 @@ namespace Gorgosaurus.Modules
                 if (!isValid)
                     return new Response() { StatusCode = HttpStatusCode.Unauthorized };
 
+                var loggedInUser = UserRepository.Instance.Get(loginModel.Username);
+
+
                 var response = new Response() { StatusCode = HttpStatusCode.OK };
-                response.Cookies.Add(GenerateCookie(loginModel.Username, DateTime.Now.AddMonths(3)));
+                //response.Cookies.Add(GenerateCookie(loginModel.Username, DateTime.Now.AddMonths(3)));
+                var sessionId = RandomHelper.GetRandomAlphanumericString(32);
+                SimpleSession.Instance.Add(sessionId, loggedInUser);
+                response.Cookies.Add(GenerateCookie(sessionId, DateTime.Now.AddMonths(3)));
 
                 return response;
             };
@@ -42,12 +49,13 @@ namespace Gorgosaurus.Modules
                 var response = new Response() { StatusCode = HttpStatusCode.OK };
 
                 var requestCookie = Request.Cookies.FirstOrDefault(c => c.Key == AUTH_COOKIE_NAME);
-                string userName = requestCookie.Value;
+                string sessionId = requestCookie.Value;
 
-                if (String.IsNullOrEmpty(userName))
+                if (String.IsNullOrEmpty(sessionId))
                     return HttpStatusCode.OK;
 
-                var cookieToAdd = GenerateCookie(userName, DateTime.Now.AddYears(-1));
+                SimpleSession.Instance.Remove(requestCookie.Value);
+                var cookieToAdd = GenerateCookie(sessionId, DateTime.Now.AddYears(-1));
                 response.Cookies.Add(cookieToAdd);
 
                 return response;
@@ -62,8 +70,6 @@ namespace Gorgosaurus.Modules
 
                 AccountManager.Instance.CreateUser(newUser);
 
-                //var users = AccountManager.Instance.GetAllUsers();
-
                 return HttpStatusCode.OK;
             };
 
@@ -73,13 +79,18 @@ namespace Gorgosaurus.Modules
                 if (String.IsNullOrEmpty(requestCookie.Value))
                     return HttpStatusCode.OK;
 
-                return requestCookie.Value;
+                var user = SimpleSession.Instance.Get<ForumUser>(requestCookie.Value);
+
+                if (user == null)
+                    return HttpStatusCode.OK;
+
+                return user.Username;
             };
         }
 
-        private NancyCookie GenerateCookie(string userName, DateTime expiresAt)
+        private NancyCookie GenerateCookie(string cookieValue, DateTime expiresAt, string cookieName = AUTH_COOKIE_NAME)
         {
-            return new NancyCookie(name: AUTH_COOKIE_NAME, value: userName, httpOnly: true) { Path = "/", Expires = expiresAt };
+            return new NancyCookie(name: cookieName, value: cookieValue, httpOnly: true) { Path = "/", Expires = expiresAt };
         }
     }
 }

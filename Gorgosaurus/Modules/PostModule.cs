@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Nancy.ModelBinding;
 using Gorgosaurus.BO.Entities;
 using Gorgosaurus.DA.Repositories;
+using Gorgosaurus.Models;
 
 namespace Gorgosaurus.Modules
 {
@@ -17,6 +18,14 @@ namespace Gorgosaurus.Modules
             Post["/post/add"] = parameters =>
             {
                 var newForumPost = this.Bind<ForumPost>();
+
+                var requestCookie = Request.Cookies.FirstOrDefault(c => c.Key == AccountModule.AUTH_COOKIE_NAME);
+                var sessionId = requestCookie.Value;
+
+                var user = SimpleSession.Instance.Get<ForumUser>(sessionId);
+
+                if (user != null)
+                    newForumPost.CreatedByUserId = user.Id;
 
                 ForumPostRepository.Instance.Insert(newForumPost, true);
 
