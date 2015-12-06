@@ -187,3 +187,5 @@ bower_components/
 node_modules/
 
 *.userprefs
+
+.vs/
