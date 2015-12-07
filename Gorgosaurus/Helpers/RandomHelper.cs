@@ -11,8 +11,9 @@ namespace Gorgosaurus.Helpers
     {
         public static string GetRandomAlphanumericString(int length)
         {
-            char[] chars = new char[62];
-            chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".ToCharArray();
+            const string possibleChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+            char[] chars = new char[possibleChars.Length];
+            chars = possibleChars.ToCharArray();
             byte[] data = new byte[1];
             using (RNGCryptoServiceProvider crypto = new RNGCryptoServiceProvider())
             {
