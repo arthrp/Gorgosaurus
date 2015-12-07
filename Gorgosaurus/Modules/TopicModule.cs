@@ -6,9 +6,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Gorgosaurus
+namespace Gorgosaurus.Modules
 {
-    public class TopicModule : NancyModule
+    public class TopicModule : BaseModule
     {
         public TopicModule()
         {

@@ -11,7 +11,7 @@ using Gorgosaurus.Models;
 
 namespace Gorgosaurus.Modules
 {
-    public class PostModule : NancyModule
+    public class PostModule : BaseModule
     {
         public PostModule()
         {
@@ -19,10 +19,7 @@ namespace Gorgosaurus.Modules
             {
                 var newForumPost = this.Bind<ForumPost>();
 
-                var requestCookie = Request.Cookies.FirstOrDefault(c => c.Key == Constants.AUTH_COOKIE_NAME);
-                var sessionId = requestCookie.Value;
-
-                var user = SimpleSession.Instance.Get<ForumUser>(sessionId);
+                var user = GetCurrentUser();
 
                 if (user != null)
                     newForumPost.CreatedByUserId = user.Id;
