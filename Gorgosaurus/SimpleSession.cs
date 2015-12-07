@@ -20,7 +20,6 @@ namespace Gorgosaurus
         }
 
         private static readonly SimpleSession _instance = new SimpleSession();
-        //private readonly ObjectCache _cache = MemoryCache.Default;
         private const int _expirationDays = 60;
 
         public static SimpleSession Instance

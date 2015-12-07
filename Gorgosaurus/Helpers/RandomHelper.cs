@@ -20,10 +20,10 @@ namespace Gorgosaurus.Helpers
                 data = new byte[length];
                 crypto.GetNonZeroBytes(data);
             }
-            StringBuilder result = new StringBuilder(length);
-            foreach (byte b in data)
+            var result = new StringBuilder(length);
+            foreach (byte randomByte in data)
             {
-                result.Append(chars[b % (chars.Length)]);
+                result.Append(chars[randomByte % (chars.Length)]);
             }
             return result.ToString();
         }
