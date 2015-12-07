@@ -19,7 +19,7 @@ namespace Gorgosaurus.Modules
             {
                 var newForumPost = this.Bind<ForumPost>();
 
-                var requestCookie = Request.Cookies.FirstOrDefault(c => c.Key == AccountModule.AUTH_COOKIE_NAME);
+                var requestCookie = Request.Cookies.FirstOrDefault(c => c.Key == Constants.AUTH_COOKIE_NAME);
                 var sessionId = requestCookie.Value;
 
                 var user = SimpleSession.Instance.Get<ForumUser>(sessionId);

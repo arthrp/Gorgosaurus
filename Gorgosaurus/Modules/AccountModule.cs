@@ -16,8 +16,6 @@ namespace Gorgosaurus.Modules
 {
     public class AccountModule : NancyModule
     {
-        public const string AUTH_COOKIE_NAME = "Grg_user";
-
         public AccountModule()
         {
             Post["account/login"] = parameters =>
@@ -48,7 +46,7 @@ namespace Gorgosaurus.Modules
             {
                 var response = new Response() { StatusCode = HttpStatusCode.OK };
 
-                var requestCookie = Request.Cookies.FirstOrDefault(c => c.Key == AUTH_COOKIE_NAME);
+                var requestCookie = Request.Cookies.FirstOrDefault(c => c.Key == Constants.AUTH_COOKIE_NAME);
                 string sessionId = requestCookie.Value;
 
                 if (String.IsNullOrEmpty(sessionId))
@@ -63,8 +61,6 @@ namespace Gorgosaurus.Modules
 
             Post["account/create"] = parameters =>
             {
-                //TODO: Auth!
-
                 var newUser = this.Bind<ForumUser>();
                 newUser.IsAdmin = false;
 
@@ -75,7 +71,7 @@ namespace Gorgosaurus.Modules
 
             Get["account/current"] = parameters =>
             {
-                var requestCookie = Request.Cookies.FirstOrDefault(c => c.Key == AUTH_COOKIE_NAME);
+                var requestCookie = Request.Cookies.FirstOrDefault(c => c.Key == Constants.AUTH_COOKIE_NAME);
                 if (String.IsNullOrEmpty(requestCookie.Value))
                     return HttpStatusCode.OK;
 
@@ -88,7 +84,7 @@ namespace Gorgosaurus.Modules
             };
         }
 
-        private NancyCookie GenerateCookie(string cookieValue, DateTime expiresAt, string cookieName = AUTH_COOKIE_NAME)
+        private NancyCookie GenerateCookie(string cookieValue, DateTime expiresAt, string cookieName = Constants.AUTH_COOKIE_NAME)
         {
             return new NancyCookie(name: cookieName, value: cookieValue, httpOnly: true) { Path = "/", Expires = expiresAt };
         }
