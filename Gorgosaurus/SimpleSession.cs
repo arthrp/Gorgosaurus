@@ -39,8 +39,6 @@ namespace Gorgosaurus
             ObjectCache cache = MemoryCache.Default;
             var res = cache.Get(key);
 
-            var x = cache.Get("zz");
-
             if(res == null)
                 return null;
 
