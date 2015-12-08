@@ -20,7 +20,7 @@ namespace Gorgosaurus.Modules
                 return Response.AsJson<Discussion>(discussion);
             };
 
-            Post["discussion/add"] = parameters =>
+            Post["/discussion/add"] = parameters =>
             {
                 bool isAuthenticated = IsAuthenticated();
                 if (!isAuthenticated)
@@ -28,7 +28,7 @@ namespace Gorgosaurus.Modules
 
                 var newDiscussion = this.Bind<Discussion>();
 
-                DiscussionRepository.Instance.Insert(newDiscussion);
+                DiscussionRepository.Instance.Insert(newDiscussion, true);
 
                 return HttpStatusCode.OK;
             };

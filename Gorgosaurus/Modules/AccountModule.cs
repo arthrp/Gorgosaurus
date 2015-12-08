@@ -32,9 +32,8 @@ namespace Gorgosaurus.Modules
 
                 var loggedInUser = UserRepository.Instance.Get(loginModel.Username);
 
-
                 var response = new Response() { StatusCode = HttpStatusCode.OK };
-                //response.Cookies.Add(GenerateCookie(loginModel.Username, DateTime.Now.AddMonths(3)));
+
                 var sessionId = RandomHelper.GetRandomAlphanumericString(32);
                 SimpleSession.Instance.Add(sessionId, loggedInUser);
                 response.Cookies.Add(GenerateCookie(sessionId, DateTime.Now.AddMonths(3)));

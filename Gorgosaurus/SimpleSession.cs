@@ -36,6 +36,9 @@ namespace Gorgosaurus
 
         public T Get<T>(string key) where T : class
         {
+            if (String.IsNullOrEmpty(key))
+                return null;
+
             ObjectCache cache = MemoryCache.Default;
             var res = cache.Get(key);
 
