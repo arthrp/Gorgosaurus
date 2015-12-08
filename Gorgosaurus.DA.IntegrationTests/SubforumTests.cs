@@ -75,15 +75,18 @@ namespace Gorgosaurus.DA.IntegrationTests
 
             var dbSubforum = SubforumRepository.Instance.Get(1);
             Assert.True(dbSubforum.Title.Equals(title));
-
+            #if __MonoCS__
+            Assert.Throws<Mono.Data.Sqlite.SqliteException>(() => SubforumRepository.Instance.Insert(subforum));
+            #else
             Assert.Throws<SQLiteException>(() => SubforumRepository.Instance.Insert(subforum));
+            #endif
         }
 
 
         [TearDown]
         public void TearDown()
         {
-            DbConnector.Delete();
+            //DbConnector.Delete();
         }
     }
 }
