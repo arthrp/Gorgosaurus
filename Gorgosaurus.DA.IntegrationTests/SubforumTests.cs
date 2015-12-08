@@ -3,6 +3,7 @@ using Gorgosaurus.DA.Repositories;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -60,11 +61,29 @@ namespace Gorgosaurus.DA.IntegrationTests
             Assert.True(dbSubforum.Title.Equals(newTitle));
         }
 
+        [Test]
+        public void AddingDuplicateTitleSubforumFails()
+        {
+            const string title = "Title";
+            var subforum = new Subforum()
+            {
+                Id = 1,
+                Title = title,
+                Description = "desc 1"
+            };
+            SubforumRepository.Instance.Insert(subforum);
+
+            var dbSubforum = SubforumRepository.Instance.Get(1);
+            Assert.True(dbSubforum.Title.Equals(title));
+
+            Assert.Throws<SQLiteException>(() => SubforumRepository.Instance.Insert(subforum));
+        }
+
 
         [TearDown]
         public void TearDown()
         {
-            //DbConnector.Delete();
+            DbConnector.Delete();
         }
     }
 }
