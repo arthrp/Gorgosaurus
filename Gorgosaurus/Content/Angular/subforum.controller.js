@@ -10,7 +10,7 @@
 
         self.addDiscussion = function () {
             var modalInstance = $uibModal.open({
-                animation: $scope.animationsEnabled,
+                animation: true,
                 templateUrl: 'myModalContent.html',
                 controller: 'addDiscussionModal as addDiscussionCtrl',
                 size: 300,
