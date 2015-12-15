@@ -1,9 +1,9 @@
 ﻿(function () {
     angular.module('forumApp').controller('subforumController', subforumController);
 
-    subforumController.$inject = ['$uibModal', '$stateParams', '$http'];
+    subforumController.$inject = ['$uibModal', '$stateParams', '$http', '$scope'];
 
-    function subforumController($uibModal, $stateParams, $http) {
+    function subforumController($uibModal, $stateParams, $http, $scope) {
         var self = this;
 
         self.current = null;
