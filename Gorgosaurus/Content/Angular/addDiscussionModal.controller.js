@@ -16,6 +16,9 @@
                 .success(function (res) {
                     console.log(res);
                     $uibModalInstance.close(true);
+                })
+                .error(function (res) {
+                    $uibModalInstance.close(false);
                 });
         }
 
