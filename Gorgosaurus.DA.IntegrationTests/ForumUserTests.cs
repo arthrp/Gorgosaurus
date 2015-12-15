@@ -33,7 +33,7 @@ namespace Gorgosaurus.DA.IntegrationTests
             Assert.True(dbUser.Username.Equals(username));
 
 #if __MonoCS__
-            Assert.Throws<Mono.Data.Sqlite.SqliteException>(() => SubforumRepository.Instance.Insert(user, true));
+            Assert.Throws<Mono.Data.Sqlite.SqliteException>(() => UserRepository.Instance.Insert(user, true));
 #else
             Assert.Throws<SQLiteException>(() => UserRepository.Instance.Insert(user, true));
 #endif
