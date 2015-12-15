@@ -26,10 +26,10 @@
         </div>
         <div class="modal-body">
             <label for="topic-title">Title</label>
-            <input type="text" name="topic-title" class="form-control" />
+            <input type="text" name="topic-title" class="form-control" ng-model="addDiscussionCtrl.title" />
         </div>
         <div class="modal-footer">
-            <button class="btn btn-primary" type="button">OK</button>
+            <button class="btn btn-primary" type="button" ng-click="addDiscussionCtrl.add()">OK</button>
         </div>
     </script>
 </div>

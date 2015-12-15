@@ -12,19 +12,20 @@
             var modalInstance = $uibModal.open({
                 animation: $scope.animationsEnabled,
                 templateUrl: 'myModalContent.html',
-                controller: 'addDiscussionModal',
-                size: 300
+                controller: 'addDiscussionModal as addDiscussionCtrl',
+                size: 300,
+                resolve: {
+                    subforumId: function () {
+                        return self.current.id;
+                    }
+                }
             });
 
-            var data = { title: "Lala"+Math.random(), subforumId: self.current.id };
-
-            console.log('data', data);
-
-            $http.post('/discussion/add', data)
-                .success(function (res) {
-                    console.log(res);
+            modalInstance.result.then(function (res) {
+                if (res) {
                     getSubforum();
-                });
+                }
+            });
         };
 
         function getSubforum() {
