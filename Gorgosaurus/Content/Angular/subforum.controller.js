@@ -1,14 +1,21 @@
 ﻿(function () {
     angular.module('forumApp').controller('subforumController', subforumController);
 
-    subforumController.$inject = ['$stateParams', '$http'];
+    subforumController.$inject = ['$uibModal', '$stateParams', '$http'];
 
-    function subforumController($stateParams, $http) {
+    function subforumController($uibModal, $stateParams, $http) {
         var self = this;
 
         self.current = null;
 
         self.addDiscussion = function () {
+            var modalInstance = $uibModal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: 'myModalContent.html',
+                controller: 'addDiscussionModal',
+                size: 300
+            });
+
             var data = { title: "Lala"+Math.random(), subforumId: self.current.id };
 
             console.log('data', data);

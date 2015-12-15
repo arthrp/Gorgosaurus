@@ -299,6 +299,9 @@
     <Content Include="Content\Angular\account.controller.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Angular\addDiscussionModal.controller.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Angular\app.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
