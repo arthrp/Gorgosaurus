@@ -4,7 +4,7 @@
 	SubforumId INTEGER NOT NULL CHECK(SubforumId > 0),
 	ModifiedOnUnix INTEGER,
     CreatedOnUnix INTEGER,
-	CreatedByUserId INTEGER,
+	CreatedByUserId INTEGER NOT NULL CHECK(CreatedByUserId > 0),
 	FOREIGN KEY(SubforumId) REFERENCES Subforum(Id),
 	FOREIGN KEY(CreatedByUserId) REFERENCES ForumUser(Id)
 );

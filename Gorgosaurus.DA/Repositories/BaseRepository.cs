@@ -68,7 +68,7 @@ namespace Gorgosaurus.DA.Repositories
 
                 int affected = conn.Execute(sqlFirstPart.ToString() + sqlSecondPart.ToString() + " where Id = :id", new { id = obj.Id });
 
-                Debug.WriteLine("updating " + affected + " row(s)");
+                //Debug.WriteLine("updating " + affected + " row(s)");
             }
         }
 
@@ -80,7 +80,7 @@ namespace Gorgosaurus.DA.Repositories
 
                 int affected = conn.Execute(sql, new { id });
 
-                Debug.WriteLine("deleted " + affected + " row(s)");
+                //Debug.WriteLine("deleted " + affected + " row(s)");
             }
         }
 
