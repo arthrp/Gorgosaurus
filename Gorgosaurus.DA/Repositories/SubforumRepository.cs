@@ -16,6 +16,9 @@ namespace Gorgosaurus.DA.Repositories
         {
             var res = base.Get(id);
 
+            if (res == null)
+                return null;
+
             string sql = String.Format("select * from {0} where SubforumId = :id", typeof(Discussion).Name);
 
             using (var conn = DbConnector.GetOpenConnection())

@@ -62,6 +62,29 @@ namespace Gorgosaurus.DA.IntegrationTests
         }
 
         [Test]
+        public void CanDeleteSubforum()
+        {
+            const string title = "Title";
+            const long id = 1;
+
+            var subforum = new Subforum()
+            {
+                Id = id,
+                Title = title,
+                Description = "desc 1"
+            };
+
+            SubforumRepository.Instance.Insert(subforum);
+            var dbSubforum = SubforumRepository.Instance.Get(id);
+
+            Assert.IsNotNull(dbSubforum);
+
+            SubforumRepository.Instance.Delete(id);
+            var newDbSubforum = SubforumRepository.Instance.Get(id);
+            Assert.IsNull(newDbSubforum);
+        }
+
+        [Test]
         public void AddingDuplicateTitleSubforumFails()
         {
             const string title = "Title";
