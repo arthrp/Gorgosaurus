@@ -22,11 +22,13 @@ namespace Gorgosaurus.Modules
 
             Post["/discussion/add"] = parameters =>
             {
-                bool isAuthenticated = IsAuthenticated();
-                if (!isAuthenticated)
+                var user = GetCurrentUser();
+
+                if(user == null)
                     return HttpStatusCode.Forbidden;
 
                 var newDiscussion = this.Bind<Discussion>();
+                newDiscussion.CreatedByUserId = user.Id;
 
                 DiscussionRepository.Instance.Insert(newDiscussion, true);
 

@@ -1,16 +1,16 @@
 ﻿(function () {
     angular.module('forumApp').controller('accountController', accountController);
 
-    accountController.$inject = ['$scope', '$http'];
+    accountController.$inject = ['$scope', '$http', '$rootScope'];
 
-    function accountController($scope, $http) {
+    function accountController($scope, $http, $rootScope) {
         var self = this;
 
         self.loginInfo = { username: "Tester", password: "" };
-        self.loggedInUsername = "";
         self.greetingText = "";
-
         self.isLoggedIn = false;
+
+        $rootScope.loggedInUsername = "";
 
         $scope.loginPopover = {
             templateUrl: 'myPopoverTemplate.html',
@@ -24,11 +24,17 @@
         self.getCurrentUser = function () {
             $http.get("/account/current").success(function (resp) {
                 if (!resp) {
-                    self.loggedInUsername = "";
+                    $rootScope.loggedInUsername = "";
+
+                    console.log('changing', $rootScope.loggedInUsername)
+
                     self.isLoggedIn = false;
                 }
                 else {
-                    self.loggedInUsername = resp;
+                    $rootScope.loggedInUsername = resp;
+
+                    console.log('changing', $rootScope.loggedInUsername)
+
                     self.isLoggedIn = true;                  
                 }
                 
@@ -39,7 +45,7 @@
 
         self.updateGreetingText = function () {
             if(self.isLoggedIn){
-                self.greetingText = "Hello, "+self.loggedInUsername;
+                self.greetingText = "Hello, " + $rootScope.loggedInUsername;
             }
             else{
                  self.greetingText = "Hello, guest";

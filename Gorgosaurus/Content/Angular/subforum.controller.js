@@ -1,12 +1,13 @@
 ﻿(function () {
     angular.module('forumApp').controller('subforumController', subforumController);
 
-    subforumController.$inject = ['$uibModal', '$stateParams', '$http', '$scope'];
+    subforumController.$inject = ['$uibModal', '$stateParams', '$http', '$scope', '$rootScope'];
 
-    function subforumController($uibModal, $stateParams, $http, $scope) {
+    function subforumController($uibModal, $stateParams, $http, $scope, $rootScope) {
         var self = this;
 
         self.current = null;
+        self.currentUsername = $rootScope.username;
 
         self.addDiscussion = function () {
             var modalInstance = $uibModal.open({
