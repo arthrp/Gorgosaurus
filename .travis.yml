@@ -11,3 +11,4 @@ install:
 script:
   - xbuild /p:Configuration=Release Gorgosaurus.sln
   - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./Gorgosaurus.DA.IntegrationTests/bin/Release/Gorgosaurus.DA.IntegrationTests.dll
+  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./Gorgosaurus.IntegrationTests/bin/Release/Gorgosaurus.IntegrationTests.dll
