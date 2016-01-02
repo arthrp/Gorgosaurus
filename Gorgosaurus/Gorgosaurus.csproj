@@ -98,7 +98,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="GorgosaurusBootstrapper.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Helpers\RandomHelper.cs" />
     <Compile Include="Models\GorgosaurusUser.cs" />

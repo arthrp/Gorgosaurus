@@ -14,15 +14,14 @@
     {
         static void Main(string[] args)
         {
-            var uri =
-                new Uri("http://localhost:8080");
+            var uri = new Uri("http://localhost:8080");
 
             HostConfiguration hostConfigs = new HostConfiguration()
             {
                 UrlReservations = new UrlReservations() { CreateAutomatically = true }
             };
 
-            using (var host = new NancyHost(uri, new Bootstrapper(), hostConfigs))
+            using (var host = new NancyHost(uri, new GorgosaurusBootstrapper(), hostConfigs))
             {
                 host.Start();
 

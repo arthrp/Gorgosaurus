@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gorgosaurus.Common", "Gorgo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gorgosaurus.DA.IntegrationTests", "Gorgosaurus.DA.IntegrationTests\Gorgosaurus.DA.IntegrationTests.csproj", "{AD4F7C6F-CAE3-48FF-9FBB-7D0F072C11E8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gorgosaurus.IntegrationTests", "Gorgosaurus.IntegrationTests\Gorgosaurus.IntegrationTests.csproj", "{8F2257E4-FE1F-4308-9BCA-E9F1736B2B9D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -64,6 +66,14 @@ Global
 		{AD4F7C6F-CAE3-48FF-9FBB-7D0F072C11E8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AD4F7C6F-CAE3-48FF-9FBB-7D0F072C11E8}.Release|x86.ActiveCfg = Release|Any CPU
 		{AD4F7C6F-CAE3-48FF-9FBB-7D0F072C11E8}.Release|x86.Build.0 = Release|Any CPU
+		{8F2257E4-FE1F-4308-9BCA-E9F1736B2B9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F2257E4-FE1F-4308-9BCA-E9F1736B2B9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F2257E4-FE1F-4308-9BCA-E9F1736B2B9D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8F2257E4-FE1F-4308-9BCA-E9F1736B2B9D}.Debug|x86.Build.0 = Debug|Any CPU
+		{8F2257E4-FE1F-4308-9BCA-E9F1736B2B9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F2257E4-FE1F-4308-9BCA-E9F1736B2B9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F2257E4-FE1F-4308-9BCA-E9F1736B2B9D}.Release|x86.ActiveCfg = Release|Any CPU
+		{8F2257E4-FE1F-4308-9BCA-E9F1736B2B9D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
