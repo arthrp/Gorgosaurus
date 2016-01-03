@@ -26,20 +26,17 @@
                 if (!resp) {
                     $rootScope.loggedInUsername = "";
 
-                    console.log('changing', $rootScope.loggedInUsername)
-
                     self.isLoggedIn = false;
                 }
                 else {
                     $rootScope.loggedInUsername = resp;
 
-                    console.log('changing', $rootScope.loggedInUsername)
+                    //console.log('changing', $rootScope.loggedInUsername);
 
                     self.isLoggedIn = true;                  
                 }
                 
                 self.updateGreetingText();
-                //console.log(self.greetingText);
             });
         };
 
