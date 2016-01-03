@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gorgosaurus.BO.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,5 +14,8 @@ namespace Gorgosaurus.BO.Entities
         public long SubforumId { get; set; }
 
         public IEnumerable<ForumPost> Posts { get; set; }
+
+        [NotColumn]
+        public string CreatedByUsername { get; set; }
     }
 }

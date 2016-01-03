@@ -34,7 +34,9 @@ namespace Gorgosaurus.DA.Repositories
         public Subforum Get(string title)
         {
             string sql = String.Format(@"select * from {0} where Title = :title", typeof(Subforum).Name);
-            string discussionsSql = String.Format("select * from {0} where SubforumId = :id", typeof(Discussion).Name);
+            string discussionProps = new Discussion().GetPropertiesAsCsv();
+            string discussionsSql = String.Format("select {0}, fu.Username as CreatedByUsername from {1} left outer join {2} as fu on {1}.CreatedByUserId = fu.Id where {1}.SubforumId = :id", discussionProps, 
+                typeof(Discussion).Name, typeof(ForumUser).Name);
 
             Subforum res = null;
 
