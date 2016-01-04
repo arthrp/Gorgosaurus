@@ -63,3 +63,13 @@
 .discussion-timestamp {
     color: #868686;
 }
+
+/* User info page */
+
+#user-info-list{
+    list-style:none;
+}
+
+#user-info-holder h2{
+    margin-left:38px;
+}

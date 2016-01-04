@@ -1,0 +1,16 @@
+﻿<div id="user-info-holder">
+    <div ng-hide="userInfoCtrl.userInfo">
+        <h2>User not found</h2>
+    </div>
+
+    <div ng-show="userInfoCtrl.userInfo">
+        <h2>{{ userInfoCtrl.userInfo.username }}</h2>
+
+        <ul id="user-info-list">
+            <li>
+                <label>Name:</label>
+                <span>{{ userInfoCtrl.userInfo.name + ' ' +  userInfoCtrl.userInfo.surname }}</span>
+            </li>
+        </ul>
+    </div>
+</div>

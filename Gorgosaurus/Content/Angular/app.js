@@ -20,6 +20,11 @@
                 url: '/register',
                 templateUrl: 'Content/Templates/userRegistration.htm',
                 controller: 'userRegisterController as userRegCtrl'
+            })
+            .state('userInfo', {
+                url: '/user/{username}',
+                templateUrl: 'Content/Templates/userInfo.htm',
+                controller: 'userInfoController as userInfoCtrl'
             });
 
     });
