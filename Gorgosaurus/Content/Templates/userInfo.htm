@@ -11,6 +11,10 @@
                 <label>Name:</label>
                 <span>{{ userInfoCtrl.userInfo.name + ' ' +  userInfoCtrl.userInfo.surname }}</span>
             </li>
+            <li>
+                <label>Joined:</label>
+                <span>{{ userInfoCtrl.userInfo.createdOn | amDateFormat: "DD.MM.YYYY" }}</span>
+            </li>
         </ul>
     </div>
 </div>
