@@ -19,7 +19,7 @@
                 <td>
                     <a class="post-link" ng-href="/#/discussion/{{ discussion.id }}">{{ discussion.title }}</a>
                     <br />
-                    by <a href="#">{{ discussion.createdByUsername }}</a> on <span class="discussion-timestamp">{{ discussion.createdOn | amDateFormat: "MMM Do YYYY, HH:mm:ss" }}</span>
+                    by <a href="/#/user/{{ discussion.createdByUsername }}">{{ discussion.createdByUsername }}</a> on <span class="discussion-timestamp">{{ discussion.createdOn | amDateFormat: "MMM Do YYYY, HH:mm:ss" }}</span>
                 </td>
             </tr>
         </tbody>
