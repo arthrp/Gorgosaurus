@@ -16,7 +16,7 @@ namespace Gorgosaurus.IntegrationTests
     [TestFixture]
     public class AccountBrowserTests : BaseAccountTests
     {
-        private const string USERNAME = "test";
+        private const string USERNAME = "testuser";
         private const string PASSWORD = "test";
 
         [SetUp]
