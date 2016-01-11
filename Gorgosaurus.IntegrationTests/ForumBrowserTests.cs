@@ -1,7 +1,6 @@
 ﻿using Gorgosaurus.BO.Entities;
 using Gorgosaurus.DA;
 using Gorgosaurus.DA.Repositories;
-using Nancy;
 using Nancy.Testing;
 using Newtonsoft.Json;
 using NUnit.Framework;
@@ -14,31 +13,46 @@ using System.Threading.Tasks;
 namespace Gorgosaurus.IntegrationTests
 {
     [TestFixture]
-    public class SubforumBrowserTests
+    public class ForumBrowserTests
     {
         [SetUp]
-        public void Setup()
+        public void SetUp()
         {
             DbConnector.Delete();
             DbConnector.Init();
         }
 
         [Test]
-        public void CanGetSubforum()
+        public void CanGetAllSubforums()
         {
+            const string firstBrowserTitle = "Test first";
+            const string secondBrowserTitle = "Test second";
+
             SubforumRepository.Instance.Insert(new Subforum()
             {
                 Id = 1,
-                Title = "Test",
+                Title = firstBrowserTitle,
+                Description = "talking about important stuff"
+            });
+
+            SubforumRepository.Instance.Insert(new Subforum()
+            {
+                Id = 2,
+                Title = secondBrowserTitle,
                 Description = "talking about important stuff"
             });
 
             var bootstrapper = new GorgosaurusBootstrapper();
             var browser = new Browser(bootstrapper, defaults: to => to.Accept("application/json"));
 
-            var result = browser.Get("/subforum/Test", with => { with.HttpRequest(); });
+            var result = browser.Get("/subforums");
 
-            Assert.True(result.StatusCode == HttpStatusCode.OK);
+            Assert.True(result.StatusCode == Nancy.HttpStatusCode.OK);
+            var resultStr = result.Body.AsString();
+
+            var subforums = JsonConvert.DeserializeObject<List<Subforum>>(resultStr);
+
+            Assert.True(subforums.Count == 2);
         }
     }
 }
