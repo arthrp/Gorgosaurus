@@ -35,7 +35,7 @@ namespace Gorgosaurus.DA.Repositories
         {
             string sql = String.Format(@"select * from {0} where Title = :title", typeof(Subforum).Name);
             string discussionProps = new Discussion().GetPropertiesAsCsv();
-            string discussionsSql = String.Format("select {0}, fu.Username as CreatedByUsername from {1} left outer join {2} as fu on {1}.CreatedByUserId = fu.Id where {1}.SubforumId = :id", discussionProps, 
+            string discussionsSql = String.Format("select {0}, fu.Username as CreatedByUsername from {1} left outer join {2} as fu on {1}.CreatedByUserId = fu.Id where {1}.SubforumId = :id", discussionProps,
                 typeof(Discussion).Name, typeof(ForumUser).Name);
 
             Subforum res = null;
@@ -44,12 +44,26 @@ namespace Gorgosaurus.DA.Repositories
             {
                 res = conn.Query<Subforum>(sql, new { title }).FirstOrDefault();
 
-                if(res != null)
+                if (res != null)
                 {
                     var discussions = conn.Query<Discussion>(discussionsSql, new { id = res.Id });
 
                     res.Discussions = discussions;
                 }
+            }
+
+            return res;
+        }
+
+        public IEnumerable<Subforum> GetAll()
+        {
+            string sql = String.Format(@"select * from {0}", typeof(Subforum).Name);
+
+            IEnumerable<Subforum> res;
+
+            using (var conn = DbConnector.GetOpenConnection())
+            {
+                res = conn.Query<Subforum>(sql);
             }
 
             return res;

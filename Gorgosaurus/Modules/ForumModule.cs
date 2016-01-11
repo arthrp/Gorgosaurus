@@ -1,4 +1,6 @@
-﻿using Gorgosaurus.DA.Repositories;
+﻿using Gorgosaurus.BO.Entities;
+using Gorgosaurus.DA.Repositories;
+using Nancy;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +17,7 @@ namespace Gorgosaurus.Modules
             {
                 var subforums = SubforumRepository.Instance.GetAll();
 
-                return subforums;
+                return Response.AsJson<IEnumerable<Subforum>>(subforums);
             };
         }
     }
