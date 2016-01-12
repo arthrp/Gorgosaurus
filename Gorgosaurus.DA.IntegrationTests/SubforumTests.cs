@@ -105,6 +105,33 @@ namespace Gorgosaurus.DA.IntegrationTests
             #endif
         }
 
+        [Test]
+        public void CanGetAllSubforums()
+        {
+            const string firstTitle = "Title";
+            const string secondTitle = "Second title";
+            const string firstDesc = "First desc";
+            const string secondDesc = "Second desc";
+
+            SubforumRepository.Instance.Insert(new Subforum()
+            {
+                Title = firstTitle,
+                Description = firstDesc
+            }, true);
+
+            SubforumRepository.Instance.Insert(new Subforum()
+            {
+                Title = secondTitle,
+                Description = secondDesc
+            }, true);
+
+            var subforums = SubforumRepository.Instance.GetAll();
+
+            Assert.True(subforums.Count() == 2);
+            Assert.NotNull(subforums.SingleOrDefault(s => s.Title.Equals(firstTitle) && s.Description.Equals(firstDesc)));
+            Assert.NotNull(subforums.SingleOrDefault(s => s.Title.Equals(secondTitle) && s.Description.Equals(secondDesc)));
+        }
+
 
         [TearDown]
         public void TearDown()
