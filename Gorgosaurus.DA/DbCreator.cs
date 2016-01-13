@@ -53,7 +53,7 @@ namespace Gorgosaurus.DA
                 var settings = SettingsManager.Instance.GetDefaultSettings();
                 foreach(var setting in settings)
                 {
-                    conn.Execute("insert into GlobalSettings(Name, Value) values(:name, :value)", new { name = setting.Key, value = setting.Value });
+                    conn.Execute("insert into GlobalSetting(Name, Value) values(:name, :value)", new { name = setting.Key, value = setting.Value });
                 }
             }
         }
