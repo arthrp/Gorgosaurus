@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Gorgosaurus.DA.Managers
 {
-    public class SettingsManager
+    public class GlobalSettingsManager
     {
-        public static readonly SettingsManager Instance = new SettingsManager();
+        public static readonly GlobalSettingsManager Instance = new GlobalSettingsManager();
 
         public Dictionary<string, string> GetDefaultSettings()
         {
@@ -26,7 +26,7 @@ namespace Gorgosaurus.DA.Managers
         {
             using (var conn = DbConnector.GetOpenConnection())
             {
-                conn.Execute(String.Format("Update {0} set {1} = :value", typeof(GlobalSetting).Name, Enum.GetName(typeof(GlobalSettingsEnum), setting)), new { value });
+                conn.Execute(String.Format("Update {0} set Value = :value where Name = :settingName", typeof(GlobalSetting).Name), new { value = value, settingName = Enum.GetName(typeof(GlobalSettingsEnum), setting) });
             }
         }
 

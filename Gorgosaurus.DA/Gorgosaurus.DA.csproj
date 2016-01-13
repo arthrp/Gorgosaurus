@@ -75,7 +75,7 @@
     <Compile Include="Repositories\IBaseRepository.cs" />
     <Compile Include="Repositories\SubforumRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
-    <Compile Include="Managers\SettingsManager.cs" />
+    <Compile Include="Managers\GlobalSettingsManager.cs" />
     <Compile Include="SqlLiteConnectionWrapper.cs" />
     <Compile Include="SqliteCommandWrapper.cs" />
   </ItemGroup>
