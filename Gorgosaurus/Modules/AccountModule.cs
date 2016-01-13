@@ -1,5 +1,6 @@
 ﻿using Gorgosaurus.BO.Entities;
 using Gorgosaurus.DA;
+using Gorgosaurus.DA.Managers;
 using Gorgosaurus.DA.Repositories;
 using Gorgosaurus.Helpers;
 using Gorgosaurus.Models;

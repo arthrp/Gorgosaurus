@@ -1,4 +1,6 @@
-﻿using Gorgosaurus.BO.Entities;
+﻿using Dapper;
+using Gorgosaurus.BO.Entities;
+using Gorgosaurus.DA.Managers;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -41,6 +43,18 @@ namespace Gorgosaurus.DA
 
                 cmd.GetInner().ExecuteNonQuery();
                 conn.Close();
+            }
+        }
+
+        public static void InsertDefaultSettings()
+        {
+            using (var conn = DbConnector.GetOpenConnection())
+            {
+                var settings = SettingsManager.Instance.GetDefaultSettings();
+                foreach(var setting in settings)
+                {
+                    conn.Execute("insert into GlobalSettings(Name, Value) values(:name, :value)", new { name = setting.Key, value = setting.Value });
+                }
             }
         }
     }

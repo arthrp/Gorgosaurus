@@ -48,3 +48,9 @@ create table ForumUserAdditionalInfo(
 	ForumUserId INTEGER,
 	FOREIGN KEY(ForumUserId) REFERENCES ForumUser(Id) ON DELETE CASCADE
 );
+
+create table GlobalSetting(
+	Id INTEGER PRIMARY KEY,
+	Name TEXT,
+	Value TEXT
+);

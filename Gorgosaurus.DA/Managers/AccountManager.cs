@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gorgosaurus.DA
+namespace Gorgosaurus.DA.Managers
 {
     public class AccountManager
     {

@@ -44,6 +44,7 @@
     <Compile Include="Entities\ForumPost.cs" />
     <Compile Include="Entities\Discussion.cs" />
     <Compile Include="Entities\ForumUser.cs" />
+    <Compile Include="Entities\GlobalSetting.cs" />
     <Compile Include="Entities\Subforum.cs" />
     <Compile Include="Extensions\ReflectionHelper.cs" />
     <Compile Include="Extensions\UnixTimeHelper.cs" />
