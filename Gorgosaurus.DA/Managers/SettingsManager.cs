@@ -12,7 +12,7 @@ namespace Gorgosaurus.DA.Managers
     {
         public static readonly SettingsManager Instance = new SettingsManager();
 
-        public Dictionary<string,string> GetDefaultSettings()
+        public Dictionary<string, string> GetDefaultSettings()
         {
             var res = new Dictionary<string, string>()
             {
@@ -24,9 +24,20 @@ namespace Gorgosaurus.DA.Managers
 
         public void Save(GlobalSettingsEnum setting, string value)
         {
-            using(var conn = DbConnector.GetOpenConnection())
+            using (var conn = DbConnector.GetOpenConnection())
             {
                 conn.Execute(String.Format("Update {0} set {1} = :value", typeof(GlobalSetting).Name, Enum.GetName(typeof(GlobalSettingsEnum), setting)), new { value });
+            }
+        }
+
+        public string Load(GlobalSettingsEnum setting)
+        {
+            using (var conn = DbConnector.GetOpenConnection())
+            {
+                var res = conn.ExecuteScalar<string>(String.Format("select Value from {0} where Name = :name", typeof(GlobalSetting).Name),
+                    new { name = Enum.GetName(typeof(GlobalSettingsEnum), setting) });
+
+                return res;
             }
         }
     }
