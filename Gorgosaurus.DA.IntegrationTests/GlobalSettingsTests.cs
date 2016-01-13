@@ -31,5 +31,13 @@ namespace Gorgosaurus.DA.IntegrationTests
             Assert.IsNotNullOrEmpty(updatedName);
             Assert.True(updatedName.Equals(newForumName));
         }
+
+        [Test]
+        public void CanGetDefaultValues()
+        {
+            var defaultValues = GlobalSettingsManager.Instance.GetDefaultSettings();
+
+            Assert.True(defaultValues.Count > 0);
+        }
     }
 }
