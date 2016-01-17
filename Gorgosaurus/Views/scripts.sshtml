@@ -12,3 +12,4 @@
 <script type='text/javascript' src='/Content/Angular/userRegister.controller.js'></script>
 <script type='text/javascript' src='/Content/Angular/addDiscussionModal.controller.js'></script>
 <script type='text/javascript' src='/Content/Angular/userInfo.controller.js'></script>
+<script type='text/javascript' src='/Content/Angular/forum.controller.js'></script>

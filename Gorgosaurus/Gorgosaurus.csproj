@@ -101,6 +101,7 @@
     <Compile Include="GorgosaurusBootstrapper.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Helpers\RandomHelper.cs" />
+    <Compile Include="Models\ForumModel.cs" />
     <Compile Include="Models\GorgosaurusUser.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Modules\AccountModule.cs" />
@@ -309,6 +310,9 @@
     </Content>
     <Content Include="Content\Angular\discussion.controller.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Angular\forum.controller.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Angular\userInfo.controller.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -775,6 +779,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Style\main.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Templates\forum.htm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Templates\subforum.htm">

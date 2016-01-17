@@ -1,6 +1,7 @@
 ﻿using Gorgosaurus.BO.Entities;
 using Gorgosaurus.DA;
 using Gorgosaurus.DA.Repositories;
+using Gorgosaurus.Models;
 using Nancy.Testing;
 using Newtonsoft.Json;
 using NUnit.Framework;
@@ -50,9 +51,9 @@ namespace Gorgosaurus.IntegrationTests
             Assert.True(result.StatusCode == Nancy.HttpStatusCode.OK);
             var resultStr = result.Body.AsString();
 
-            var subforums = JsonConvert.DeserializeObject<List<Subforum>>(resultStr);
+            var subforums = JsonConvert.DeserializeObject<ForumModel>(resultStr);
 
-            Assert.True(subforums.Count == 2);
+            Assert.True(subforums.Subforums.Count() == 2);
         }
     }
 }

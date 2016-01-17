@@ -1,5 +1,7 @@
 ﻿using Gorgosaurus.BO.Entities;
+using Gorgosaurus.DA.Managers;
 using Gorgosaurus.DA.Repositories;
+using Gorgosaurus.Models;
 using Nancy;
 using System;
 using System.Collections.Generic;
@@ -17,7 +19,11 @@ namespace Gorgosaurus.Modules
             {
                 var subforums = SubforumRepository.Instance.GetAll();
 
-                return Response.AsJson<IEnumerable<Subforum>>(subforums);
+                var forumName = GlobalSettingsManager.Instance.Load(DA.GlobalSettingsEnum.ForumName);
+
+                var fm = new ForumModel() { Subforums = subforums, ForumTitle = forumName };
+
+                return Response.AsJson<ForumModel>(fm);
             };
         }
     }

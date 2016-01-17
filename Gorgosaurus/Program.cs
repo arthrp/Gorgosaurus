@@ -9,7 +9,7 @@
     using Gorgosaurus.BO.Extensions;
     using Common;
     using System.IO;
-
+    using DA.Managers;
     class Program
     {
         static void Main(string[] args)
@@ -86,7 +86,7 @@
 
                 var user = UserRepository.Instance.Get(1);
 
-               Console.ReadLine();
+                Console.ReadLine();
             }
         }
     }

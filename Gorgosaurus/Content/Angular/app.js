@@ -3,7 +3,7 @@
 
     app.config(function ($stateProvider, $urlRouterProvider) {
 
-        $urlRouterProvider.otherwise('/subforum/Main forum');
+        $urlRouterProvider.otherwise('/home');
 
         $stateProvider
             .state('discussion', {
@@ -25,6 +25,11 @@
                 url: '/user/{username}',
                 templateUrl: 'Content/Templates/userInfo.htm',
                 controller: 'userInfoController as userInfoCtrl'
+            })
+            .state('forum', {
+                url: '/home',
+                templateUrl: 'Content/Templates/forum.htm',
+                controller: 'forumController as forumCtrl'
             });
 
     });

@@ -1,7 +1,7 @@
 ﻿create table Discussion (
     Id INTEGER PRIMARY KEY,
     Title TEXT,
-	SubforumId INTEGER NOT NULL CHECK(SubforumId > 0),
+	SubforumId INTEGER,
 	ModifiedOnUnix INTEGER,
     CreatedOnUnix INTEGER,
 	CreatedByUserId INTEGER NOT NULL CHECK(CreatedByUserId > 0),
@@ -12,7 +12,7 @@
 create table ForumPost(
     Id INTEGER PRIMARY KEY,
     PostText TEXT,
-	DiscussionId INTEGER NOT NULL CHECK(DiscussionId > 0),
+	DiscussionId INTEGER NOT NULL,
 	ModifiedOnUnix INTEGER,
     CreatedOnUnix INTEGER,
 	CreatedByUserId INTEGER,

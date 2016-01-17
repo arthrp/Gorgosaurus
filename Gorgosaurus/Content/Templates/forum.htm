@@ -1,0 +1,21 @@
+﻿<div id="forum-holder">
+
+    <h2>{{ forumCtrl.forumTitle }}</h2>
+
+
+    <table class="table" id="forum-grid">
+        <thead>
+            <tr><th></th></tr>
+        </thead>
+
+        <tbody ng-repeat="subforum in forumCtrl.subforums">
+            <tr>
+                <td>
+                    <a href="/#/subforum/{{ subforum.title }}" class="forum-link">{{ subforum.title }}</a>
+                    <br />
+                    <span>{{ subforum.description }}</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
