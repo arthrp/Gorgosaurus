@@ -7,19 +7,25 @@
         var self = this;
 
         self.title = "";
+        self.content = "";
 
         self.add = function () {
-            var dataToSend = { title: self.title, subforumId: subforumId };
+            var dataToSend = { title: self.title, subforumId: subforumId, firstPostText: self.content };
             console.log('data', dataToSend);
 
             $http.post('/discussion/add', dataToSend)
                 .success(function (res) {
-                    console.log(res);
+                    addInitialPost();
+
                     $uibModalInstance.close(true);
                 })
                 .error(function (res) {
                     $uibModalInstance.close(false);
                 });
+        }
+
+        function addInitialPost() {
+            var data = { "postText": self.content };
         }
 
         self.cancel = function () {

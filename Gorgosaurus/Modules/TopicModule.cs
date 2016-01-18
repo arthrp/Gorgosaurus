@@ -1,5 +1,6 @@
 ﻿using Gorgosaurus.BO.Entities;
 using Gorgosaurus.DA.Repositories;
+using Gorgosaurus.Models;
 using Nancy;
 using Nancy.ModelBinding;
 using System;
@@ -27,10 +28,11 @@ namespace Gorgosaurus.Modules
                 if(user == null)
                     return HttpStatusCode.Forbidden;
 
+                var discussionPresentationModel = this.Bind<DiscussionPresentationModel>();
                 var newDiscussion = this.Bind<Discussion>();
                 newDiscussion.CreatedByUserId = user.Id;
-
-                DiscussionRepository.Instance.Insert(newDiscussion, true);
+                
+                DiscussionRepository.Instance.Insert(newDiscussion, discussionPresentationModel.FirstPostText);
 
                 return HttpStatusCode.OK;
             };

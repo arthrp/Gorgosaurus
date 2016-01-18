@@ -1,6 +1,6 @@
 ﻿create table Discussion (
     Id INTEGER PRIMARY KEY,
-    Title TEXT,
+    Title TEXT UNIQUE,
 	SubforumId INTEGER NOT NULL CHECK(SubforumId > 0),
 	ModifiedOnUnix INTEGER,
     CreatedOnUnix INTEGER,

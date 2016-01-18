@@ -101,6 +101,7 @@
     <Compile Include="GorgosaurusBootstrapper.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Helpers\RandomHelper.cs" />
+    <Compile Include="Models\DiscussionPresentationModel.cs" />
     <Compile Include="Models\ForumModel.cs" />
     <Compile Include="Models\GorgosaurusUser.cs" />
     <Compile Include="Models\LoginModel.cs" />

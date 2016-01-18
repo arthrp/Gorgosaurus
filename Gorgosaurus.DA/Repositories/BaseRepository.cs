@@ -27,7 +27,7 @@ namespace Gorgosaurus.DA.Repositories
             }
         }
 
-        public virtual void Insert(T obj, bool skipId = false)
+        public virtual void Insert(T obj, bool skipId = true)
         {
             obj.CreatedOnUnix = DateTime.UtcNow.ToUnixTimestamp();
 
