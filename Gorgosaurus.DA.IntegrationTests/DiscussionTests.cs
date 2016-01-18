@@ -70,5 +70,22 @@ namespace Gorgosaurus.DA.IntegrationTests
             Assert.Throws<SQLiteException>(() => DiscussionRepository.Instance.Insert(discussion, true));
 #endif
         }
+
+        [Test]
+        public void AddingDiscussionWithNonUniqueTitleFails()
+        {
+            const long subforumId = 1;
+
+            SubforumRepository.Instance.Insert(new Subforum() { Id = subforumId, Title = "Test subforum", Description = "sdfsdfds" });
+
+            var discussion = new Discussion() { Title = "Test discussion", SubforumId = subforumId, CreatedByUserId = TestUserId };
+            DiscussionRepository.Instance.Insert(discussion, true);
+
+#if __MonoCS__
+            Assert.Throws<Mono.Data.Sqlite.SqliteException>(() => DiscussionRepository.Instance.Insert(discussion, true));
+#else
+            Assert.Throws<SQLiteException>(() => DiscussionRepository.Instance.Insert(discussion, true));
+#endif
+        }
     }
 }
