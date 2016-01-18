@@ -43,7 +43,7 @@ namespace Gorgosaurus.DA.Repositories
                 discussion.CreatedOnUnix = DateTime.UtcNow.ToUnixTimestamp();
                 var sql = GetInsertSql(discussion, true);
 
-                var x = conn.Execute(sql);
+                conn.Execute(sql);
 
                 long id = conn.ExecuteScalar<long>(String.Format("select id from {0} where Title = :title", typeof(Discussion).Name), new { title = discussion.Title });
 
