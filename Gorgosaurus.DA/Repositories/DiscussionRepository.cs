@@ -47,7 +47,7 @@ namespace Gorgosaurus.DA.Repositories
 
                 long id = conn.ExecuteScalar<long>(String.Format("select id from {0} where Title = :title", typeof(Discussion).Name), new { title = discussion.Title });
 
-                var forumPost = new ForumPost() { CreatedOnUnix = discussion.CreatedOnUnix, DiscussionId = id, PostText = firstPostText };
+                var forumPost = new ForumPost() { CreatedOnUnix = discussion.CreatedOnUnix, DiscussionId = id, PostText = firstPostText, CreatedByUserId = discussion.CreatedByUserId };
                 ForumPostRepository.Instance.Insert(forumPost, true);
             }
         }
