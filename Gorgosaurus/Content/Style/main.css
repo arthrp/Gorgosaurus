@@ -74,3 +74,8 @@
 #user-info-holder h2{
     margin-left:38px;
 }
+
+li#top-greeting{
+    margin-top:15px;
+    margin-right:10px;
+}
