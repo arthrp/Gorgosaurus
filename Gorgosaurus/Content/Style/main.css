@@ -65,6 +65,11 @@
     color: #868686;
 }
 
+li#top-greeting{
+    margin-top:15px;
+    margin-right:10px;
+}
+
 /* User info page */
 
 #user-info-list{
@@ -75,7 +80,3 @@
     margin-left:38px;
 }
 
-li#top-greeting{
-    margin-top:15px;
-    margin-right:10px;
-}
