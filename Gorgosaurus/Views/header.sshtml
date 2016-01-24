@@ -3,7 +3,7 @@
         <div class="fluid-container">
 
             <ul class="nav navbar-nav">
-                <li>{{ accountCtrl.greetingText }}</li>
+                <li id="top-greeting">{{ accountCtrl.greetingText }}</li>
                 <li ng-hide="accountCtrl.isLoggedIn"><a popover-template="loginPopover.templateUrl" 
                        popover-title="{{ loginPopover.title }}" popover-placement="bottom" 
                        id="loginPrompt" href="#">Log in</a></li>
