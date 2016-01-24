@@ -7,9 +7,11 @@
         var self = this;
 
         self.userInfo = {};
+        self.errorText = null;
 
         self.getUser = function(){
             var username = $stateParams['username'];
+            self.errorText = null;
 
             $http.get('/user/' + username)
             .success(function (res) {
@@ -17,6 +19,8 @@
             })
             .error(function (res) {
                 console.log(res);
+
+                self.errorText = 'You must be logged in to view users\' information.';
             });
         }
 
