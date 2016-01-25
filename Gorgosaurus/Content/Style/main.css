@@ -70,6 +70,10 @@ li#top-greeting{
     margin-right:10px;
 }
 
+.page-title{
+    text-align: center;
+}
+
 /* User info page */
 
 #user-info-list{
