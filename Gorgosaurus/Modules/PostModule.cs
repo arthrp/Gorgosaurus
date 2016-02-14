@@ -40,6 +40,10 @@ namespace Gorgosaurus.Modules
 
             Delete["/post/remove/{id:int}"] = parameters =>
             {
+                var user = GetCurrentUser();
+                if (user == null || !user.IsAdmin)
+                    return HttpStatusCode.Forbidden;
+
                 ForumPostRepository.Instance.Delete(parameters.id);
 
                 return HttpStatusCode.OK;
