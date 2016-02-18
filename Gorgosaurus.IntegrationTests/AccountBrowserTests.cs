@@ -4,6 +4,7 @@ using Gorgosaurus.DA;
 using Gorgosaurus.DA.Repositories;
 using Gorgosaurus.Models;
 using Nancy.Testing;
+using Newtonsoft.Json;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -50,8 +51,8 @@ namespace Gorgosaurus.IntegrationTests
             var userResp = browser.Get("/account/current", with => with.HttpRequest());
 
             Assert.True(userResp.StatusCode == Nancy.HttpStatusCode.OK);
-            var returnedUsername = userResp.Body.AsString();
-            Assert.True(returnedUsername.Equals(USERNAME));
+            var returnedUsername = JsonConvert.DeserializeObject<BasicUserInfo>(userResp.Body.AsString());
+            Assert.True(returnedUsername.Username.Equals(USERNAME));
         }
     }
 }
