@@ -19,6 +19,9 @@ namespace Gorgosaurus.IntegrationTests
     {
         private const string USERNAME = "testuser";
         private const string PASSWORD = "test";
+        private const bool IS_ADMIN = true;
+        private const string NAME = "Tester";
+        private const string SURNAME = "Testerson";
 
         [SetUp]
         public void Setup()
@@ -26,7 +29,7 @@ namespace Gorgosaurus.IntegrationTests
             DbConnector.Delete();
             DbConnector.Init();
 
-            CreateUser(USERNAME, PASSWORD);
+            CreateUser(USERNAME, PASSWORD, IS_ADMIN, NAME, SURNAME);
         }
 
         [Test]
@@ -53,6 +56,9 @@ namespace Gorgosaurus.IntegrationTests
             Assert.True(userResp.StatusCode == Nancy.HttpStatusCode.OK);
             var returnedUsername = JsonConvert.DeserializeObject<BasicUserInfo>(userResp.Body.AsString());
             Assert.True(returnedUsername.Username.Equals(USERNAME));
+            Assert.True(returnedUsername.IsAdmin == IS_ADMIN);
+            Assert.True(returnedUsername.Name.Equals(NAME));
+            Assert.True(returnedUsername.Surname.Equals(SURNAME));
         }
     }
 }

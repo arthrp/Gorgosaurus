@@ -11,7 +11,7 @@ namespace Gorgosaurus.IntegrationTests
 {
     public abstract class BaseAccountTests
     {
-        protected void CreateUser(string username, string password, long id = 1)
+        protected void CreateUser(string username, string password, bool isAdmin, string name = "Tester", string surname = "Teserson", long id = 1)
         {
             string userSalt = "11111";
 
@@ -21,7 +21,7 @@ namespace Gorgosaurus.IntegrationTests
                 Id = id,
                 Username = username,
                 Password = userSalt + hash,
-                IsAdmin = true,
+                IsAdmin = isAdmin,
                 Name = "Tester",
                 Surname = "Testerson"
             });
