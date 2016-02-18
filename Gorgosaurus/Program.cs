@@ -54,7 +54,7 @@
                 UserRepository.Instance.Insert(new ForumUser()
                 {
                     Id = 1,
-                    Username = "jimmy",
+                    Username = "simpleUser",
                     Password = adminSalt + hash,
                     IsAdmin = false,
                     Name = "Vladimir",
