@@ -5,7 +5,7 @@
 <div ng-show="subforumCtrl.current">
     <h2 class="page-title">{{ subforumCtrl.current.title }}</h2>
 
-    <button class="btn btn-success" ng-show="$root.loggedInUsername" ng-click="subforumCtrl.addDiscussion()"><i class="fa fa-plus"></i> Add topic</button>
+    <button class="btn btn-success" ng-show="$root.loggedInUser" ng-click="subforumCtrl.addDiscussion()"><i class="fa fa-plus"></i> Add topic</button>
 
     <table class="table" id="discussions-grid">
         <thead>

@@ -17,7 +17,7 @@
                 {{ post.postText }}
             </span>
 
-            <button class="btn btn-danger" ng-click="forumCtrl.removePost(post.id)">
+            <button class="btn btn-danger" ng-click="forumCtrl.removePost(post.id)" ng-show="$root.loggedInUser && $root.loggedInUser.isAdmin">
                 <i class="fa fa-trash-o"></i>
             </button>
         </div>

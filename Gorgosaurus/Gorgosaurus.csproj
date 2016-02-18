@@ -75,6 +75,10 @@
   </PropertyGroup>
   <PropertyGroup />
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.2.0\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="CryptSharp, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CryptSharpOfficial.2.1.0.0\lib\CryptSharp.dll</HintPath>
       <Private>True</Private>
@@ -100,7 +104,9 @@
   <ItemGroup>
     <Compile Include="GorgosaurusBootstrapper.cs" />
     <Compile Include="Constants.cs" />
+    <Compile Include="Helpers\MapperHelper.cs" />
     <Compile Include="Helpers\RandomHelper.cs" />
+    <Compile Include="Models\BasicUserInfo.cs" />
     <Compile Include="Models\DiscussionPresentationModel.cs" />
     <Compile Include="Models\ForumModel.cs" />
     <Compile Include="Models\GorgosaurusUser.cs" />

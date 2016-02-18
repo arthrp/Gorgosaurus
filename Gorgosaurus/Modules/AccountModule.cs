@@ -80,7 +80,11 @@ namespace Gorgosaurus.Modules
                 if (user == null)
                     return HttpStatusCode.OK;
 
-                return user.Username;
+                var mapper = MapperHelper.GetMapperConfig().CreateMapper();
+
+                var resultUser = mapper.Map<ForumUser, BasicUserInfo>(user);
+
+                return resultUser;
             };
         }
 

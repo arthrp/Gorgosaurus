@@ -10,7 +10,7 @@
         self.greetingText = "";
         self.isLoggedIn = false;
 
-        $rootScope.loggedInUsername = "";
+        $rootScope.loggedInUser = "";
 
         $scope.loginPopover = {
             templateUrl: 'myPopoverTemplate.html',
@@ -24,12 +24,12 @@
         self.getCurrentUser = function () {
             $http.get("/account/current").success(function (resp) {
                 if (!resp) {
-                    $rootScope.loggedInUsername = "";
+                    $rootScope.loggedInUser = null;
 
                     self.isLoggedIn = false;
                 }
                 else {
-                    $rootScope.loggedInUsername = resp;
+                    $rootScope.loggedInUser = resp;
 
                     //console.log('changing', $rootScope.loggedInUsername);
 
@@ -42,7 +42,7 @@
 
         self.updateGreetingText = function () {
             if(self.isLoggedIn){
-                self.greetingText = "Hello, " + $rootScope.loggedInUsername;
+                self.greetingText = "Hello, " + $rootScope.loggedInUser.username;
             }
             else{
                  self.greetingText = "Hello, guest";

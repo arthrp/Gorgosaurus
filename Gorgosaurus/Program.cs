@@ -51,6 +51,16 @@
                     Surname = "Johnson"
                 });
 
+                UserRepository.Instance.Insert(new ForumUser()
+                {
+                    Id = 1,
+                    Username = "jimmy",
+                    Password = adminSalt + hash,
+                    IsAdmin = false,
+                    Name = "Vladimir",
+                    Surname = "Johnson"
+                });
+
                 DiscussionRepository.Instance.Insert(new Discussion() {
                     Id = 1,
                     Title = "Hello!",
