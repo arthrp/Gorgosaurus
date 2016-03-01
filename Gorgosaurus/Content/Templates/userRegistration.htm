@@ -1,5 +1,5 @@
 ﻿<div id="new-user-holder">
-    <h2>Register new user</h2>
+    <h2>Sign up</h2>
 
     <div>
         <label for="username" class="label label-default">Username</label>
@@ -9,6 +9,11 @@
     <div>
         <label for="userpass" class="label label-default">Password</label>
         <input type="password" name="userpass" class="form-control" ng-model="userRegCtrl.newUserInfo.password" />
+    </div>
+
+    <div>
+        <label for="userpass" class="label label-default">Password (confirm)</label>
+        <input type="password" name="userpass-confirm" class="form-control" ng-model="userRegCtrl.newUserInfo.passwordConfirm" />
     </div>
 
     <div>

@@ -9,6 +9,7 @@
         self.newUserInfo = {
             username: 'Hello',
             password: '',
+            passwordConfirm: '',
             name: '',
             surname: ''
         };
