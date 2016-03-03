@@ -8,6 +8,7 @@
 
         self.current = null;
         self.currentUsername = $rootScope.username;
+        $scope.subforumTitle = $stateParams['title'];
 
         self.addDiscussion = function () {
             var modalInstance = $uibModal.open({

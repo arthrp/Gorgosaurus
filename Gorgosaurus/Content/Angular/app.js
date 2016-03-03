@@ -13,22 +13,23 @@
         $urlRouterProvider.otherwise('/home');
 
         $stateProvider
-            .state('discussion', {
-                url: '/discussion/{id:int}',
-                templateUrl: 'Content/Templates/discussion.htm',
-                controller: 'discussionController as forumCtrl',
-                ncyBreadcrumb: {
-                    label: 'Discussion'
-                }
-            })
             .state('subforum', {
                 url: '/subforum/{title}',
                 templateUrl: 'Content/Templates/subforum.htm',
                 controller: 'subforumController as subforumCtrl',
                 ncyBreadcrumb: {
-                    label: 'Subforum'
+                    label: '{{subforumTitle}}'
                 }
             })
+            .state('discussion', {
+                url: '/discussion/{id:int}',
+                templateUrl: 'Content/Templates/discussion.htm',
+                controller: 'discussionController as forumCtrl',
+                //parent: 'forum',
+                ncyBreadcrumb: {
+                    label: 'Discussion'
+                  }
+               })
             .state('userRegister', {
                 url: '/register',
                 templateUrl: 'Content/Templates/userRegistration.htm',
@@ -55,7 +56,9 @@
                 }
             });
 
-    }).run(function ($rootScope, $state, $breadcrumb) {
+    });
+
+    app.run(function ($rootScope, $state, $breadcrumb) {
         $rootScope.isActive = function (stateName) {
             return $state.includes(stateName);
         }
