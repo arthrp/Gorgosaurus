@@ -5,6 +5,9 @@
 <script type='text/javascript' src='/Content/Bower/moment/moment.js'></script>
 <script type='text/javascript' src='/Content/Bower/angular-moment/angular-moment.js'></script>
 <script type='text/javascript' src='/Content/Bower/angular-ui-router/release/angular-ui-router.min.js'></script>
+<script type='text/javascript' src='/Content/Bower/angular-breadcrumb/release/angular-breadcrumb.js'></script>
+
+<!-- App scripts -->
 <script type='text/javascript' src='/Content/Angular/app.js'></script>
 <script type='text/javascript' src='/Content/Angular/subforum.controller.js'></script>
 <script type='text/javascript' src='/Content/Angular/discussion.controller.js'></script>

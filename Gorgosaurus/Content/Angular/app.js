@@ -1,5 +1,12 @@
 ﻿(function () {
-    var app = angular.module('forumApp', ['angularMoment', 'ui.bootstrap', 'ui.router']);
+    var app = angular.module('forumApp', ['angularMoment', 'ui.bootstrap', 'ui.router', 'ui.router.state', 'ncy-angular-breadcrumb']);
+
+    app.config(function ($breadcrumbProvider) {
+        $breadcrumbProvider.setOptions({
+            prefixStateName: 'forum',
+            template: 'bootstrap3'
+        });
+    })
 
     app.config(function ($stateProvider, $urlRouterProvider) {
 
@@ -9,28 +16,52 @@
             .state('discussion', {
                 url: '/discussion/{id:int}',
                 templateUrl: 'Content/Templates/discussion.htm',
-                controller: 'discussionController as forumCtrl'
+                controller: 'discussionController as forumCtrl',
+                ncyBreadcrumb: {
+                    label: 'Discussion'
+                }
             })
             .state('subforum', {
                 url: '/subforum/{title}',
                 templateUrl: 'Content/Templates/subforum.htm',
-                controller: 'subforumController as subforumCtrl'
+                controller: 'subforumController as subforumCtrl',
+                ncyBreadcrumb: {
+                    label: 'Subforum'
+                }
             })
             .state('userRegister', {
                 url: '/register',
                 templateUrl: 'Content/Templates/userRegistration.htm',
-                controller: 'userRegisterController as userRegCtrl'
+                controller: 'userRegisterController as userRegCtrl',
+                ncyBreadcrumb: {
+                    label: 'Register'
+                }
+
             })
             .state('userInfo', {
                 url: '/user/{username}',
                 templateUrl: 'Content/Templates/userInfo.htm',
-                controller: 'userInfoController as userInfoCtrl'
+                controller: 'userInfoController as userInfoCtrl',
+                ncyBreadcrumb: {
+                    label: 'User'
+                }
             })
             .state('forum', {
                 url: '/home',
                 templateUrl: 'Content/Templates/forum.htm',
-                controller: 'forumController as forumCtrl'
+                controller: 'forumController as forumCtrl',
+                ncyBreadcrumb: {
+                    label: 'Home'
+                }
             });
 
+    }).run(function ($rootScope, $state, $breadcrumb) {
+        $rootScope.isActive = function (stateName) {
+            return $state.includes(stateName);
+        }
+
+        $rootScope.getLastStepLabel = function () {
+            return 'Angular-Breadcrumb';
+        }
     });
 })();

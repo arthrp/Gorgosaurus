@@ -14,7 +14,9 @@
 
         @Partial['header.sshtml']
 
-    <div id="forum-container">			
+    <div id="forum-container">
+			<div class="well" ncy-breadcrumb></div>
+						
 			<div ui-view=""></div>
     </div>
 
