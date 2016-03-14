@@ -18,18 +18,24 @@
                 templateUrl: 'Content/Templates/subforum.htm',
                 controller: 'subforumController as subforumCtrl',
                 ncyBreadcrumb: {
-                    label: '{{subforumTitle}}'
+                    label: '{{subforumTitle}}',
+                    parent: function ($scope) {
+                        return 'forum';
+                    }
                 }
             })
             .state('discussion', {
-                url: '/discussion/{id:int}',
+                url: '/subforum/{subforumName}/discussion/{id:int}',
                 templateUrl: 'Content/Templates/discussion.htm',
                 controller: 'discussionController as forumCtrl',
-                //parent: 'forum',
                 ncyBreadcrumb: {
-                    label: 'Discussion'
-                  }
-               })
+                    label: 'Discussion',
+                    parent: function ($scope) {
+                        $scope.subforumTitle = $scope.forumCtrl['subforumTitle'];
+                        return 'subforum({title:"' + $scope.subforumTitle + '"})';
+                    }
+                }
+            })
             .state('userRegister', {
                 url: '/register',
                 templateUrl: 'Content/Templates/userRegistration.htm',

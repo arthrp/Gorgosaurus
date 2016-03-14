@@ -17,7 +17,7 @@
         <tbody ng-repeat="discussion in subforumCtrl.current.discussions">
             <tr>
                 <td>
-                    <a class="post-link" ng-href="/#/discussion/{{ discussion.id }}">{{ discussion.title }}</a>
+                    <a class="post-link" ng-href="/#/subforum/{{ subforumCtrl.current.title }}/discussion/{{ discussion.id }}">{{ discussion.title }}</a>
                     <br />
                     by <a href="/#/user/{{ discussion.createdByUsername }}">{{ discussion.createdByUsername }}</a> on <span class="discussion-timestamp">{{ discussion.createdOn | amDateFormat: "MMM Do YYYY, HH:mm:ss" }}</span>
                 </td>

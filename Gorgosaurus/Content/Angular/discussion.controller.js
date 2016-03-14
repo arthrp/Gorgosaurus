@@ -6,11 +6,12 @@
     function discussionController($stateParams, $scope, $http) {
         var self = this;
 
-        console.log($stateParams);
+        console.log('state params',$stateParams);
 
         self.posts = [];
         self.currentDiscussion = null;
         self.newPostText = "";
+        self.subforumTitle = $stateParams['subforumName'];
 
         self.getDiscussionPosts = function (discussionId) {
             $http.get('/discussion/' + discussionId)
