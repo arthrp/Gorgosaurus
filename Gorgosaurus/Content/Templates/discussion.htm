@@ -7,7 +7,7 @@
     </div>
     <div class="post-content">
         <div class="post-header">
-            <span ng-show="post.createdByUsername" class="username"><a href="#">{{ post.createdByUsername }}</a></span>
+            <span ng-show="post.createdByUsername" class="username"><a href="/#/user/{{ post.createdByUsername }}">{{ post.createdByUsername }}</a></span>
             <span ng-hide="post.createdByUsername" class="username">Anonymous</span>
             on {{ post.createdOn | amDateFormat: "DD.MM.YYYY HH:mm:ss" }}
         </div>
