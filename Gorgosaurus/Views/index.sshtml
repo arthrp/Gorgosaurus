@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/Content/Bower/fontawesome/css/font-awesome.min.css" />
     <link rel="stylesheet" href="/Content/Style/main.css" />
 	<link rel="stylesheet" href="/Content/Style/registerUser.css" />
+	<link rel="stylesheet" href="/Content/Style/bootstrapOverride.css" />
 
 </head>
 <body ng-app="forumApp">	
@@ -15,7 +16,7 @@
         @Partial['header.sshtml']
 
     <div id="forum-container">
-			<div class="well" ncy-breadcrumb></div>
+			<div class="well" ncy-breadcrumb ncy-breadcrumb-text-separator=" > "></div>
 						
 			<div ui-view=""></div>
     </div>

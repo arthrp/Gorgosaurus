@@ -10,7 +10,7 @@
 
     app.config(function ($stateProvider, $urlRouterProvider) {
 
-        $urlRouterProvider.otherwise('/home');
+        $urlRouterProvider.otherwise('/');
 
         $stateProvider
             .state('subforum', {
@@ -19,9 +19,7 @@
                 controller: 'subforumController as subforumCtrl',
                 ncyBreadcrumb: {
                     label: '{{subforumTitle}}',
-                    parent: function ($scope) {
-                        return 'forum';
-                    }
+                    parent: 'forum'
                 }
             })
             .state('discussion', {
@@ -54,7 +52,7 @@
                 }
             })
             .state('forum', {
-                url: '/home',
+                url: '/',
                 templateUrl: 'Content/Templates/forum.htm',
                 controller: 'forumController as forumCtrl',
                 ncyBreadcrumb: {
