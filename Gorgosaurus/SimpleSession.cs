@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Runtime.Caching;
 using System.Text;
@@ -20,7 +21,7 @@ namespace Gorgosaurus
         }
 
         private static readonly SimpleSession _instance = new SimpleSession();
-        private const int _expirationDays = 60;
+        private readonly int _expirationDays = Int32.Parse(ConfigurationManager.AppSettings["SessionExpiresDays"]);
 
         public static SimpleSession Instance
         {
