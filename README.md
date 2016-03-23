@@ -12,3 +12,4 @@ The goal is to have a minimalistic forum with clean code which can be deployed w
 
 You'll need:
 * .NET 4.5 or Mono 3.12 (other Mono versions may work as well)
+* `npm` and `bower` (only if you're working front-end, all scripts are checked in)
