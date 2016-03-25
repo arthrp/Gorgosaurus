@@ -1,5 +1,7 @@
 # Gorgosaurus
 
+Travis: [![Build Status](https://travis-ci.org/arthrp/Gorgosaurus.svg?branch=master)](https://travis-ci.org/arthrp/Gorgosaurus)
+
 Gorgosaurus is Nancy-based forum engine. 
 
 ### Why?
