@@ -1,7 +1,5 @@
 # Gorgosaurus
 
-Travis: [![Build Status](https://travis-ci.org/arthur-peka/Gorgosaurus.svg?branch=master)](https://travis-ci.org/arthur-pekargosaurus)
-
 Gorgosaurus is Nancy-based forum engine. 
 
 ### Why?
