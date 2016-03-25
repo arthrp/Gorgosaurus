@@ -16,6 +16,8 @@
         @Partial['header.sshtml']
 
     <div id="forum-container">
+			<h2 class="page-title">{{ $root.pageTitle }}</h2>
+
 			<div class="well" ncy-breadcrumb ncy-breadcrumb-text-separator=" > "></div>
 						
 			<div ui-view=""></div>

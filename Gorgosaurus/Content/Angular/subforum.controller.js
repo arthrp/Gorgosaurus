@@ -37,6 +37,7 @@
                 .success(function (res) {
                     console.log('res',res);
                     self.current = res;
+                    $rootScope.pageTitle = self.current.title;
                 })
                 .error(function (res) {
                     console.log(res);

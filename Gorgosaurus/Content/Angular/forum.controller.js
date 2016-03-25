@@ -1,9 +1,9 @@
 ﻿(function () {
     angular.module('forumApp').controller('forumController', forumController);
 
-    forumController.$inject = ['$http'];
+    forumController.$inject = ['$http', '$rootScope'];
 
-    function forumController($http) {
+    function forumController($http, $rootScope) {
         var self = this;
 
         self.subforums = [];
@@ -13,7 +13,7 @@
             $http.get("/subforums")
                 .success(function (res) {
                     self.subforums = res.subforums;
-                    self.forumTitle = res.forumTitle;
+                    $rootScope.pageTitle = res.forumTitle;
                 });
         };
 

@@ -1,9 +1,9 @@
 ﻿(function () {
     angular.module('forumApp').controller('discussionController', discussionController);
 
-    discussionController.$inject = ['$stateParams', '$scope', '$http'];
+    discussionController.$inject = ['$stateParams', '$scope', '$http', '$rootScope'];
 
-    function discussionController($stateParams, $scope, $http) {
+    function discussionController($stateParams, $scope, $http, $rootScope) {
         var self = this;
 
         console.log('state params',$stateParams);
@@ -12,6 +12,8 @@
         self.currentDiscussion = null;
         self.newPostText = "";
         self.subforumTitle = $stateParams['subforumName'];
+
+        $rootScope.pageTitle = self.subforumTitle;
 
         self.getDiscussionPosts = function (discussionId) {
             $http.get('/discussion/' + discussionId)
