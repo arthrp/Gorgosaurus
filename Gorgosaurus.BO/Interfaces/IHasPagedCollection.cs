@@ -8,6 +8,6 @@ namespace Gorgosaurus.BO.Interfaces
 {
     public interface IHasPagedCollection
     {
-        int TotalRecords { get; set; }
+        int TotalPages { get; set; }
     }
 }

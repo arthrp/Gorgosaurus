@@ -17,6 +17,6 @@ namespace Gorgosaurus.BO.Entities
         public IEnumerable<Discussion> Discussions { get; set; }
 
         [NotColumn]
-        public int TotalRecords { get; set; }
+        public int TotalPages { get; set; }
     }
 }

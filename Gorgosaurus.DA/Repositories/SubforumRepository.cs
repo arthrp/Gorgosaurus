@@ -57,8 +57,10 @@ namespace Gorgosaurus.DA.Repositories
 
                     res.Discussions = discussions;
 
-                    res.TotalRecords = conn.ExecuteScalar<int>(String.Format("select count(*) from {0} where SubforumId = :subforumId", typeof(Discussion).Name), 
+                    var totalRecords = conn.ExecuteScalar<int>(String.Format("select count(*) from {0} where SubforumId = :subforumId", typeof(Discussion).Name), 
                         new { subforumId = res.Id });
+
+                    res.TotalPages = (int)Math.Round((double)(totalRecords / pageSize), MidpointRounding.ToEven);
                 }
             }
 

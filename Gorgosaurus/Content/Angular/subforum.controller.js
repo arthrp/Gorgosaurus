@@ -8,6 +8,8 @@
 
         self.current = null;
         self.currentUsername = $rootScope.username;
+        self.pagesArr = [];
+        self.baseUrl = 'subforum/' + $stateParams['title'] + '/';
         $scope.subforumTitle = $stateParams['title'];
 
         self.addDiscussion = function () {
@@ -30,16 +32,23 @@
             });
         };
 
+        self.getPageUrl = function (pageNumber) {
+            return self.baseUrl + '?page=' + pageNumber;
+        };
+
         function getSubforum() {
             var titleToSearchFor = $stateParams['title'];
             var page = ($stateParams['page']) ? $stateParams['page'] : 0;
 
-            console.log('page', page, $stateParams['page']);
+            //console.log('page is', page, $stateParams['page']);
 
             $http.get('/subforum/' + titleToSearchFor + '?page=' + page)
                 .success(function (res) {
                     console.log('res',res);
                     self.current = res;
+                    self.pagesArr = new Array(res.totalPages);
+
+                    console.log(self.pagesArr);
                     $rootScope.pageTitle = self.current.title;
                 })
                 .error(function (res) {

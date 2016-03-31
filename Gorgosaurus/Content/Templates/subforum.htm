@@ -25,6 +25,10 @@
         </tbody>
     </table>
 
+    <ul class="pagination">
+        <li ng-repeat="i in subforumCtrl.pagesArr track by $index"><a href="/#/{{subforumCtrl.getPageUrl($index)}}">{{$index+1}}</a></li>
+    </ul>
+
     <script type="text/ng-template" id="myModalContent.html">
         <div class="modal-header">
             <h3 class="modal-title">Add topic</h3>
