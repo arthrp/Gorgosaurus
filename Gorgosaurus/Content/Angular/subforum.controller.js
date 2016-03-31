@@ -32,8 +32,11 @@
 
         function getSubforum() {
             var titleToSearchFor = $stateParams['title'];
+            var page = ($stateParams['page']) ? $stateParams['page'] : 0;
 
-            $http.get('/subforum/' + titleToSearchFor)
+            console.log('page', page, $stateParams['page']);
+
+            $http.get('/subforum/' + titleToSearchFor + '?page=' + page)
                 .success(function (res) {
                     console.log('res',res);
                     self.current = res;

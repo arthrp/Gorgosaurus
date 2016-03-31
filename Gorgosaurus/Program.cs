@@ -75,6 +75,21 @@
                     CreatedOnUnix = DateTime.UtcNow.ToUnixTimestamp(),
                     CreatedByUserId = 1
                 });
+                DiscussionRepository.Instance.Insert(new Discussion()
+                {
+                    Title = "Third",
+                    SubforumId = 1,
+                    CreatedOnUnix = DateTime.UtcNow.ToUnixTimestamp(),
+                    CreatedByUserId = 1
+                });
+                DiscussionRepository.Instance.Insert(new Discussion()
+                {
+                    Title = "More",
+                    SubforumId = 1,
+                    CreatedOnUnix = DateTime.UtcNow.ToUnixTimestamp(),
+                    CreatedByUserId = 1
+                });
+
                 var post = new ForumPost() { Id = 1, PostText = "crap", DiscussionId = 1, CreatedByUserId = 1 };
                 ForumPostRepository.Instance.Insert(post);
                 var ent = ForumPostRepository.Instance.Get(1);

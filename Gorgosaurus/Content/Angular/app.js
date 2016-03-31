@@ -22,6 +22,15 @@
                     parent: 'forum'
                 }
             })
+            .state('subforumPaged', {
+                url: '/subforum/{title}/?page',
+                templateUrl: 'Content/Templates/subforum.htm',
+                controller: 'subforumController as subforumCtrl',
+                ncyBreadcrumb: {
+                    label: '{{subforumTitle}}',
+                    parent: 'forum'
+                }
+            })
             .state('discussion', {
                 url: '/subforum/{subforumName}/discussion/{id:int}',
                 templateUrl: 'Content/Templates/discussion.htm',

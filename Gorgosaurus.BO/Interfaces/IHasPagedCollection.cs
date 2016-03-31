@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gorgosaurus.DA
+namespace Gorgosaurus.BO.Interfaces
 {
-    public enum GlobalSettingsEnum
+    public interface IHasPagedCollection
     {
-        ForumName,
-        PageSize
+        int TotalRecords { get; set; }
     }
 }

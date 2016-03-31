@@ -16,7 +16,8 @@ namespace Gorgosaurus.DA.Managers
         {
             var res = new Dictionary<string, string>()
             {
-                { Enum.GetName(typeof(GlobalSettingsEnum), GlobalSettingsEnum.ForumName), "First forum" }
+                { Enum.GetName(typeof(GlobalSettingsEnum), GlobalSettingsEnum.ForumName), "First forum" },
+                { Enum.GetName(typeof(GlobalSettingsEnum), GlobalSettingsEnum.PageSize), "2" }
             };
 
             return res;

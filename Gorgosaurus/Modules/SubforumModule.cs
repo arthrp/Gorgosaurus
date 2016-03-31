@@ -23,7 +23,9 @@ namespace Gorgosaurus.Modules
                 if (String.IsNullOrEmpty(subforumTitle))
                     return HttpStatusCode.BadRequest;
 
-                var subforum = SubforumRepository.Instance.Get(subforumTitle);
+                int? page = this.Request.Query["page"];
+
+                var subforum = SubforumRepository.Instance.Get(subforumTitle, page);
 
                 return Response.AsJson<Subforum>(subforum);
             };

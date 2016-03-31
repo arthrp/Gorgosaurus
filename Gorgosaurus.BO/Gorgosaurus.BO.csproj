@@ -48,6 +48,7 @@
     <Compile Include="Entities\Subforum.cs" />
     <Compile Include="Extensions\ReflectionHelper.cs" />
     <Compile Include="Extensions\UnixTimeHelper.cs" />
+    <Compile Include="Interfaces\IHasPagedCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
