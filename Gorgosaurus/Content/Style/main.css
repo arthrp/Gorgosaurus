@@ -1,4 +1,9 @@
-﻿#forum-container{
+﻿@font-face{
+    font-family: Cardo;
+    src: url(Cardo-Regular.ttf);
+}
+
+#forum-container{
     margin:5px 15px;
 }
 
@@ -72,6 +77,7 @@ li#top-greeting{
 
 .page-title{
     text-align: center;
+    font-family: Cardo, sans-serif;
 }
 
 /* User info page */

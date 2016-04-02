@@ -294,6 +294,9 @@
     <None Include="Content\Bower\moment\CHANGELOG.md" />
     <None Include="Content\Bower\moment\LICENSE" />
     <None Include="Content\Bower\moment\README.md" />
+    <None Include="Content\Style\Cardo-Regular.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="package.json" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
