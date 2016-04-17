@@ -1,0 +1,18 @@
+﻿<div id="seggins-holder">
+    <div ng-show="adminCtrl.isDenied">You don't have rights to access this page. Move along :)</div>
+
+    <table class="table" ng-hide="adminCtrl.isDenied">
+        <thead>
+            <tr><th>Settings</th></tr>
+        </thead>
+
+        <tbody ng-repeat="setting in adminCtrl.settings">
+            <tr>
+                <td>{{ setting.name }}</td>
+                <td><input type="text" ng-model="setting.value" /></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button class="btn btn-warning" ng-click="adminCtrl.applyValues()">Apply</button>
+</div>

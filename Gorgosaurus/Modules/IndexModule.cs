@@ -1,8 +1,9 @@
 ﻿namespace Gorgosaurus
 {
+    using Modules;
     using Nancy;
 
-    public class IndexModule : NancyModule
+    public class IndexModule : BaseModule
     {
         public IndexModule()
         {

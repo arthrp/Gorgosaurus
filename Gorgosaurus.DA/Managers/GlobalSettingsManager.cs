@@ -2,6 +2,7 @@
 using Gorgosaurus.BO.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,8 +28,13 @@ namespace Gorgosaurus.DA.Managers
         {
             using (var conn = DbConnector.GetOpenConnection())
             {
-                conn.Execute(String.Format("Update {0} set Value = :value where Name = :settingName", typeof(GlobalSetting).Name), new { value = value, settingName = Enum.GetName(typeof(GlobalSettingsEnum), setting) });
+                SaveInner(setting, value, conn);
             }
+        }
+
+        private void SaveInner(GlobalSettingsEnum settingName, string value, IDbConnection conn)
+        {
+            conn.Execute(String.Format("Update {0} set Value = :value where Name = :settingName", typeof(GlobalSetting).Name), new { value = value, settingName = Enum.GetName(typeof(GlobalSettingsEnum), settingName) });
         }
 
         public string Load(GlobalSettingsEnum setting)
@@ -39,6 +45,33 @@ namespace Gorgosaurus.DA.Managers
                     new { name = Enum.GetName(typeof(GlobalSettingsEnum), setting) });
 
                 return res;
+            }
+        }
+
+        public List<GlobalSetting> LoadAll()
+        {
+            using (var conn = DbConnector.GetOpenConnection())
+            {
+                var res = conn.Query<GlobalSetting>(String.Format("select Name, Value from {0}", typeof(GlobalSetting).Name));
+
+                return res.ToList();
+            }
+        }
+
+        public void SaveAll(IEnumerable<GlobalSetting> settings)
+        {
+            using (var conn = DbConnector.GetOpenConnection())
+            {
+                foreach (var setting in settings)
+                {
+                    GlobalSettingsEnum typedName;
+                    bool isParsingSuccessful = Enum.TryParse<GlobalSettingsEnum>(setting.Name, out typedName);
+
+                    if (!isParsingSuccessful)
+                        throw new ArgumentException("Wrong setting name");
+
+                    SaveInner(typedName, setting.Value, conn);
+                }
             }
         }
     }

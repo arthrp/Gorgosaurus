@@ -67,6 +67,14 @@
                 ncyBreadcrumb: {
                     label: 'Home'
                 }
+            })
+            .state('admin', {
+                url: '/admin',
+                templateUrl: 'Content/Templates/admin.htm',
+                controller: 'adminController as adminCtrl',
+                ncyBreadcrumb: {
+                    label: 'Admin'
+                }
             });
 
     });
