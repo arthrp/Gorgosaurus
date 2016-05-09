@@ -80,6 +80,14 @@ li#top-greeting{
     font-family: Cardo, sans-serif;
 }
 
+#noscript-error{
+    font-size: 16pt;
+    text-align:center;
+    background: #CC3333;
+    color:#EFEFEF;
+    padding: 14px 0;
+}
+
 /* User info page */
 
 #user-info-list{
@@ -92,12 +100,4 @@ li#top-greeting{
 
 .discussion-title{
     margin:5px 12px;
-}
-
-#noscript-error{
-    font-size: 16pt;
-    text-align:center;
-    background: #CC3333;
-    color:#EFEFEF;
-    padding: 14px 0;
 }
