@@ -12,6 +12,11 @@
 
 </head>
 <body ng-app="forumApp">	
+    <noscript>
+        <div class="panel panel-danger" id="noscript-error">
+            This website requires javascript
+        </div>
+    </noscript>
 
         @Partial['header.sshtml']
 

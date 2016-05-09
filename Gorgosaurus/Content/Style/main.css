@@ -93,3 +93,11 @@ li#top-greeting{
 .discussion-title{
     margin:5px 12px;
 }
+
+#noscript-error{
+    font-size: 16pt;
+    text-align:center;
+    background: #CC3333;
+    color:#EFEFEF;
+    padding: 14px 0;
+}
