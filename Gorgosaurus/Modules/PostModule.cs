@@ -19,7 +19,7 @@ namespace Gorgosaurus.Modules
             {
                 var newForumPost = this.Bind<ForumPost>();
 
-                if (!ValidateRequest(newForumPost))
+                if (!ValidatePostModel(newForumPost))
                     return HttpStatusCode.BadRequest;
 
                 var user = GetCurrentUser();
@@ -34,13 +34,12 @@ namespace Gorgosaurus.Modules
 
             Put["/post/update"] = paramters =>
             {
-                var user = GetCurrentUser();
-                if (user == null || !user.IsAdmin)
+                if (!IsAuthenticated() || IsUserAdmin())
                     return HttpStatusCode.Forbidden;
 
                 var updatedPost = this.Bind<ForumPost>();
 
-                if (!ValidateRequest(updatedPost))
+                if (!ValidatePostModel(updatedPost))
                     return HttpStatusCode.BadRequest;
 
                 ForumPostRepository.Instance.Update(updatedPost);
@@ -50,8 +49,7 @@ namespace Gorgosaurus.Modules
 
             Delete["/post/remove/{id:int}"] = parameters =>
             {
-                var user = GetCurrentUser();
-                if (user == null || !user.IsAdmin)
+                if (!IsAuthenticated() || IsUserAdmin())
                     return HttpStatusCode.Forbidden;
 
                 ForumPostRepository.Instance.Delete(parameters.id);
@@ -60,7 +58,8 @@ namespace Gorgosaurus.Modules
             };
         }
 
-        private bool ValidateRequest(ForumPost forumPost)
+        //Unfortunately AOP is out of question with methods that Nancy provides :)
+        private bool ValidatePostModel(ForumPost forumPost)
         {
             bool isValidRequest = !String.IsNullOrEmpty(forumPost.PostText);
 

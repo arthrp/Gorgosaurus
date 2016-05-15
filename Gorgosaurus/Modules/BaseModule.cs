@@ -26,5 +26,12 @@ namespace Gorgosaurus.Modules
 
             return user;
         }
+
+        protected bool IsUserAdmin()
+        {
+            var user = GetCurrentUser();
+
+            return user != null && user.IsAdmin == true;
+        }
     }
 }
