@@ -1,6 +1,8 @@
 ﻿using Gorgosaurus.BO.Entities;
 using Gorgosaurus.Common;
 using Gorgosaurus.DA.Repositories;
+using Gorgosaurus.Models;
+using Nancy.Testing;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +27,17 @@ namespace Gorgosaurus.IntegrationTests
                 Name = "Tester",
                 Surname = "Testerson"
             });
+        }
+
+        protected BrowserResponse Login(string username, string password, Browser browser)
+        {
+            var resp = browser.Post("/account/login", with =>
+            {
+                with.HttpRequest();
+                with.JsonBody<LoginModel>(new LoginModel() { Username = username, Password = password });
+            });
+
+            return resp;
         }
     }
 }
