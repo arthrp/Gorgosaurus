@@ -19,6 +19,9 @@ namespace Gorgosaurus.Modules
             {
                 var newForumPost = this.Bind<ForumPost>();
 
+                if (!ValidateRequest(newForumPost))
+                    return HttpStatusCode.BadRequest;
+
                 var user = GetCurrentUser();
 
                 if (user != null)
@@ -31,7 +34,14 @@ namespace Gorgosaurus.Modules
 
             Put["/post/update"] = paramters =>
             {
+                var user = GetCurrentUser();
+                if (user == null || !user.IsAdmin)
+                    return HttpStatusCode.Forbidden;
+
                 var updatedPost = this.Bind<ForumPost>();
+
+                if (!ValidateRequest(updatedPost))
+                    return HttpStatusCode.BadRequest;
 
                 ForumPostRepository.Instance.Update(updatedPost);
 
@@ -50,5 +60,11 @@ namespace Gorgosaurus.Modules
             };
         }
 
+        private bool ValidateRequest(ForumPost forumPost)
+        {
+            bool isValidRequest = !String.IsNullOrEmpty(forumPost.PostText);
+
+            return isValidRequest;
+        }
     }
 }
